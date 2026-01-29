@@ -8,10 +8,10 @@ import { projects, categories } from "@/data/projects";
 import Footer from "@/components/Footer";
 
 export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Tous");
 
   const filteredProjects =
-    activeCategory === "All"
+    activeCategory === "Tous"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
@@ -34,9 +34,9 @@ export default function ProjectsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            OUR
+            NOS
             <br />
-            <span className="text-[var(--accent)]">PROJECTS</span>
+            <span className="text-[var(--accent)]">RÉALISATIONS</span>
           </motion.h1>
         </div>
       </section>

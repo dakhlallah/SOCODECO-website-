@@ -8,91 +8,91 @@ import ContactSection from "@/components/ContactSection";
 const services = [
   {
     id: "general-contracting",
-    title: "General Contracting",
+    title: "Entreprise Générale",
     description:
-      "Our objective is to provide turnkey solutions to our project owners thanks to an integrated design office allowing the study of the entire structure. In the execution phase, we carry out the structural work and manage, coordinate and ensure the follow-up of all the trades.",
+      "Notre objectif est de fournir des solutions clé en main grâce à notre bureau d'études intégré permettant l'analyse complète de la structure. En phase d'exécution, nous réalisons le gros œuvre et assurons la gestion, la coordination et le suivi de tous les corps de métier.",
     features: [
-      "Turnkey construction solutions",
-      "Heavy work and foundations",
-      "Structural engineering",
-      "Multi-trade coordination",
-      "Quality control and supervision",
-      "Project scheduling and delivery",
+      "Solutions clé en main",
+      "Gros œuvre et fondations",
+      "Ingénierie structurelle",
+      "Coordination multi-corps",
+      "Contrôle qualité et supervision",
+      "Planning et livraison projet",
     ],
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
   },
   {
     id: "metal-construction",
-    title: "Metal & Steel Construction",
+    title: "Construction Métallique",
     description:
-      "With our metal work team and specialised machinery, we are able to fabricate a wide range of advanced metal work. SOCODECO is recognised as a benchmark in the metal building industry, achieved through product perfection, engineering excellence, and experienced team management.",
+      "Avec notre équipe spécialisée et nos machines performantes, nous fabriquons une large gamme d'ouvrages métalliques avancés. SOCODECO est reconnu comme une référence dans l'industrie de la construction métallique, grâce à la perfection de nos produits et l'excellence de notre ingénierie.",
     features: [
-      "Steel structure fabrication",
-      "Industrial hangars and warehouses",
-      "Pre-engineered buildings (PEB)",
-      "Metal framework systems",
-      "Welding and assembly",
-      "Protective coatings and finishes",
+      "Fabrication de charpentes",
+      "Hangars et entrepôts industriels",
+      "Bâtiments préfabriqués (PEB)",
+      "Systèmes d'ossature métallique",
+      "Soudure et assemblage",
+      "Revêtements de protection",
     ],
     image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
   },
   {
     id: "facades",
-    title: "Facades & Cladding",
+    title: "Façades & Habillage",
     description:
-      "We have trained companions and managers for the realisation of the most technical facades. Our expertise covers aluminium, Alucobond, and Alumond systems with all necessary qualifications for complex architectural envelope solutions.",
+      "Nous disposons d'équipes formées et de managers qualifiés pour la réalisation des façades les plus techniques. Notre expertise couvre les systèmes aluminium, Alucobond et Alumond avec toutes les qualifications nécessaires pour les enveloppes architecturales complexes.",
     features: [
-      "Alucobond facade systems",
-      "Aluminium cladding",
-      "Curtain wall installation",
-      "Glass facade systems",
-      "Thermal insulation integration",
-      "Weather protection solutions",
+      "Systèmes de façades Alucobond",
+      "Bardage aluminium",
+      "Installation murs-rideaux",
+      "Façades vitrées",
+      "Intégration isolation thermique",
+      "Solutions étanchéité",
     ],
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
   },
   {
     id: "bim",
-    title: "Building Information Modelling",
+    title: "Modélisation BIM",
     description:
-      "Oftentimes physical and functional essence of any construction project needs to be represented digitally, in a 3D model format. Our BIM specialists create detailed digital models that enhance collaboration, minimise errors, and optimise project outcomes.",
+      "L'essence physique et fonctionnelle de tout projet de construction doit être représentée numériquement en format 3D. Nos spécialistes BIM créent des modèles numériques détaillés qui améliorent la collaboration, minimisent les erreurs et optimisent les résultats du projet.",
     features: [
-      "3D modelling and visualisation",
-      "Clash detection and resolution",
-      "4D scheduling integration",
-      "Quantity take-offs and estimation",
-      "Facility management support",
-      "As-built documentation",
+      "Modélisation et visualisation 3D",
+      "Détection et résolution des conflits",
+      "Intégration planning 4D",
+      "Métrés et estimations",
+      "Support gestion des installations",
+      "Documentation as-built",
     ],
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
   },
   {
     id: "rehabilitation",
-    title: "Rehabilitation & Renovation",
+    title: "Réhabilitation & Rénovation",
     description:
-      "A specialised service carries out rehabilitation work. We have been renovating or transforming residential, office, school, hospital or other buildings for more than 30 years, bringing new life to existing structures.",
+      "Un service spécialisé réalise les travaux de réhabilitation. Depuis plus de 30 ans, nous rénovons et transformons des bâtiments résidentiels, bureaux, écoles, hôpitaux et autres, redonnant vie aux structures existantes.",
     features: [
-      "Building restoration",
-      "Structural reinforcement",
-      "Interior renovation",
-      "Historic preservation",
-      "Modernisation upgrades",
-      "Adaptive reuse projects",
+      "Restauration de bâtiments",
+      "Renforcement structurel",
+      "Rénovation intérieure",
+      "Préservation patrimoniale",
+      "Modernisation et mise aux normes",
+      "Reconversion de bâtiments",
     ],
     image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
   },
   {
     id: "interior",
-    title: "Interior Architecture",
+    title: "Architecture Intérieure",
     description:
-      "Throughout your development or renovation project, an interior designer will accompany the study phase plans, materials, quotes up to the construction phase work monitoring, choice of furniture, design products, and decoration.",
+      "Tout au long de votre projet de développement ou de rénovation, un architecte d'intérieur vous accompagne depuis la phase d'études (plans, matériaux, devis) jusqu'à la phase de construction (suivi des travaux, choix du mobilier, décoration).",
     features: [
-      "Space planning and design",
-      "Material selection",
-      "Custom furniture solutions",
-      "Shop and office branding",
-      "Restaurant fit-outs",
-      "Turnkey interior delivery",
+      "Conception et aménagement d'espaces",
+      "Sélection des matériaux",
+      "Mobilier sur mesure",
+      "Agencement commerces et bureaux",
+      "Aménagement restaurants",
+      "Livraison intérieure clé en main",
     ],
     image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80",
   },
@@ -110,7 +110,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            OUR SERVICES
+            NOS SERVICES
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -118,9 +118,9 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            OUR
+            NOS
             <br />
-            <span className="text-[var(--accent)]">CAPABILITIES</span>
+            <span className="text-[var(--accent)]">EXPERTISES</span>
           </motion.h1>
         </div>
       </section>

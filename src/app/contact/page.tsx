@@ -16,7 +16,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            CONTACT US
+            NOUS CONTACTER
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -24,9 +24,9 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            CONTACT
+            CONTACTEZ
             <br />
-            <span className="text-[var(--accent)]">US</span>
+            <span className="text-[var(--accent)]">NOUS</span>
           </motion.h1>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-4xl md:text-5xl text-[var(--text)]">
-            OUR LOCATIONS
+            NOS BUREAUX
           </h2>
         </motion.div>
 
@@ -57,30 +57,30 @@ export default function ContactPage() {
             transition={{ duration: 0.5 }}
           >
             <span className="font-mono text-[var(--accent)] text-xs mb-4 block">
-              PRINCIPAL OFFICE
+              SIÈGE PRINCIPAL
             </span>
             <h3 className="font-display text-3xl text-[var(--text)] mb-4">
-              KINSHASA, DRC
+              KINSHASA, RDC
             </h3>
             <div className="space-y-4 font-mono text-sm text-[var(--text-muted)]">
               <p>
-                123 Avenue du Commerce
+                8225 Avenue Kabasele
                 <br />
-                Gombe District
+                Commune de la Gombe
                 <br />
-                Kinshasa, Democratic Republic of Congo
+                Kinshasa, République Démocratique du Congo
               </p>
               <p>
-                <span className="text-[var(--accent)]">Tel:</span> +243 820 200 003
+                <span className="text-[var(--accent)]">Tél:</span> +243 820 200 003
               </p>
               <p>
-                <span className="text-[var(--accent)]">Tel:</span> +243 818 812 222
+                <span className="text-[var(--accent)]">Tél:</span> +243 818 812 222
               </p>
               <p>
-                <span className="text-[var(--accent)]">Tel:</span> +243 822 666 555
+                <span className="text-[var(--accent)]">Tél:</span> +243 822 666 555
               </p>
               <p>
-                <span className="text-[var(--accent)]">Operating Hours:</span> Mon-Fri
+                <span className="text-[var(--accent)]">Horaires:</span> Lun-Ven
                 08:00 - 17:00
               </p>
             </div>
@@ -95,25 +95,24 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <span className="font-mono text-[var(--accent)] text-xs mb-4 block">
-              REGIONAL HEADQUARTERS
+              BUREAU RÉGIONAL
             </span>
             <h3 className="font-display text-3xl text-[var(--text)] mb-4">
-              BEIRUT, LEBANON
+              BEYROUTH, LIBAN
             </h3>
             <div className="space-y-4 font-mono text-sm text-[var(--text-muted)]">
               <p>
-                456 Rue Hamra
+                Rue Hamra
                 <br />
-                Hamra District
+                Quartier Hamra
                 <br />
-                Beirut, Lebanon
+                Beyrouth, Liban
               </p>
               <p>
-                <span className="text-[var(--accent)]">Tel:</span> +961 X XXX
-                XXX
+                <span className="text-[var(--accent)]">Tél:</span> +961 1 XXX XXX
               </p>
               <p>
-                <span className="text-[var(--accent)]">Operating Hours:</span> Mon-Fri
+                <span className="text-[var(--accent)]">Horaires:</span> Lun-Ven
                 09:00 - 18:00
               </p>
             </div>

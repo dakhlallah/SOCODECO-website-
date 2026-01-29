@@ -74,21 +74,21 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
               transition={{ duration: 0.8 }}
             >
               <h2 className="font-display text-3xl text-[var(--text)] mb-6">
-                PROJECT OVERVIEW
+                PRÉSENTATION DU PROJET
               </h2>
               <p className="text-[var(--text-muted)] leading-relaxed mb-6">
                 {project.description}
               </p>
               <p className="text-[var(--text-muted)] leading-relaxed mb-6">
-                This project exemplifies our commitment to excellence in construction
-                and engineering. Through close collaboration with all stakeholders,
-                we delivered a comprehensive solution that addresses both functional
-                requirements and design aspirations.
+                Ce projet illustre notre engagement envers l'excellence en construction
+                et ingénierie. Grâce à une collaboration étroite avec toutes les parties
+                prenantes, nous avons livré une solution complète répondant aux exigences
+                fonctionnelles et aux aspirations de conception.
               </p>
               <p className="text-[var(--text-muted)] leading-relaxed">
-                The design incorporates sustainable construction practices and locally
-                sourced materials where feasible, reflecting our dedication to
-                environmental responsibility and meaningful community integration.
+                La conception intègre des pratiques de construction durables et des
+                matériaux locaux lorsque possible, reflétant notre engagement envers
+                la responsabilité environnementale et l'intégration communautaire.
               </p>
             </motion.div>
 
@@ -144,39 +144,39 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
           >
             <div className="bg-[var(--surface)] p-8 border border-[var(--surface-light)]">
               <h3 className="font-display text-xl text-[var(--text)] mb-6">
-                PROJECT DETAILS
+                DÉTAILS DU PROJET
               </h3>
               <dl className="space-y-6">
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
                     CLIENT
                   </dt>
-                  <dd className="text-[var(--text)]">Private Development</dd>
+                  <dd className="text-[var(--text)]">Développement Privé</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    CATEGORY
+                    CATÉGORIE
                   </dt>
                   <dd className="text-[var(--text)]">{project.category}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    LOCATION
+                    LOCALISATION
                   </dt>
                   <dd className="text-[var(--text)]">{project.location}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    YEAR COMPLETED
+                    ANNÉE DE LIVRAISON
                   </dt>
                   <dd className="text-[var(--text)]">{project.year}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    SERVICES
+                    PRESTATIONS
                   </dt>
                   <dd className="text-[var(--text)]">
-                    Design, Engineering, Construction Management
+                    Conception, Ingénierie, Gestion de Projet
                   </dd>
                 </div>
               </dl>
@@ -194,7 +194,7 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-display text-4xl text-[var(--text)]">OTHER PROJECTS</h2>
+          <h2 className="font-display text-4xl text-[var(--text)]">AUTRES RÉALISATIONS</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">

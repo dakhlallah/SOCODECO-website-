@@ -6,45 +6,45 @@ import Footer from "@/components/Footer";
 
 const architectureProjects = [
   {
-    name: "Kinshasa Cultural Centre",
-    type: "Cultural",
+    name: "Centre Culturel de Kinshasa",
+    type: "Culturel",
     year: "2024",
-    description: "A landmark cultural facility celebrating Congolese heritage through distinguished contemporary architectural expression.",
+    description: "Un équipement culturel emblématique célébrant le patrimoine congolais à travers une expression architecturale contemporaine distinguée.",
     image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80",
   },
   {
-    name: "Beirut Business Tower",
+    name: "Tour d'Affaires de Beyrouth",
     type: "Commercial",
     year: "2023",
-    description: "A 35-storey commercial tower redefining the Beirut skyline through sustainable design principles and engineering innovation.",
+    description: "Une tour commerciale de 35 étages redéfinissant la skyline de Beyrouth grâce aux principes de conception durable et à l'innovation technique.",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
   },
   {
     name: "Villa Euphoria",
-    type: "Residential",
+    type: "Résidentiel",
     year: "2023",
-    description: "An ultra-luxury private residence integrating tropical architecture with refined minimalist interior spaces.",
+    description: "Une résidence privée ultra-luxe intégrant architecture tropicale et espaces intérieurs minimalistes raffinés.",
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
   },
   {
-    name: "Goma Medical Centre",
-    type: "Healthcare",
+    name: "Centre Médical de Goma",
+    type: "Santé",
     year: "2022",
-    description: "A state-of-the-art healthcare facility designed to optimise patient comfort and operational efficiency.",
+    description: "Un établissement de santé de pointe conçu pour optimiser le confort des patients et l'efficacité opérationnelle.",
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
   },
   {
-    name: "Lubumbashi Technology Hub",
+    name: "Pôle Technologique de Lubumbashi",
     type: "Commercial",
     year: "2022",
-    description: "An innovation campus designed to support technology enterprises with flexible, collaborative working environments.",
+    description: "Un campus d'innovation conçu pour accompagner les entreprises technologiques avec des espaces de travail flexibles et collaboratifs.",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
   },
   {
-    name: "Lakeside Resort",
-    type: "Hospitality",
+    name: "Resort du Lac Kivu",
+    type: "Hôtellerie",
     year: "2021",
-    description: "A boutique resort development celebrating the natural splendour of Lake Kivu through sustainable architectural design.",
+    description: "Un développement hôtelier boutique célébrant la splendeur naturelle du lac Kivu à travers une conception architecturale durable.",
     image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80",
   },
 ];
@@ -61,7 +61,7 @@ export default function ArchitecturePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            DESIGN
+            CONCEPTION
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -79,9 +79,9 @@ export default function ArchitecturePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Our architectural division creates inspiring spaces that combine
-            innovative design principles with practical functionality and
-            meaningful local context.
+            Notre division architecturale crée des espaces inspirants qui
+            combinent principes de conception innovants, fonctionnalité
+            pratique et contexte local significatif.
           </motion.p>
         </div>
       </section>
@@ -91,19 +91,19 @@ export default function ArchitecturePage() {
         <div className="grid lg:grid-cols-3 gap-12">
           {[
             {
-              title: "Context",
+              title: "Contexte",
               description:
-                "Every design responds thoughtfully to its environment, climate, and cultural setting.",
+                "Chaque conception répond avec attention à son environnement, son climat et son contexte culturel.",
             },
             {
               title: "Innovation",
               description:
-                "We advance design boundaries whilst respecting proven principles of architecture.",
+                "Nous repoussons les limites du design tout en respectant les principes éprouvés de l'architecture.",
             },
             {
-              title: "Sustainability",
+              title: "Durabilité",
               description:
-                "Environmental responsibility is integrated into every design and material decision.",
+                "La responsabilité environnementale est intégrée à chaque décision de conception et de matériaux.",
             },
           ].map((item, index) => (
             <motion.div
@@ -133,7 +133,7 @@ export default function ArchitecturePage() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-4xl md:text-5xl text-[var(--text)]">
-            FEATURED PROJECTS
+            PROJETS PHARES
           </h2>
         </motion.div>
 

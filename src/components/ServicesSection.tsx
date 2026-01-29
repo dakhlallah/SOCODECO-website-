@@ -6,31 +6,31 @@ import { useState } from "react";
 const services = [
   {
     id: "01",
-    title: "General Contracting",
+    title: "Entreprise Générale",
     description:
-      "Turnkey construction solutions from inception to completion. We carry out structural work and manage, coordinate and ensure the follow-up of all trades for complete project delivery.",
-    features: ["Turnkey Solutions", "Heavy Work", "Multi-Trade Coordination", "Project Delivery"],
+      "Solutions clé en main de la conception à la livraison. Nous réalisons le gros œuvre et assurons la coordination de tous les corps de métier pour une exécution parfaite de vos projets.",
+    features: ["Clé en Main", "Gros Œuvre", "Coordination Multi-Corps", "Livraison Projet"],
   },
   {
     id: "02",
-    title: "Metal & Steel Construction",
+    title: "Construction Métallique",
     description:
-      "With our metal work team and specialised machinery, we fabricate advanced metal work and steel buildings. Recognised as a benchmark in the metal building industry.",
-    features: ["Steel Structures", "Industrial Hangars", "Pre-Engineered Buildings", "Metal Fabrication"],
+      "Avec notre équipe spécialisée et nos équipements de pointe, nous fabriquons des ouvrages métalliques de haute qualité. SOCODECO est une référence dans l'industrie de la construction métallique.",
+    features: ["Charpentes Métalliques", "Hangars Industriels", "Bâtiments Préfabriqués", "Fabrication Sur Mesure"],
   },
   {
     id: "03",
-    title: "Facades & Cladding",
+    title: "Façades & Habillage",
     description:
-      "Expert realisation of technical facades including aluminium, Alucobond, and Alumond systems with all necessary qualifications for complex architectural envelopes.",
-    features: ["Alucobond Systems", "Aluminium Cladding", "Curtain Walls", "Glass Facades"],
+      "Expertise dans la réalisation de façades techniques : aluminium, Alucobond et systèmes Alumond. Nos équipes qualifiées maîtrisent les enveloppes architecturales les plus complexes.",
+    features: ["Systèmes Alucobond", "Bardage Aluminium", "Murs-Rideaux", "Façades Vitrées"],
   },
   {
     id: "04",
-    title: "Building Information Modeling",
+    title: "Modélisation BIM",
     description:
-      "Digital representation of physical and functional essence of construction projects in 3D model format, enhancing collaboration and minimising errors.",
-    features: ["3D Modelling", "Clash Detection", "4D Scheduling", "Digital Documentation"],
+      "Représentation numérique 3D de vos projets de construction. Notre expertise BIM optimise la collaboration, réduit les erreurs et améliore la qualité de livraison.",
+    features: ["Modélisation 3D", "Détection des Conflits", "Planning 4D", "Documentation Digitale"],
   },
 ];
 
@@ -48,10 +48,10 @@ export default function ServicesSection() {
         transition={{ duration: 0.8 }}
       >
         <span className="font-mono text-[var(--accent)] text-sm mb-4 block">
-          CAPABILITIES
+          NOS MÉTIERS
         </span>
         <h2 className="font-display text-5xl md:text-7xl text-[var(--text)]">
-          OUR SERVICES
+          NOS SERVICES
         </h2>
       </motion.div>
 
@@ -158,7 +158,7 @@ export default function ServicesSection() {
           href="/services"
           className="inline-flex items-center gap-3 font-display text-xl text-white hover:text-[var(--accent)] transition-colors group"
         >
-          VIEW ALL SERVICES
+          DÉCOUVRIR NOS SERVICES
           <svg
             width="24"
             height="24"

@@ -28,31 +28,31 @@ export default function ContactSection() {
           transition={{ duration: 0.8 }}
         >
           <span className="font-mono text-[var(--accent)] text-sm mb-4 block">
-            ENQUIRIES
+            CONTACTEZ-NOUS
           </span>
           <h2 className="font-display text-5xl md:text-7xl text-[var(--text)] mb-8">
-            COMMENCE YOUR
+            DÉMARRONS VOTRE
             <br />
-            <span className="text-[var(--accent)]">PROJECT</span>
+            <span className="text-[var(--accent)]">PROJET</span>
           </h2>
           <p className="text-[var(--text-muted)] text-lg leading-relaxed mb-12 max-w-md">
-            We welcome the opportunity to discuss your construction and engineering
-            requirements. Our team is prepared to provide expert guidance from
-            initial concept through to project completion.
+            Nous sommes à votre disposition pour étudier vos besoins en construction
+            et génie civil. Notre équipe vous accompagne de la conception initiale
+            jusqu'à la livraison finale de votre projet.
           </p>
 
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
               <h4 className="font-display text-xl text-[var(--text)] mb-2">
-                PRINCIPAL OFFICE - DRC
+                SIÈGE PRINCIPAL - RDC
               </h4>
               <p className="font-mono text-sm text-[var(--text-muted)]">
                 8225 Avenue Kabasele
                 <br />
                 C/Gombe, B.P 12657
                 <br />
-                Kinshasa, Democratic Republic of Congo
+                Kinshasa, République Démocratique du Congo
               </p>
               <p className="font-mono text-sm text-[var(--text-muted)] mt-2">
                 +243 820 200 003
@@ -64,18 +64,18 @@ export default function ContactSection() {
             </div>
             <div>
               <h4 className="font-display text-xl text-[var(--text)] mb-2">
-                REGIONAL HEADQUARTERS - LEBANON
+                BUREAU RÉGIONAL - LIBAN
               </h4>
               <p className="font-mono text-sm text-[var(--text-muted)]">
-                456 Rue Hamra
+                Rue Hamra
                 <br />
-                Beirut, Lebanon
+                Beyrouth, Liban
                 <br />
-                +961 X XXX XXX
+                +961 1 XXX XXX
               </p>
             </div>
             <div>
-              <h4 className="font-display text-xl text-[var(--text)] mb-2">EMAIL</h4>
+              <h4 className="font-display text-xl text-[var(--text)] mb-2">COURRIEL</h4>
               <a
                 href="mailto:info@socodeco.org"
                 className="font-mono text-sm text-[var(--accent)] hover:underline"
@@ -96,7 +96,7 @@ export default function ContactSection() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="font-mono text-xs text-[var(--text-muted)] mb-2 block">
-                FULL NAME *
+                NOM COMPLET *
               </label>
               <input
                 type="text"
@@ -106,13 +106,13 @@ export default function ContactSection() {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 className="w-full bg-transparent border-b-2 border-[var(--surface-light)] focus:border-[var(--accent)] py-3 text-[var(--text)] outline-none transition-colors"
-                placeholder="John Doe"
+                placeholder="Votre nom"
               />
             </div>
 
             <div>
               <label className="font-mono text-xs text-[var(--text-muted)] mb-2 block">
-                EMAIL ADDRESS *
+                ADRESSE EMAIL *
               </label>
               <input
                 type="email"
@@ -122,13 +122,13 @@ export default function ContactSection() {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 className="w-full bg-transparent border-b-2 border-[var(--surface-light)] focus:border-[var(--accent)] py-3 text-[var(--text)] outline-none transition-colors"
-                placeholder="john@company.com"
+                placeholder="votre@email.com"
               />
             </div>
 
             <div>
               <label className="font-mono text-xs text-[var(--text-muted)] mb-2 block">
-                ORGANISATION
+                SOCIÉTÉ / ORGANISATION
               </label>
               <input
                 type="text"
@@ -137,13 +137,13 @@ export default function ContactSection() {
                   setFormData({ ...formData, company: e.target.value })
                 }
                 className="w-full bg-transparent border-b-2 border-[var(--surface-light)] focus:border-[var(--accent)] py-3 text-[var(--text)] outline-none transition-colors"
-                placeholder="Organisation Name"
+                placeholder="Nom de votre organisation"
               />
             </div>
 
             <div>
               <label className="font-mono text-xs text-[var(--text-muted)] mb-2 block">
-                PROJECT DETAILS *
+                DESCRIPTION DU PROJET *
               </label>
               <textarea
                 required
@@ -153,7 +153,7 @@ export default function ContactSection() {
                   setFormData({ ...formData, message: e.target.value })
                 }
                 className="w-full bg-transparent border-b-2 border-[var(--surface-light)] focus:border-[var(--accent)] py-3 text-[var(--text)] outline-none transition-colors resize-none"
-                placeholder="Please describe your project requirements..."
+                placeholder="Décrivez votre projet et vos besoins..."
               />
             </div>
 
@@ -163,7 +163,7 @@ export default function ContactSection() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              SUBMIT ENQUIRY
+              ENVOYER LA DEMANDE
             </motion.button>
           </form>
         </motion.div>

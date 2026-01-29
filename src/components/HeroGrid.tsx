@@ -25,12 +25,12 @@ export default function HeroGrid() {
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none mb-4">
-          ENGINEERING
+          BÂTISSEURS
           <br />
-          <span className="text-[var(--accent)]">EXCELLENCE</span>
+          <span className="text-[var(--accent)]">D'AVENIR</span>
         </h1>
         <p className="text-[var(--text-muted)] max-w-xl text-lg font-mono">
-          Premier Construction and Civil Engineering Services Across the Democratic Republic of Congo and Lebanon
+          Leader en construction et génie civil en République Démocratique du Congo et au Liban. Des fondations solides pour des projets d'exception.
         </p>
       </motion.div>
 
@@ -161,10 +161,10 @@ export default function HeroGrid() {
         transition={{ duration: 0.8 }}
       >
         {[
-          { number: "150+", label: "Projects Delivered" },
-          { number: "34+", label: "Years of Excellence" },
-          { number: "2", label: "Regional Offices" },
-          { number: "500+", label: "Industry Professionals" },
+          { number: "150+", label: "Projets Réalisés" },
+          { number: "34+", label: "Années d'Expertise" },
+          { number: "2", label: "Bureaux Régionaux" },
+          { number: "500+", label: "Professionnels Qualifiés" },
         ].map((stat, index) => (
           <div key={stat.label} className="text-center md:text-left">
             <motion.span

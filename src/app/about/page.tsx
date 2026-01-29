@@ -5,10 +5,10 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 
 const team = [
-  { name: "Oussama Dakhlallah", role: "CEO & Founder", image: "/images/oussama-dakhlallah.jpg" },
-  { name: "Jean-Pierre Mutombo", role: "Managing Director", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
-  { name: "Sarah El-Khoury", role: "Chief Operations Officer", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" },
-  { name: "Emmanuel Kabongo", role: "Head of Engineering", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
+  { name: "Oussama Dakhlallah", role: "PDG & Fondateur", image: "/images/oussama-dakhlallah.jpg" },
+  { name: "Jean-Pierre Mutombo", role: "Directeur Général", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
+  { name: "Sarah El-Khoury", role: "Directrice des Opérations", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" },
+  { name: "Emmanuel Kabongo", role: "Directeur Technique", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
 ];
 
 export default function AboutPage() {
@@ -23,7 +23,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            ABOUT US
+            QUI SOMMES-NOUS
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -31,11 +31,11 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            ENGINEERING
+            L'EXCELLENCE
             <br />
-            <span className="text-[var(--accent)]">EXCELLENCE</span>
+            <span className="text-[var(--accent)]">EN CONSTRUCTION</span>
             <br />
-            SINCE 1991
+            DEPUIS 1991
           </motion.h1>
         </div>
       </section>
@@ -50,29 +50,27 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-display text-4xl md:text-5xl text-[var(--text)] mb-8">
-              OUR STORY
+              NOTRE HISTOIRE
             </h2>
             <div className="space-y-6 text-[var(--text-muted)] leading-relaxed">
               <p>
-                Founded in 1991, Construction SOCODECO is a Lebanese leading company
-                that has been delivering a wide range of quality and innovative
-                metal work and steel building constructions inside and outside Lebanon.
-                With over three decades of experience, we have established ourselves
-                as pioneers in project management and construction excellence.
+                Fondée en 1991, SOCODECO est une entreprise libanaise de premier plan
+                spécialisée dans la construction métallique et les ouvrages de génie civil.
+                Avec plus de trois décennies d'expérience, nous nous sommes imposés comme
+                des pionniers dans la gestion de projets et l'excellence en construction.
               </p>
               <p>
-                Our expansion to the Democratic Republic of Congo marked a significant
-                chapter in our history, enabling us to bring world-class construction
-                expertise to Central Africa. From our headquarters in Kinshasa&apos;s
-                Gombe district, we serve clients across the region with the same
-                commitment to quality that defines our Lebanese operations.
+                Notre expansion en République Démocratique du Congo représente un chapitre
+                majeur de notre histoire. Depuis notre siège dans le quartier de la Gombe
+                à Kinshasa, nous servons nos clients dans toute la région avec le même
+                engagement envers la qualité qui caractérise nos opérations au Liban.
               </p>
               <p>
-                Today, SOCODECO stands as a demonstration of what is achievable
-                when professional excellence meets methodical precision. Specialising
-                in general contracting, metal structures, Alucobond facades, foundations,
-                and turnkey construction, we continue to shape lifestyles and build
-                the infrastructure of tomorrow.
+                Aujourd'hui, SOCODECO incarne ce qui est réalisable quand l'excellence
+                professionnelle rencontre la précision méthodique. Spécialisés dans
+                l'entreprise générale, les structures métalliques, les façades Alucobond,
+                les fondations et la construction clé en main, nous continuons à façonner
+                les modes de vie et à bâtir les infrastructures de demain.
               </p>
             </div>
           </motion.div>
@@ -105,7 +103,7 @@ export default function AboutPage() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-4xl md:text-5xl text-[var(--text)]">
-            OUR VALUES
+            NOS VALEURS
           </h2>
         </motion.div>
 
@@ -113,19 +111,19 @@ export default function AboutPage() {
           {[
             {
               title: "Excellence",
-              description: "We uphold the highest professional standards across every project, regardless of scale or complexity.",
+              description: "Nous maintenons les plus hauts standards professionnels sur chaque projet, quelle que soit son envergure ou sa complexité.",
             },
             {
-              title: "Integrity",
-              description: "Transparent communication and ethical business practices inform all organisational decisions.",
+              title: "Intégrité",
+              description: "La transparence et l'éthique guident toutes nos décisions commerciales et nos relations avec nos partenaires.",
             },
             {
               title: "Innovation",
-              description: "We adopt advanced technologies and progressive methodologies to deliver superior outcomes.",
+              description: "Nous adoptons les technologies avancées et les méthodologies modernes pour des résultats supérieurs.",
             },
             {
-              title: "Sustainability",
-              description: "We construct for present requirements whilst safeguarding resources for future generations.",
+              title: "Durabilité",
+              description: "Nous construisons pour les besoins présents tout en préservant les ressources pour les générations futures.",
             },
           ].map((value, index) => (
             <motion.div
@@ -157,10 +155,10 @@ export default function AboutPage() {
           transition={{ duration: 0.8 }}
         >
           <span className="font-mono text-[var(--accent)] text-sm mb-4 block">
-            EXECUTIVE TEAM
+            ÉQUIPE DIRIGEANTE
           </span>
           <h2 className="font-display text-4xl md:text-5xl text-[var(--text)]">
-            LEADERSHIP
+            DIRECTION
           </h2>
         </motion.div>
 

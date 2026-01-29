@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const menuItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Building Materials", href: "/materials" },
-  { name: "Our Services", href: "/services" },
-  { name: "Apartments", href: "/apartments" },
+  { name: "Accueil", href: "/" },
+  { name: "À Propos", href: "/about" },
+  { name: "Matériaux", href: "/materials" },
+  { name: "Nos Services", href: "/services" },
+  { name: "Appartements", href: "/apartments" },
   { name: "Architecture", href: "/architecture" },
-  { name: "Contact Us", href: "/contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navigation() {
@@ -157,8 +157,8 @@ export default function Navigation() {
               transition={{ delay: 0.8, duration: 0.5 }}
             >
               <div className="font-mono">
-                <p>Democratic Republic of Congo</p>
-                <p>Lebanon</p>
+                <p>République Démocratique du Congo</p>
+                <p>Liban</p>
               </div>
               <div className="font-mono text-right">
                 <p>info@socodeco.org</p>

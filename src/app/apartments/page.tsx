@@ -6,13 +6,13 @@ import Footer from "@/components/Footer";
 
 const apartments = [
   {
-    name: "Apartment Quantum",
-    location: "Kinshasa, DRC",
-    type: "Premium High-Rise",
-    units: "Available units",
-    status: "Available",
+    name: "Appartements Quantum",
+    location: "Kinshasa, RDC",
+    type: "Tour Premium",
+    units: "Unités disponibles",
+    status: "Disponible",
     image: "/images/apartments/quantum-exterior.jpg",
-    features: ["Modern finishes", "Dual elevator access", "Fitted kitchens", "Private balconies"],
+    features: ["Finitions modernes", "Double accès ascenseur", "Cuisines équipées", "Balcons privatifs"],
     gallery: [
       "/images/apartments/quantum-living.jpg",
       "/images/apartments/quantum-kitchen.jpg",
@@ -21,48 +21,48 @@ const apartments = [
     ],
   },
   {
-    name: "Rhus Luxury Apartments",
-    location: "Beirut, Lebanon",
-    type: "Luxury High-Rise",
-    units: "48 units",
-    status: "Available",
+    name: "Résidences Rhus Luxe",
+    location: "Beyrouth, Liban",
+    type: "Tour de Luxe",
+    units: "48 unités",
+    status: "Disponible",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
-    features: ["Panoramic city views", "Rooftop amenities", "24/7 concierge services", "Secure underground parking"],
+    features: ["Vue panoramique", "Équipements rooftop", "Conciergerie 24h/24", "Parking souterrain sécurisé"],
   },
   {
     name: "Kinshasa Heights",
-    location: "Kinshasa, DRC",
-    type: "Premium Residential",
-    units: "72 units",
-    status: "Pre-Sale",
+    location: "Kinshasa, RDC",
+    type: "Résidentiel Premium",
+    units: "72 unités",
+    status: "Pré-vente",
     image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800&q=80",
-    features: ["River views", "Fitness facilities", "Children's recreation area", "Backup power systems"],
+    features: ["Vue sur le fleuve", "Salle de sport", "Aire de jeux enfants", "Groupe électrogène"],
   },
   {
     name: "Goma Gardens",
-    location: "Goma, DRC",
-    type: "Mid-Rise Complex",
-    units: "36 units",
-    status: "Sold Out",
+    location: "Goma, RDC",
+    type: "Complexe Résidentiel",
+    units: "36 unités",
+    status: "Vendu",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-    features: ["Lake views", "Private gardens", "Community facilities", "Secure compound"],
+    features: ["Vue sur le lac", "Jardins privatifs", "Équipements collectifs", "Résidence sécurisée"],
   },
   {
     name: "Marina Bay Residences",
-    location: "Beirut, Lebanon",
-    type: "Waterfront Living",
-    units: "64 units",
-    status: "Under Construction",
+    location: "Beyrouth, Liban",
+    type: "Front de Mer",
+    units: "64 unités",
+    status: "En construction",
     image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
-    features: ["Sea views", "Private marina access", "Wellness facilities", "Smart home integration"],
+    features: ["Vue sur mer", "Accès marina privée", "Centre bien-être", "Domotique intégrée"],
   },
 ];
 
 const statusColors: Record<string, string> = {
-  Available: "bg-[var(--accent)] text-[var(--background)]",
-  "Pre-Sale": "bg-blue-500 text-[var(--text)]",
-  "Sold Out": "bg-red-500 text-[var(--text)]",
-  "Under Construction": "bg-yellow-500 text-[var(--background)]",
+  Disponible: "bg-[var(--accent)] text-[var(--background)]",
+  "Pré-vente": "bg-blue-500 text-[var(--text)]",
+  "Vendu": "bg-red-500 text-[var(--text)]",
+  "En construction": "bg-yellow-500 text-[var(--background)]",
 };
 
 export default function ApartmentsPage() {
@@ -77,7 +77,7 @@ export default function ApartmentsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            RESIDENTIAL
+            RÉSIDENTIEL
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -85,9 +85,9 @@ export default function ApartmentsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            LUXURY
+            APPARTEMENTS
             <br />
-            <span className="text-[var(--accent)]">APARTMENTS</span>
+            <span className="text-[var(--accent)]">DE LUXE</span>
           </motion.h1>
           <motion.p
             className="mt-8 text-[var(--text-muted)] max-w-xl text-lg"
@@ -95,8 +95,9 @@ export default function ApartmentsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Discover exceptional residential developments crafted with precision
-            and designed for contemporary lifestyles in prestigious locations.
+            Découvrez des développements résidentiels exceptionnels, conçus avec
+            précision et pensés pour les modes de vie contemporains dans des
+            emplacements prestigieux.
           </motion.p>
         </div>
       </section>
@@ -168,7 +169,7 @@ export default function ApartmentsPage() {
                   href="/contact"
                   className="inline-flex items-center gap-3 font-display text-lg text-[var(--accent)] hover:text-[var(--text)] transition-colors group"
                 >
-                  ENQUIRE NOW
+                  NOUS CONTACTER
                   <svg
                     width="20"
                     height="20"

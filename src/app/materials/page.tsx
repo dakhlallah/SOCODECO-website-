@@ -6,40 +6,40 @@ import Footer from "@/components/Footer";
 
 const materials = [
   {
-    name: "Concrete & Cement",
-    description: "High-performance concrete formulations and cement products engineered for structural excellence.",
+    name: "Béton & Ciment",
+    description: "Formulations de béton haute performance et produits cimentiers conçus pour l'excellence structurelle.",
     image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80",
-    specs: ["Compressive strength: 25-50 MPa", "Rapid-setting formulations", "Environmentally conscious variants"],
+    specs: ["Résistance: 25-50 MPa", "Formules à prise rapide", "Variantes écologiques"],
   },
   {
-    name: "Structural Steel",
-    description: "Premium-grade steel for structural frameworks, reinforcement, and architectural applications.",
+    name: "Acier de Construction",
+    description: "Acier de qualité supérieure pour ossatures, armatures et applications architecturales.",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    specs: ["Grade: S355 & S460", "Hot-rolled sections", "Corrosion-resistant coatings"],
+    specs: ["Nuances: S355 & S460", "Profilés laminés à chaud", "Revêtements anticorrosion"],
   },
   {
-    name: "Aggregates",
-    description: "Quality-controlled stone, sand, and gravel for foundation works and concrete production.",
+    name: "Granulats",
+    description: "Pierres, sables et graviers contrôlés pour travaux de fondation et production de béton.",
     image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
-    specs: ["Multiple grain classifications", "Washed and screened", "Local and imported sources"],
+    specs: ["Classifications multiples", "Lavés et criblés", "Sources locales et importées"],
   },
   {
-    name: "Timber & Wood Products",
-    description: "Sustainably sourced timber products for construction and interior finishing applications.",
+    name: "Bois & Produits Dérivés",
+    description: "Produits bois issus de sources durables pour la construction et les finitions intérieures.",
     image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
-    specs: ["FSC-certified options", "Treated for durability", "Multiple species available"],
+    specs: ["Options certifiées FSC", "Traités pour durabilité", "Plusieurs essences disponibles"],
   },
   {
-    name: "Insulation Systems",
-    description: "Thermal and acoustic insulation solutions for energy-efficient building performance.",
+    name: "Systèmes d'Isolation",
+    description: "Solutions d'isolation thermique et acoustique pour une performance énergétique optimale.",
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
-    specs: ["Mineral wool systems", "Foam board solutions", "Reflective barrier options"],
+    specs: ["Laine minérale", "Panneaux mousse", "Écrans réfléchissants"],
   },
   {
-    name: "Roofing Systems",
-    description: "Comprehensive roofing solutions encompassing waterproofing and finishing materials.",
+    name: "Systèmes de Toiture",
+    description: "Solutions complètes de couverture incluant étanchéité et matériaux de finition.",
     image: "https://images.unsplash.com/photo-1632759145351-1d592919f522?w=800&q=80",
-    specs: ["Metal roofing systems", "Membrane applications", "Tile specifications"],
+    specs: ["Toitures métalliques", "Membranes d'étanchéité", "Tuiles et ardoises"],
   },
 ];
 
@@ -55,7 +55,7 @@ export default function MaterialsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            MATERIALS
+            MATÉRIAUX
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -63,9 +63,9 @@ export default function MaterialsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            BUILDING
+            MATÉRIAUX
             <br />
-            <span className="text-[var(--accent)]">MATERIALS</span>
+            <span className="text-[var(--accent)]">DE CONSTRUCTION</span>
           </motion.h1>
           <motion.p
             className="mt-8 text-[var(--text-muted)] max-w-xl text-lg"
@@ -73,9 +73,9 @@ export default function MaterialsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            We source and supply premium construction materials, ensuring every
-            project is constructed with quality-assured components that meet
-            international specifications and standards.
+            Nous approvisionnons et fournissons des matériaux de construction
+            premium, garantissant que chaque projet est réalisé avec des
+            composants certifiés conformes aux normes internationales.
           </motion.p>
         </div>
       </section>
@@ -134,18 +134,18 @@ export default function MaterialsPage() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-4xl md:text-5xl text-[var(--text)] mb-6">
-            MATERIAL ENQUIRIES
+            DEMANDE DE DEVIS
           </h2>
           <p className="text-[var(--text-muted)] mb-8">
-            Contact our procurement team for quotations on construction materials.
-            We offer competitive pricing and dependable delivery across the Democratic
-            Republic of Congo and Lebanon.
+            Contactez notre équipe approvisionnement pour vos devis de matériaux
+            de construction. Nous proposons des prix compétitifs et des livraisons
+            fiables en République Démocratique du Congo et au Liban.
           </p>
           <a
             href="/contact"
             className="inline-block px-12 py-4 bg-[var(--accent)] text-[var(--background)] font-display text-xl hover:bg-[var(--accent-dark)] transition-colors"
           >
-            REQUEST QUOTATION
+            DEMANDER UN DEVIS
           </a>
         </motion.div>
       </section>
