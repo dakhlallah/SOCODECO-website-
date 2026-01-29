@@ -54,23 +54,25 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6 text-[var(--text-muted)] leading-relaxed">
               <p>
-                Fondée en 1991, SOCODECO est une entreprise libanaise de premier plan
-                spécialisée dans la construction métallique et les ouvrages de génie civil.
-                Avec plus de trois décennies d'expérience, nous nous sommes imposés comme
-                des pionniers dans la gestion de projets et l'excellence en construction.
+                Fondée en 1991, SOCODECO est une entreprise de construction reconnue, active
+                dans la réalisation de projets de bâtiment et de génie civil. Forte de plus
+                de trois décennies d'expérience, l'entreprise s'est imposée comme un acteur
+                fiable dans la gestion de projets, la qualité d'exécution et le respect des
+                normes de construction.
               </p>
               <p>
-                Notre expansion en République Démocratique du Congo représente un chapitre
-                majeur de notre histoire. Depuis notre siège dans le quartier de la Gombe
-                à Kinshasa, nous servons nos clients dans toute la région avec le même
-                engagement envers la qualité qui caractérise nos opérations au Liban.
+                L'expansion de SOCODECO en République Démocratique du Congo marque une étape
+                stratégique majeure de son développement. Depuis son siège situé dans le
+                quartier de la Gombe à Kinshasa, l'entreprise accompagne ses clients sur
+                l'ensemble du territoire avec le même engagement envers la qualité, la rigueur
+                et le professionnalisme qui caractérisent ses activités historiques.
               </p>
               <p>
-                Aujourd'hui, SOCODECO incarne ce qui est réalisable quand l'excellence
-                professionnelle rencontre la précision méthodique. Spécialisés dans
-                l'entreprise générale, les structures métalliques, les façades Alucobond,
-                les fondations et la construction clé en main, nous continuons à façonner
-                les modes de vie et à bâtir les infrastructures de demain.
+                Aujourd'hui, SOCODECO incarne l'excellence dans la construction lorsque
+                l'expertise technique s'allie à une organisation méthodique. Spécialisée dans
+                l'entreprise générale, le bâtiment, les travaux de génie civil, les fondations
+                et la construction clé en main, SOCODECO contribue durablement au développement
+                urbain et à la réalisation des infrastructures de demain.
               </p>
             </div>
           </motion.div>
