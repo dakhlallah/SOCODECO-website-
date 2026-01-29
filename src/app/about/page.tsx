@@ -86,7 +86,7 @@ export default function AboutPage() {
               src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
               alt="SOCODECO construction site"
               fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              className="object-cover hover:scale-105 transition-all duration-700"
             />
             <div className="absolute inset-0 border-2 border-[var(--accent)] translate-x-4 translate-y-4 -z-10 hidden md:block" />
           </motion.div>
@@ -177,7 +177,7 @@ export default function AboutPage() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  className="object-cover group-hover:scale-105 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-[var(--accent)]/0 group-hover:bg-[var(--accent)]/20 transition-all duration-500" />
               </div>

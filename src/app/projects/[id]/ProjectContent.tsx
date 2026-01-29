@@ -107,7 +107,7 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
                       src={img}
                       alt={`${project.title} detail ${index + 1}`}
                       fill
-                      className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                      className="object-cover hover:scale-105 transition-all duration-500"
                     />
                   </div>
                 ))
@@ -118,7 +118,7 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
                       src={project.image}
                       alt={`${project.title} detail 1`}
                       fill
-                      className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                      className="object-cover hover:scale-105 transition-all duration-500"
                     />
                   </div>
                   <div className="relative aspect-[4/3]">
@@ -126,7 +126,7 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
                       src={project.image}
                       alt={`${project.title} detail 2`}
                       fill
-                      className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                      className="object-cover hover:scale-105 transition-all duration-500"
                     />
                   </div>
                 </>
@@ -212,7 +212,7 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
                     src={p.image}
                     alt={p.title}
                     fill
-                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    className="object-cover group-hover:scale-105 transition-all duration-700"
                   />
                 </div>
                 <h3 className="font-display text-xl text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">

@@ -87,8 +87,8 @@ export default function HeroGrid() {
                     fill
                     className={`object-cover transition-all duration-700 ${
                       hoveredProject === project.id
-                        ? "scale-110 grayscale-0"
-                        : "scale-100 grayscale"
+                        ? "scale-110"
+                        : "scale-100"
                     }`}
                   />
                 </div>

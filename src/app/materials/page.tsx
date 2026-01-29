@@ -97,7 +97,7 @@ export default function MaterialsPage() {
                   src={material.image}
                   alt={material.name}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="object-cover group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-[var(--accent)]/0 group-hover:bg-[var(--accent)]/10 transition-all duration-500" />
               </div>

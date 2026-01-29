@@ -123,7 +123,7 @@ export default function ApartmentsPage() {
                   src={apt.image}
                   alt={apt.name}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="object-cover group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute top-4 right-4">
                   <span

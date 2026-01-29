@@ -177,7 +177,7 @@ export default function ServicesPage() {
                 src={service.image}
                 alt={service.title}
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="object-cover hover:scale-105 transition-all duration-700"
               />
               <div
                 className={`absolute inset-0 border-2 border-[var(--accent)] -z-10 hidden md:block ${
