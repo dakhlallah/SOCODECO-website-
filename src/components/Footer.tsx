@@ -1,30 +1,32 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-
-const footerLinks = {
-  services: [
-    { name: "Entreprise Générale", href: "/services#general-contracting" },
-    { name: "Construction Métallique", href: "/services#metal-construction" },
-    { name: "Façades & Habillage", href: "/services#facades" },
-    { name: "Modélisation BIM", href: "/services#bim" },
-  ],
-  company: [
-    { name: "À Propos", href: "/about" },
-    { name: "Équipe Dirigeante", href: "/about#team" },
-    { name: "Carrières", href: "/careers" },
-    { name: "Actualités", href: "/news" },
-  ],
-  projects: [
-    { name: "Résidentiel", href: "/projects?category=residential" },
-    { name: "Commercial", href: "/projects?category=commercial" },
-    { name: "Industriel", href: "/projects?category=industrial" },
-    { name: "Tous les Projets", href: "/projects" },
-  ],
-};
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Footer() {
+  const t = useTranslation();
+
+  const footerLinks = {
+    services: [
+      { name: t.services.items[0].title, href: "/services#general-contracting" },
+      { name: t.services.items[1].title, href: "/services#metal-construction" },
+      { name: t.services.items[2].title, href: "/services#facades" },
+      { name: t.services.items[3].title, href: "/services#bim" },
+    ],
+    company: [
+      { name: t.footer.aboutLink, href: "/about" },
+      { name: t.footer.teamLink, href: "/about#team" },
+      { name: t.footer.careersLink, href: "/careers" },
+      { name: t.footer.newsLink, href: "/news" },
+    ],
+    projects: [
+      { name: t.categories.residential, href: "/projects?category=residential" },
+      { name: t.categories.commercial, href: "/projects?category=commercial" },
+      { name: t.categories.industrial, href: "/projects?category=industrial" },
+      { name: t.footer.allProjects, href: "/projects" },
+    ],
+  };
+
   return (
     <footer className="bg-[var(--surface)] border-t border-[var(--surface-light)]">
       {/* Main Footer */}
@@ -36,9 +38,7 @@ export default function Footer() {
               <span className="font-display text-4xl text-[var(--text)]">SOCODECO</span>
             </Link>
             <p className="mt-4 text-[var(--text-muted)] text-sm leading-relaxed">
-              Excellence en construction et génie civil en République Démocratique du Congo
-              et au Liban. Des projets résidentiels aux installations industrielles,
-              nous bâtissons les infrastructures de demain.
+              {t.footer.description}
             </p>
             <div className="mt-6 flex gap-4">
               {["Instagram", "LinkedIn", "Facebook"].map((social) => (
@@ -55,7 +55,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-display text-xl text-[var(--text)] mb-4">Nos Services</h4>
+            <h4 className="font-display text-xl text-[var(--text)] mb-4">{t.footer.servicesTitle}</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -72,7 +72,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-display text-xl text-[var(--text)] mb-4">Entreprise</h4>
+            <h4 className="font-display text-xl text-[var(--text)] mb-4">{t.footer.companyTitle}</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -89,7 +89,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display text-xl text-[var(--text)] mb-4">Contact</h4>
+            <h4 className="font-display text-xl text-[var(--text)] mb-4">{t.footer.contactTitle}</h4>
             <div className="space-y-4 font-mono text-sm">
               <div>
                 <p className="text-[var(--accent)] mb-1">RD Congo</p>
@@ -126,20 +126,20 @@ export default function Footer() {
       <div className="border-t border-[var(--surface-light)] px-4 md:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-mono text-xs text-[var(--text-muted)]">
-            © {new Date().getFullYear()} SOCODECO. Tous droits réservés.
+            © {new Date().getFullYear()} SOCODECO. {t.footer.rights}
           </p>
           <div className="flex gap-6">
             <Link
               href="/privacy"
               className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
             >
-              Politique de Confidentialité
+              {t.footer.privacy}
             </Link>
             <Link
               href="/terms"
               className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
             >
-              Conditions d'Utilisation
+              {t.footer.terms}
             </Link>
           </div>
         </div>

@@ -4,16 +4,35 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { projects, categories } from "@/data/projects";
+import { projects } from "@/data/projects";
+import { useTranslation } from "@/hooks/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function HeroGrid() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const t = useTranslation();
+  const { language } = useLanguage();
+
+  const categories = [
+    t.categories.all,
+    t.categories.residential,
+    t.categories.commercial,
+    t.categories.industrial,
+  ];
+
+  const categoryMap: Record<string, string> = {
+    [t.categories.all]: "All",
+    [t.categories.residential]: "Résidentiel",
+    [t.categories.commercial]: "Commercial",
+    [t.categories.industrial]: "Industriel",
+  };
+
+  const [activeCategory, setActiveCategory] = useState(t.categories.all);
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   const filteredProjects =
-    activeCategory === "All"
+    activeCategory === t.categories.all
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) => p.category === categoryMap[activeCategory]);
 
   return (
     <section className="min-h-screen pt-24 pb-16 px-4 md:px-8">
@@ -25,12 +44,12 @@ export default function HeroGrid() {
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none mb-4">
-          BÂTISSEURS
+          {t.hero.title1}
           <br />
-          <span className="text-[var(--accent)]">D'AVENIR</span>
+          <span className="text-[var(--accent)]">{t.hero.title2}</span>
         </h1>
         <p className="text-[var(--text-muted)] max-w-xl text-lg font-mono">
-          Leader en construction et génie civil en République Démocratique du Congo et au Liban. Des fondations solides pour des projets d'exception.
+          {t.hero.description}
         </p>
       </motion.div>
 
@@ -161,10 +180,10 @@ export default function HeroGrid() {
         transition={{ duration: 0.8 }}
       >
         {[
-          { number: "150+", label: "Projets Réalisés" },
-          { number: "34+", label: "Années d'Expertise" },
-          { number: "2", label: "Bureaux Régionaux" },
-          { number: "500+", label: "Professionnels Qualifiés" },
+          { number: "150+", label: t.hero.stats.projects },
+          { number: "34+", label: t.hero.stats.years },
+          { number: "2", label: t.hero.stats.offices },
+          { number: "500+", label: t.hero.stats.professionals },
         ].map((stat, index) => (
           <div key={stat.label} className="text-center md:text-left">
             <motion.span

@@ -3,19 +3,22 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-
-const menuItems = [
-  { name: "Accueil", href: "/" },
-  { name: "À Propos", href: "/about" },
-  { name: "Matériaux", href: "/materials" },
-  { name: "Nos Services", href: "/services" },
-  { name: "Appartements", href: "/apartments" },
-  { name: "Architecture", href: "/architecture" },
-  { name: "Contact", href: "/contact" },
-];
+import { useTranslation } from "@/hooks/useTranslation";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslation();
+
+  const menuItems = [
+    { name: t.nav.home, href: "/" },
+    { name: t.nav.about, href: "/about" },
+    { name: t.nav.materials, href: "/materials" },
+    { name: t.nav.services, href: "/services" },
+    { name: t.nav.apartments, href: "/apartments" },
+    { name: t.nav.architecture, href: "/architecture" },
+    { name: t.nav.contact, href: "/contact" },
+  ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -67,37 +70,48 @@ export default function Navigation() {
           </motion.span>
         </Link>
 
-        {/* Hamburger Button */}
-        <button
-          onClick={toggleMenu}
-          className="relative z-50 w-12 h-12 flex flex-col justify-center items-center gap-1.5 group"
-          aria-label="Toggle menu"
-        >
-          <motion.span
-            className="w-8 h-0.5 bg-white block origin-center"
-            animate={{
-              rotate: isOpen ? 45 : 0,
-              y: isOpen ? 4 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.span
-            className="w-8 h-0.5 bg-white block"
-            animate={{
-              opacity: isOpen ? 0 : 1,
-              x: isOpen ? 20 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.span
-            className="w-8 h-0.5 bg-white block origin-center"
-            animate={{
-              rotate: isOpen ? -45 : 0,
-              y: isOpen ? -4 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-          />
-        </button>
+        <div className="flex items-center gap-4">
+          {/* Language Toggle */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <LanguageToggle variant="header" />
+          </motion.div>
+
+          {/* Hamburger Button */}
+          <button
+            onClick={toggleMenu}
+            className="relative z-50 w-12 h-12 flex flex-col justify-center items-center gap-1.5 group"
+            aria-label="Toggle menu"
+          >
+            <motion.span
+              className="w-8 h-0.5 bg-white block origin-center"
+              animate={{
+                rotate: isOpen ? 45 : 0,
+                y: isOpen ? 4 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              className="w-8 h-0.5 bg-white block"
+              animate={{
+                opacity: isOpen ? 0 : 1,
+                x: isOpen ? 20 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              className="w-8 h-0.5 bg-white block origin-center"
+              animate={{
+                rotate: isOpen ? -45 : 0,
+                y: isOpen ? -4 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+          </button>
+        </div>
       </header>
 
       {/* Full Screen Menu */}
@@ -130,7 +144,7 @@ export default function Navigation() {
             <div className="relative z-10 flex flex-col items-center">
               {menuItems.map((item, i) => (
                 <motion.div
-                  key={item.name}
+                  key={item.href}
                   custom={i}
                   variants={linkVariants}
                   initial="closed"
@@ -147,6 +161,18 @@ export default function Navigation() {
                   </Link>
                 </motion.div>
               ))}
+
+              {/* Language Toggle in Menu */}
+              <motion.div
+                custom={menuItems.length}
+                variants={linkVariants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+                className="mt-8"
+              >
+                <LanguageToggle variant="menu" />
+              </motion.div>
             </div>
 
             {/* Footer Info */}
@@ -157,8 +183,8 @@ export default function Navigation() {
               transition={{ delay: 0.8, duration: 0.5 }}
             >
               <div className="font-mono">
-                <p>République Démocratique du Congo</p>
-                <p>Liban</p>
+                <p>{t.nav.drc}</p>
+                <p>{t.nav.lebanon}</p>
               </div>
               <div className="font-mono text-right">
                 <p>info@socodeco.org</p>

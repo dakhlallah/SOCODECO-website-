@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import CustomCursor from "@/components/CustomCursor";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export const metadata: Metadata = {
   title: "SOCODECO | Construction & Civil Engineering",
@@ -15,11 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr" className="scroll-smooth">
       <body className="antialiased">
-        <CustomCursor />
-        <Navigation />
-        {children}
+        <LanguageProvider>
+          <CustomCursor />
+          <Navigation />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

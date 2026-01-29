@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/data/projects";
 import Footer from "@/components/Footer";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface ProjectContentProps {
   project: Project;
@@ -12,6 +13,8 @@ interface ProjectContentProps {
 }
 
 export default function ProjectContent({ project, otherProjects }: ProjectContentProps) {
+  const t = useTranslation();
+
   return (
     <>
       {/* Hero */}
@@ -74,21 +77,16 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
               transition={{ duration: 0.8 }}
             >
               <h2 className="font-display text-3xl text-[var(--text)] mb-6">
-                PRÉSENTATION DU PROJET
+                {t.projects.overview}
               </h2>
               <p className="text-[var(--text-muted)] leading-relaxed mb-6">
                 {project.description}
               </p>
               <p className="text-[var(--text-muted)] leading-relaxed mb-6">
-                Ce projet illustre notre engagement envers l'excellence en construction
-                et ingénierie. Grâce à une collaboration étroite avec toutes les parties
-                prenantes, nous avons livré une solution complète répondant aux exigences
-                fonctionnelles et aux aspirations de conception.
+                {t.projects.description1}
               </p>
               <p className="text-[var(--text-muted)] leading-relaxed">
-                La conception intègre des pratiques de construction durables et des
-                matériaux locaux lorsque possible, reflétant notre engagement envers
-                la responsabilité environnementale et l'intégration communautaire.
+                {t.projects.description2}
               </p>
             </motion.div>
 
@@ -144,39 +142,39 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
           >
             <div className="bg-[var(--surface)] p-8 border border-[var(--surface-light)]">
               <h3 className="font-display text-xl text-[var(--text)] mb-6">
-                DÉTAILS DU PROJET
+                {t.projects.details}
               </h3>
               <dl className="space-y-6">
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    CLIENT
+                    {t.projects.client}
                   </dt>
-                  <dd className="text-[var(--text)]">Développement Privé</dd>
+                  <dd className="text-[var(--text)]">{t.projects.privateDev}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    CATÉGORIE
+                    {t.projects.category}
                   </dt>
                   <dd className="text-[var(--text)]">{project.category}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    LOCALISATION
+                    {t.projects.location}
                   </dt>
                   <dd className="text-[var(--text)]">{project.location}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    ANNÉE DE LIVRAISON
+                    {t.projects.year}
                   </dt>
                   <dd className="text-[var(--text)]">{project.year}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-xs text-[var(--text-muted)] mb-1">
-                    PRESTATIONS
+                    {t.projects.scope}
                   </dt>
                   <dd className="text-[var(--text)]">
-                    Conception, Ingénierie, Gestion de Projet
+                    {t.projects.scopeValue}
                   </dd>
                 </div>
               </dl>
@@ -194,7 +192,7 @@ export default function ProjectContent({ project, otherProjects }: ProjectConten
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-display text-4xl text-[var(--text)]">AUTRES RÉALISATIONS</h2>
+          <h2 className="font-display text-4xl text-[var(--text)]">{t.projects.otherProjects}</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">

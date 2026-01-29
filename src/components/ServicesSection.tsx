@@ -2,40 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-
-const services = [
-  {
-    id: "01",
-    title: "Entreprise Générale",
-    description:
-      "Solutions clé en main de la conception à la livraison. Nous réalisons le gros œuvre et assurons la coordination de tous les corps de métier pour une exécution parfaite de vos projets.",
-    features: ["Clé en Main", "Gros Œuvre", "Coordination Multi-Corps", "Livraison Projet"],
-  },
-  {
-    id: "02",
-    title: "Construction Métallique",
-    description:
-      "Avec notre équipe spécialisée et nos équipements de pointe, nous fabriquons des ouvrages métalliques de haute qualité. SOCODECO est une référence dans l'industrie de la construction métallique.",
-    features: ["Charpentes Métalliques", "Hangars Industriels", "Bâtiments Préfabriqués", "Fabrication Sur Mesure"],
-  },
-  {
-    id: "03",
-    title: "Façades & Habillage",
-    description:
-      "Expertise dans la réalisation de façades techniques : aluminium, Alucobond et systèmes Alumond. Nos équipes qualifiées maîtrisent les enveloppes architecturales les plus complexes.",
-    features: ["Systèmes Alucobond", "Bardage Aluminium", "Murs-Rideaux", "Façades Vitrées"],
-  },
-  {
-    id: "04",
-    title: "Modélisation BIM",
-    description:
-      "Représentation numérique 3D de vos projets de construction. Notre expertise BIM optimise la collaboration, réduit les erreurs et améliore la qualité de livraison.",
-    features: ["Modélisation 3D", "Détection des Conflits", "Planning 4D", "Documentation Digitale"],
-  },
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState<string | null>(null);
+  const t = useTranslation();
 
   return (
     <section className="py-24 px-4 md:px-8 bg-[var(--surface)]">
@@ -48,16 +19,16 @@ export default function ServicesSection() {
         transition={{ duration: 0.8 }}
       >
         <span className="font-mono text-[var(--accent)] text-sm mb-4 block">
-          NOS MÉTIERS
+          {t.services.label}
         </span>
         <h2 className="font-display text-5xl md:text-7xl text-[var(--text)]">
-          NOS SERVICES
+          {t.services.title}
         </h2>
       </motion.div>
 
       {/* Services List */}
       <div className="space-y-0">
-        {services.map((service, index) => (
+        {t.services.items.map((service, index) => (
           <motion.div
             key={service.id}
             className="border-t border-[var(--surface-light)] last:border-b"
@@ -158,7 +129,7 @@ export default function ServicesSection() {
           href="/services"
           className="inline-flex items-center gap-3 font-display text-xl text-white hover:text-[var(--accent)] transition-colors group"
         >
-          DÉCOUVRIR NOS SERVICES
+          {t.services.cta}
           <svg
             width="24"
             height="24"

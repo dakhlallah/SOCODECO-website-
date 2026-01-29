@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function ContactPage() {
+  const t = useTranslation();
+
   return (
     <>
       {/* Hero */}
@@ -16,7 +19,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            NOUS CONTACTER
+            {t.contact.pageLabel}
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -24,9 +27,9 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            CONTACTEZ
+            {t.contact.pageTitle1}
             <br />
-            <span className="text-[var(--accent)]">NOUS</span>
+            <span className="text-[var(--accent)]">{t.contact.pageTitle2}</span>
           </motion.h1>
         </div>
       </section>
@@ -43,7 +46,7 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-4xl md:text-5xl text-[var(--text)]">
-            NOS BUREAUX
+            {t.contact.offices}
           </h2>
         </motion.div>
 
@@ -57,7 +60,7 @@ export default function ContactPage() {
             transition={{ duration: 0.5 }}
           >
             <span className="font-mono text-[var(--accent)] text-xs mb-4 block">
-              SIÈGE PRINCIPAL
+              {t.contact.hq}
             </span>
             <h3 className="font-display text-3xl text-[var(--text)] mb-4">
               KINSHASA, RDC
@@ -80,7 +83,7 @@ export default function ContactPage() {
                 <span className="text-[var(--accent)]">Tél:</span> +243 822 666 555
               </p>
               <p>
-                <span className="text-[var(--accent)]">Horaires:</span> Lun-Ven
+                <span className="text-[var(--accent)]">{t.contact.hours}:</span> Lun-Ven
                 08:00 - 17:00
               </p>
             </div>
@@ -95,7 +98,7 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <span className="font-mono text-[var(--accent)] text-xs mb-4 block">
-              BUREAU RÉGIONAL
+              {t.contact.regional}
             </span>
             <h3 className="font-display text-3xl text-[var(--text)] mb-4">
               BEYROUTH, LIBAN
@@ -112,7 +115,7 @@ export default function ContactPage() {
                 <span className="text-[var(--accent)]">Tél:</span> +961 1 XXX XXX
               </p>
               <p>
-                <span className="text-[var(--accent)]">Horaires:</span> Lun-Ven
+                <span className="text-[var(--accent)]">{t.contact.hours}:</span> Lun-Ven
                 09:00 - 18:00
               </p>
             </div>

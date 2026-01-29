@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import { useTranslation } from "@/hooks/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const architectureProjects = [
+const architectureProjectsFr = [
   {
     name: "Centre Culturel de Kinshasa",
     type: "Culturel",
@@ -49,7 +51,56 @@ const architectureProjects = [
   },
 ];
 
+const architectureProjectsEn = [
+  {
+    name: "Kinshasa Cultural Center",
+    type: "Cultural",
+    year: "2024",
+    description: "An iconic cultural facility celebrating Congolese heritage through distinguished contemporary architectural expression.",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80",
+  },
+  {
+    name: "Beirut Business Tower",
+    type: "Commercial",
+    year: "2023",
+    description: "A 35-story commercial tower redefining the Beirut skyline through sustainable design principles and technical innovation.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+  },
+  {
+    name: "Villa Euphoria",
+    type: "Residential",
+    year: "2023",
+    description: "An ultra-luxury private residence integrating tropical architecture and refined minimalist interior spaces.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+  },
+  {
+    name: "Goma Medical Center",
+    type: "Healthcare",
+    year: "2022",
+    description: "A state-of-the-art healthcare facility designed to optimize patient comfort and operational efficiency.",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+  },
+  {
+    name: "Lubumbashi Technology Hub",
+    type: "Commercial",
+    year: "2022",
+    description: "An innovation campus designed to support technology companies with flexible and collaborative workspaces.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+  },
+  {
+    name: "Lake Kivu Resort",
+    type: "Hospitality",
+    year: "2021",
+    description: "A boutique hotel development celebrating the natural splendor of Lake Kivu through sustainable architectural design.",
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80",
+  },
+];
+
 export default function ArchitecturePage() {
+  const t = useTranslation();
+  const { language } = useLanguage();
+  const architectureProjects = language === "fr" ? architectureProjectsFr : architectureProjectsEn;
+
   return (
     <>
       {/* Hero */}
@@ -61,7 +112,7 @@ export default function ArchitecturePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            CONCEPTION
+            {t.architecture.label}
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -69,9 +120,9 @@ export default function ArchitecturePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            ARCHITECTURE
+            {t.architecture.title1}
             <br />
-            <span className="text-[var(--accent)]">& DESIGN</span>
+            <span className="text-[var(--accent)]">{t.architecture.title2}</span>
           </motion.h1>
           <motion.p
             className="mt-8 text-[var(--text-muted)] max-w-xl text-lg"
@@ -79,9 +130,7 @@ export default function ArchitecturePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Notre division architecturale crée des espaces inspirants qui
-            combinent principes de conception innovants, fonctionnalité
-            pratique et contexte local significatif.
+            {t.architecture.description}
           </motion.p>
         </div>
       </section>
@@ -89,23 +138,7 @@ export default function ArchitecturePage() {
       {/* Philosophy Section */}
       <section className="py-24 px-4 md:px-8 bg-[var(--surface)]">
         <div className="grid lg:grid-cols-3 gap-12">
-          {[
-            {
-              title: "Contexte",
-              description:
-                "Chaque conception répond avec attention à son environnement, son climat et son contexte culturel.",
-            },
-            {
-              title: "Innovation",
-              description:
-                "Nous repoussons les limites du design tout en respectant les principes éprouvés de l'architecture.",
-            },
-            {
-              title: "Durabilité",
-              description:
-                "La responsabilité environnementale est intégrée à chaque décision de conception et de matériaux.",
-            },
-          ].map((item, index) => (
+          {t.architecture.philosophy.map((item, index) => (
             <motion.div
               key={item.title}
               className="border-l-2 border-[var(--accent)] pl-6"
@@ -133,7 +166,7 @@ export default function ArchitecturePage() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-display text-4xl md:text-5xl text-[var(--text)]">
-            PROJETS PHARES
+            {t.architecture.projectsTitle}
           </h2>
         </motion.div>
 

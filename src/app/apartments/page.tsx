@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const apartments = [
   {
@@ -10,22 +11,16 @@ const apartments = [
     location: "Kinshasa, RDC",
     type: "Tour Premium",
     units: "Unités disponibles",
-    status: "Disponible",
+    status: "available",
     image: "/images/apartments/quantum-exterior.jpg",
     features: ["Finitions modernes", "Double accès ascenseur", "Cuisines équipées", "Balcons privatifs"],
-    gallery: [
-      "/images/apartments/quantum-living.jpg",
-      "/images/apartments/quantum-kitchen.jpg",
-      "/images/apartments/quantum-elevator.jpg",
-      "/images/apartments/quantum-bedroom.jpg",
-    ],
   },
   {
     name: "Résidences Rhus Luxe",
     location: "Beyrouth, Liban",
     type: "Tour de Luxe",
     units: "48 unités",
-    status: "Disponible",
+    status: "available",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
     features: ["Vue panoramique", "Équipements rooftop", "Conciergerie 24h/24", "Parking souterrain sécurisé"],
   },
@@ -34,7 +29,7 @@ const apartments = [
     location: "Kinshasa, RDC",
     type: "Résidentiel Premium",
     units: "72 unités",
-    status: "Pré-vente",
+    status: "presale",
     image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800&q=80",
     features: ["Vue sur le fleuve", "Salle de sport", "Aire de jeux enfants", "Groupe électrogène"],
   },
@@ -43,7 +38,7 @@ const apartments = [
     location: "Goma, RDC",
     type: "Complexe Résidentiel",
     units: "36 unités",
-    status: "Vendu",
+    status: "sold",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
     features: ["Vue sur le lac", "Jardins privatifs", "Équipements collectifs", "Résidence sécurisée"],
   },
@@ -52,20 +47,32 @@ const apartments = [
     location: "Beyrouth, Liban",
     type: "Front de Mer",
     units: "64 unités",
-    status: "En construction",
+    status: "construction",
     image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
     features: ["Vue sur mer", "Accès marina privée", "Centre bien-être", "Domotique intégrée"],
   },
 ];
 
-const statusColors: Record<string, string> = {
-  Disponible: "bg-[var(--accent)] text-[var(--background)]",
-  "Pré-vente": "bg-blue-500 text-[var(--text)]",
-  "Vendu": "bg-red-500 text-[var(--text)]",
-  "En construction": "bg-yellow-500 text-[var(--background)]",
-};
-
 export default function ApartmentsPage() {
+  const t = useTranslation();
+
+  const statusColors: Record<string, string> = {
+    available: "bg-[var(--accent)] text-[var(--background)]",
+    presale: "bg-blue-500 text-[var(--text)]",
+    sold: "bg-red-500 text-[var(--text)]",
+    construction: "bg-yellow-500 text-[var(--background)]",
+  };
+
+  const getStatusLabel = (status: string) => {
+    const statusMap: Record<string, string> = {
+      available: t.apartments.status.available,
+      presale: t.apartments.status.presale,
+      sold: t.apartments.status.sold,
+      construction: t.apartments.status.construction,
+    };
+    return statusMap[status] || status;
+  };
+
   return (
     <>
       {/* Hero */}
@@ -77,7 +84,7 @@ export default function ApartmentsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            RÉSIDENTIEL
+            {t.apartments.label}
           </motion.span>
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl text-[var(--text)] leading-none"
@@ -85,9 +92,9 @@ export default function ApartmentsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            APPARTEMENTS
+            {t.apartments.title1}
             <br />
-            <span className="text-[var(--accent)]">DE LUXE</span>
+            <span className="text-[var(--accent)]">{t.apartments.title2}</span>
           </motion.h1>
           <motion.p
             className="mt-8 text-[var(--text-muted)] max-w-xl text-lg"
@@ -95,9 +102,7 @@ export default function ApartmentsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Découvrez des développements résidentiels exceptionnels, conçus avec
-            précision et pensés pour les modes de vie contemporains dans des
-            emplacements prestigieux.
+            {t.apartments.description}
           </motion.p>
         </div>
       </section>
@@ -131,7 +136,7 @@ export default function ApartmentsPage() {
                       statusColors[apt.status]
                     }`}
                   >
-                    {apt.status}
+                    {getStatusLabel(apt.status)}
                   </span>
                 </div>
                 <motion.div
@@ -169,7 +174,7 @@ export default function ApartmentsPage() {
                   href="/contact"
                   className="inline-flex items-center gap-3 font-display text-lg text-[var(--accent)] hover:text-[var(--text)] transition-colors group"
                 >
-                  NOUS CONTACTER
+                  {t.apartments.contactCta}
                   <svg
                     width="20"
                     height="20"

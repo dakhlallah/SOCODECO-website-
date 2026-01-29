@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function ContactSection() {
+  const t = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,24 +30,22 @@ export default function ContactSection() {
           transition={{ duration: 0.8 }}
         >
           <span className="font-mono text-[var(--accent)] text-sm mb-4 block">
-            CONTACTEZ-NOUS
+            {t.contact.label}
           </span>
           <h2 className="font-display text-5xl md:text-7xl text-[var(--text)] mb-8">
-            DÉMARRONS VOTRE
+            {t.contact.title1}
             <br />
-            <span className="text-[var(--accent)]">PROJET</span>
+            <span className="text-[var(--accent)]">{t.contact.title2}</span>
           </h2>
           <p className="text-[var(--text-muted)] text-lg leading-relaxed mb-12 max-w-md">
-            Nous sommes à votre disposition pour étudier vos besoins en construction
-            et génie civil. Notre équipe vous accompagne de la conception initiale
-            jusqu'à la livraison finale de votre projet.
+            {t.contact.description}
           </p>
 
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
               <h4 className="font-display text-xl text-[var(--text)] mb-2">
-                SIÈGE PRINCIPAL - RDC
+                {t.contact.hqTitle}
               </h4>
               <p className="font-mono text-sm text-[var(--text-muted)]">
                 8225 Avenue Kabasele
@@ -64,7 +64,7 @@ export default function ContactSection() {
             </div>
             <div>
               <h4 className="font-display text-xl text-[var(--text)] mb-2">
-                BUREAU RÉGIONAL - LIBAN
+                {t.contact.regionalTitle}
               </h4>
               <p className="font-mono text-sm text-[var(--text-muted)]">
                 Rue Hamra
@@ -75,7 +75,7 @@ export default function ContactSection() {
               </p>
             </div>
             <div>
-              <h4 className="font-display text-xl text-[var(--text)] mb-2">COURRIEL</h4>
+              <h4 className="font-display text-xl text-[var(--text)] mb-2">{t.contact.emailTitle}</h4>
               <a
                 href="mailto:info@socodeco.org"
                 className="font-mono text-sm text-[var(--accent)] hover:underline"
@@ -96,7 +96,7 @@ export default function ContactSection() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="font-mono text-xs text-[var(--text-muted)] mb-2 block">
-                NOM COMPLET *
+                {t.contact.form.name}
               </label>
               <input
                 type="text"
@@ -106,13 +106,13 @@ export default function ContactSection() {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 className="w-full bg-transparent border-b-2 border-[var(--surface-light)] focus:border-[var(--accent)] py-3 text-[var(--text)] outline-none transition-colors"
-                placeholder="Votre nom"
+                placeholder={t.contact.form.namePlaceholder}
               />
             </div>
 
             <div>
               <label className="font-mono text-xs text-[var(--text-muted)] mb-2 block">
-                ADRESSE EMAIL *
+                {t.contact.form.email}
               </label>
               <input
                 type="email"
@@ -122,13 +122,13 @@ export default function ContactSection() {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 className="w-full bg-transparent border-b-2 border-[var(--surface-light)] focus:border-[var(--accent)] py-3 text-[var(--text)] outline-none transition-colors"
-                placeholder="votre@email.com"
+                placeholder={t.contact.form.emailPlaceholder}
               />
             </div>
 
             <div>
               <label className="font-mono text-xs text-[var(--text-muted)] mb-2 block">
-                SOCIÉTÉ / ORGANISATION
+                {t.contact.form.company}
               </label>
               <input
                 type="text"
@@ -137,13 +137,13 @@ export default function ContactSection() {
                   setFormData({ ...formData, company: e.target.value })
                 }
                 className="w-full bg-transparent border-b-2 border-[var(--surface-light)] focus:border-[var(--accent)] py-3 text-[var(--text)] outline-none transition-colors"
-                placeholder="Nom de votre organisation"
+                placeholder={t.contact.form.companyPlaceholder}
               />
             </div>
 
             <div>
               <label className="font-mono text-xs text-[var(--text-muted)] mb-2 block">
-                DESCRIPTION DU PROJET *
+                {t.contact.form.message}
               </label>
               <textarea
                 required
@@ -153,7 +153,7 @@ export default function ContactSection() {
                   setFormData({ ...formData, message: e.target.value })
                 }
                 className="w-full bg-transparent border-b-2 border-[var(--surface-light)] focus:border-[var(--accent)] py-3 text-[var(--text)] outline-none transition-colors resize-none"
-                placeholder="Décrivez votre projet et vos besoins..."
+                placeholder={t.contact.form.messagePlaceholder}
               />
             </div>
 
@@ -163,7 +163,7 @@ export default function ContactSection() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              ENVOYER LA DEMANDE
+              {t.contact.form.submit}
             </motion.button>
           </form>
         </motion.div>
