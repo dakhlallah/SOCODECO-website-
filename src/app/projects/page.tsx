@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects, categories } from "@/data/projects";
 import Footer from "@/components/Footer";
+import NoDataPlan from "@/components/NoDataPlan";
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("Tous");
@@ -65,58 +66,62 @@ export default function ProjectsPage() {
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
-        <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" layout>
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-              >
-                <Link
-                  href={`/projects/${project.id}`}
-                  className="group block"
+        {/* Projects Grid or No Data State */}
+        {filteredProjects.length > 0 ? (
+          <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" layout>
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden mb-4">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-[var(--background)]/30 group-hover:bg-[var(--accent)]/10 transition-all duration-500" />
-                    <motion.div
-                      className="absolute inset-0 border-2 border-[var(--accent)]"
-                      initial={{ opacity: 0 }}
-                      whileHover={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="font-mono text-xs text-[var(--accent)] bg-[var(--background)]/90 px-2 py-1">
-                        {project.category}
-                      </span>
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="group block"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden mb-4">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-all duration-700"
+                      />
+                      <div className="absolute inset-0 bg-[var(--background)]/30 group-hover:bg-[var(--accent)]/10 transition-all duration-500" />
+                      <motion.div
+                        className="absolute inset-0 border-2 border-[var(--accent)]"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="font-mono text-xs text-[var(--accent)] bg-[var(--background)]/90 px-2 py-1">
+                          {project.category}
+                        </span>
+                      </div>
+                      <div className="absolute top-4 right-4">
+                        <span className="font-mono text-xs text-[var(--text)]/60">
+                          {project.year}
+                        </span>
+                      </div>
                     </div>
-                    <div className="absolute top-4 right-4">
-                      <span className="font-mono text-xs text-[var(--text)]/60">
-                        {project.year}
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="font-display text-2xl text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="font-mono text-sm text-[var(--text-muted)]">
-                    {project.location}
-                  </p>
-                </Link>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+                    <h3 className="font-display text-2xl text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="font-mono text-sm text-[var(--text-muted)]">
+                      {project.location}
+                    </p>
+                  </Link>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        ) : (
+          <NoDataPlan message="No Data Plan... yet!" />
+        )}
       </section>
 
       <Footer />
