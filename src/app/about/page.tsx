@@ -10,7 +10,7 @@ export default function AboutPage() {
 
   const team = [
     { name: "Oussama Dakhlallah", role: t.team.ceo, image: "/images/oussama-dakhlallah.jpg" },
-    { name: "Ibrahim Dakhlallah", role: t.team.gm, image: "/images/ibrahim-dakhlallah.png" },
+    { name: "Ibrahim Dakhlallah", role: t.team.gm, image: "/images/ibrahim-dakhlallah.jpg" },
     { name: "Mahdi Dakhlallah", role: t.team.coo, image: "/images/mahdi-dakhlallah.png" },
     { name: "Karim Dakhlallah", role: t.team.cto, image: "/images/krim-dakhlallah.png" },
   ];
