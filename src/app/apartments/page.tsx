@@ -12,7 +12,7 @@ const apartments = [
     type: "Tour Premium",
     units: "Unités disponibles",
     status: "available",
-    image: "/SOCODECO-website-/images/apartments/quantum-exterior.jpg",
+    image: "/images/apartments/quantum-exterior.jpg",
     features: ["Finitions modernes", "Double accès ascenseur", "Cuisines équipées", "Balcons privatifs"],
   },
   {
