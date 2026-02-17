@@ -10,9 +10,9 @@ export default function AboutPage() {
 
   const team = [
     { name: "Oussama Dakhlallah", role: t.team.ceo, image: "/images/oussama-dakhlallah.jpg" },
-    { name: "Jean-Pierre Mutombo", role: t.team.gm, image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
-    { name: "Sarah El-Khoury", role: t.team.coo, image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" },
-    { name: "Emmanuel Kabongo", role: t.team.cto, image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
+    { name: "Ibrahim Dakhlallah", role: t.team.gm, image: "/images/ibrahim-dakhlallah.png" },
+    { name: "Mahdi Dakhlallah", role: t.team.coo, image: "/images/mahdi-dakhlallah.png" },
+    { name: "Karim Dakhlallah", role: t.team.cto, image: "/images/krim-dakhlallah.png" },
   ];
 
   return (
