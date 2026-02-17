@@ -8,6 +8,7 @@ export const fr = {
     apartments: "Appartements",
     architecture: "Architecture",
     contact: "Contact",
+    login: "Connexion",
     drc: "République Démocratique du Congo",
     lebanon: "Liban",
   },
@@ -283,6 +284,23 @@ export const fr = {
     rights: "Tous droits réservés.",
     privacy: "Politique de Confidentialité",
     terms: "Conditions Générales",
+  },
+
+  // Login Page
+  login: {
+    label: "ESPACE CLIENT",
+    title1: "ESPACE",
+    title2: "CLIENT",
+    description: "Accédez à votre tableau de bord projet, documents et rapports d'avancement.",
+    email: "ADRESSE EMAIL",
+    emailPlaceholder: "votre@email.com",
+    password: "MOT DE PASSE",
+    passwordPlaceholder: "Entrez votre mot de passe",
+    submit: "SE CONNECTER",
+    forgotPassword: "Mot de passe oublié ?",
+    rememberMe: "Se souvenir de moi",
+    noAccount: "Vous n'avez pas de compte ?",
+    contactUs: "Contactez-nous",
   },
 
   // Team Members

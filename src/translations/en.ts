@@ -8,6 +8,7 @@ export const en = {
     apartments: "Apartments",
     architecture: "Architecture",
     contact: "Contact",
+    login: "Login",
     drc: "Democratic Republic of Congo",
     lebanon: "Lebanon",
   },
@@ -283,6 +284,23 @@ export const en = {
     rights: "All rights reserved.",
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
+  },
+
+  // Login Page
+  login: {
+    label: "CLIENT ACCESS",
+    title1: "CLIENT",
+    title2: "LOGIN",
+    description: "Access your project dashboard, documents and progress reports.",
+    email: "EMAIL ADDRESS",
+    emailPlaceholder: "your@email.com",
+    password: "PASSWORD",
+    passwordPlaceholder: "Enter your password",
+    submit: "SIGN IN",
+    forgotPassword: "Forgot your password?",
+    rememberMe: "Remember me",
+    noAccount: "Don't have an account?",
+    contactUs: "Contact us",
   },
 
   // Team Members

@@ -18,6 +18,7 @@ export default function Navigation() {
     { name: t.nav.apartments, href: "/apartments" },
     { name: t.nav.architecture, href: "/architecture" },
     { name: t.nav.contact, href: "/contact" },
+    { name: t.nav.login, href: "/login" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
