@@ -189,6 +189,8 @@ export default function Navigation() {
               <div className="font-mono text-right">
                 <p>info@socodeco.org</p>
                 <p>+243 820 200 003</p>
+                <p>+243 818 812 222</p>
+                <p>+243 822 666 555</p>
               </div>
             </motion.div>
           </motion.nav>

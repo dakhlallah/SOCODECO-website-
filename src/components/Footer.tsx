@@ -99,6 +99,10 @@ export default function Footer() {
                   C/Gombe, Kinshasa
                   <br />
                   +243 820 200 003
+                  <br />
+                  +243 818 812 222
+                  <br />
+                  +243 822 666 555
                 </p>
               </div>
               <div>
