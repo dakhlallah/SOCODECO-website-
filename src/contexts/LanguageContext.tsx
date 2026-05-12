@@ -25,9 +25,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem("socodeco-language") as Language;
-    if (stored && (stored === "fr" || stored === "en")) {
-      setLanguageState(stored);
-    }
+    const initial =
+      stored === "fr" || stored === "en" ? stored : "fr";
+    setLanguageState(initial);
+    document.documentElement.lang = initial;
   }, []);
 
   const setLanguage = (lang: Language) => {

@@ -112,9 +112,6 @@ export default function ContactPage() {
                 Beyrouth, Liban
               </p>
               <p>
-                <span className="text-[var(--accent)]">Tél:</span> +961 1 XXX XXX
-              </p>
-              <p>
                 <span className="text-[var(--accent)]">{t.contact.hours}:</span> Lun-Ven
                 09:00 - 18:00
               </p>

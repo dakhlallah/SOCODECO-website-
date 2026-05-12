@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { projects } from "@/data/projects";
 import Link from "next/link";
 import ProjectContent from "./ProjectContent";
@@ -6,6 +7,30 @@ export function generateStaticParams() {
   return projects.map((project) => ({
     id: project.id,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+  if (!project) {
+    return { title: "Project not found" };
+  }
+  const description = project.description.slice(0, 160);
+  return {
+    title: project.title,
+    description,
+    alternates: { canonical: `/projects/${project.id}` },
+    openGraph: {
+      title: `${project.title} | SOCODECO`,
+      description,
+      url: `/projects/${project.id}`,
+      images: project.image ? [{ url: project.image }] : undefined,
+    },
+  };
 }
 
 export default async function ProjectDetailPage({
