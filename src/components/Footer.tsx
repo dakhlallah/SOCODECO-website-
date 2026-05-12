@@ -40,16 +40,19 @@ export default function Footer() {
             <p className="mt-4 text-[var(--text-muted)] text-sm leading-relaxed">
               {t.footer.description}
             </p>
-            <div className="mt-6 flex gap-4">
-              {["Instagram", "LinkedIn", "Facebook"].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
-                >
-                  {social}
-                </a>
-              ))}
+            <div className="mt-6 flex flex-col gap-2">
+              <a
+                href="mailto:info@socodeco.org"
+                className="font-mono text-xs text-[var(--text)] hover:text-[var(--accent)] transition-colors"
+              >
+                info@socodeco.org
+              </a>
+              <a
+                href="tel:+243820200003"
+                className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
+              >
+                +243 820 200 003
+              </a>
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -9,6 +9,51 @@ import LanguageToggle from "./LanguageToggle";
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslation();
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const focusableSelector =
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const firstLink = menuRef.current?.querySelector<HTMLElement>(focusableSelector);
+    firstLink?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setIsOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !menuRef.current) return;
+      const focusable = Array.from(
+        menuRef.current.querySelectorAll<HTMLElement>(focusableSelector),
+      ).filter((el) => !el.hasAttribute("disabled"));
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      (previouslyFocused ?? toggleButtonRef.current)?.focus();
+    };
+  }, [isOpen]);
 
   const menuItems = [
     { name: t.nav.home, href: "/" },
@@ -82,9 +127,12 @@ export default function Navigation() {
 
           {/* Hamburger Button */}
           <button
+            ref={toggleButtonRef}
             onClick={toggleMenu}
             className="relative z-50 w-12 h-12 flex flex-col justify-center items-center gap-1.5 group"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="primary-navigation"
           >
             <motion.span
               className="w-8 h-0.5 bg-white block origin-center"
@@ -118,6 +166,11 @@ export default function Navigation() {
       <AnimatePresence>
         {isOpen && (
           <motion.nav
+            id="primary-navigation"
+            ref={menuRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Primary navigation"
             className="fixed inset-0 bg-[var(--background)] z-40 flex items-center justify-center"
             variants={menuVariants}
             initial="closed"

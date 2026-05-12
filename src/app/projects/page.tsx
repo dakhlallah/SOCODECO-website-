@@ -49,20 +49,28 @@ export default function ProjectsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
+          role="group"
+          aria-label="Filter projects by category"
         >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`font-mono text-sm px-6 py-3 border transition-all duration-300 ${
-                activeCategory === category
-                  ? "bg-[var(--accent)] text-[var(--background)] border-[var(--accent)]"
-                  : "border-[var(--surface-light)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+          {categories.map((category) => {
+            const isActive = activeCategory === category;
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                aria-pressed={isActive}
+                aria-label={`Filter projects: ${category}`}
+                className={`font-mono text-sm px-6 py-3 border transition-all duration-300 ${
+                  isActive
+                    ? "bg-[var(--accent)] text-[var(--background)] border-[var(--accent)]"
+                    : "border-[var(--surface-light)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                }`}
+              >
+                {category}
+              </button>
+            );
+          })}
         </motion.div>
 
         {/* Projects Grid */}
