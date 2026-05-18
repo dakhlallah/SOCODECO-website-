@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @import "@fontsource/bebas-neue";
+@import "@fontsource/inter/300.css";
 @import "@fontsource/inter/400.css";
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
 @import "@fontsource/jetbrains-mono/400.css";
 
 /* Dark theme (default) */
@@ -187,4 +189,107 @@ input:focus-visible,
 textarea:focus-visible {
   outline: none;
   border-color: var(--accent);
+}
+
+/* ==========================================================================
+   ATELIER NOVA — cinematic architecture design system
+   ========================================================================== */
+
+.nova {
+  --nova-bg-0: #050505;
+  --nova-bg-1: #0b0b0b;
+  --nova-bg-2: #111111;
+  --nova-white: #ffffff;
+  --nova-gray: #b8b8b8;
+  --nova-beige: #d6c2a5;
+  --nova-champagne: #e7d3b1;
+  background: var(--nova-bg-0);
+  color: var(--nova-white);
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nova ::selection {
+  background: var(--nova-beige);
+  color: #050505;
+}
+
+.nova-display {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+.nova-eyebrow {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--nova-beige);
+}
+
+/* Liquid / frosted glass surface */
+.liquid-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 30px 80px -40px rgba(0, 0, 0, 0.9);
+}
+
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    rgba(231, 211, 177, 0.35),
+    rgba(255, 255, 255, 0.04) 30%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.nova-hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.nova-haze {
+  background: radial-gradient(
+    60% 50% at 50% 30%,
+    rgba(231, 211, 177, 0.16) 0%,
+    rgba(231, 211, 177, 0) 70%
+  );
+}
+
+.nova-glow-text {
+  text-shadow: 0 0 60px rgba(231, 211, 177, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nova * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
