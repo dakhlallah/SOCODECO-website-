@@ -1,26 +1,44 @@
 "use client";
 
-const COLS = [
+import Link from "next/link";
+
+type FLink = { label: string; href: string; external?: boolean };
+
+const COLS: { title: string; links: FLink[] }[] = [
   {
     title: "Studio",
-    links: ["Accueil", "Projets", "Services", "À propos"],
+    links: [
+      { label: "Accueil", href: "/#hero" },
+      { label: "Projets", href: "/projets" },
+      { label: "Le studio", href: "/studio" },
+      { label: "Contact", href: "/#contact" },
+    ],
   },
   {
     title: "Services",
     links: [
-      "Architecture résidentielle",
-      "Architecture commerciale",
-      "Design intérieur",
-      "BIM & 3D",
+      { label: "Architecture résidentielle", href: "/services" },
+      { label: "Architecture commerciale", href: "/services" },
+      { label: "Design intérieur", href: "/services" },
+      { label: "BIM & 3D", href: "/services" },
     ],
   },
   {
     title: "Réseaux",
-    links: ["Instagram", "LinkedIn", "Behance", "Pinterest"],
+    links: [
+      { label: "Instagram", href: "#", external: true },
+      { label: "LinkedIn", href: "#", external: true },
+      { label: "Behance", href: "#", external: true },
+      { label: "Pinterest", href: "#", external: true },
+    ],
   },
   {
     title: "Contact",
-    links: ["contact@ateliernova.fr", "+33 1 00 00 00 00", "Paris — Genève"],
+    links: [
+      { label: "contact@ateliernova.fr", href: "mailto:contact@ateliernova.fr", external: true },
+      { label: "+33 1 00 00 00 00", href: "tel:+33100000000", external: true },
+      { label: "Paris — Genève", href: "/#contact" },
+    ],
   },
 ];
 
@@ -44,13 +62,22 @@ export default function Footer() {
                 </p>
                 <ul className="mt-6 space-y-3.5">
                   {c.links.map((l) => (
-                    <li key={l}>
-                      <a
-                        href="#"
-                        className="text-sm font-light text-[var(--nova-gray)] transition-colors duration-300 hover:text-white"
-                      >
-                        {l}
-                      </a>
+                    <li key={l.label}>
+                      {l.external ? (
+                        <a
+                          href={l.href}
+                          className="text-sm font-light text-[var(--nova-gray)] transition-colors duration-300 hover:text-white"
+                        >
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={l.href}
+                          className="text-sm font-light text-[var(--nova-gray)] transition-colors duration-300 hover:text-white"
+                        >
+                          {l.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ateliernova.fr";
 
@@ -50,9 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className="antialiased">
-        <LanguageProvider>{children}</LanguageProvider>
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

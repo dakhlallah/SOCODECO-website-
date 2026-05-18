@@ -9,8 +9,8 @@ import { EASE } from "./motion";
 const LINKS = [
   { label: "Accueil", href: "/#hero" },
   { label: "Projets", href: "/projets" },
-  { label: "Services", href: "/#services" },
-  { label: "Studio", href: "/#studio" },
+  { label: "Services", href: "/services" },
+  { label: "Studio", href: "/studio" },
   { label: "Contact", href: "/#contact" },
 ];
 
