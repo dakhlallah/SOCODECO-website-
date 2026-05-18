@@ -8,7 +8,7 @@ import { blurFadeUp, fadeUp, stagger, viewportOnce } from "./motion";
 export default function CTA() {
   return (
     <section
-      id="contact"
+      id="rendez-vous"
       className="relative flex min-h-[88vh] items-center overflow-hidden px-6 md:px-10"
     >
       <div className="absolute inset-0">

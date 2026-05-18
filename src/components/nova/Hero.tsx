@@ -1,9 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { blurFadeUp, fadeUp, stagger, EASE } from "./motion";
+
+const HERO_VIDEO = process.env.NEXT_PUBLIC_HERO_VIDEO_URL;
+const HERO_POSTER =
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=2400&q=85";
 
 const SPECS = [
   { k: "Surface", v: "850 m²" },
@@ -14,6 +19,8 @@ const SPECS = [
 ];
 
 export default function Hero() {
+  const [videoOk, setVideoOk] = useState(true);
+
   return (
     <section
       id="hero"
@@ -21,13 +28,27 @@ export default function Hero() {
     >
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=2400&q=85"
+          src={HERO_POSTER}
           alt="Villa contemporaine dans une forêt brumeuse au crépuscule"
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
+        {HERO_VIDEO && videoOk && (
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={HERO_POSTER}
+            onError={() => setVideoOk(false)}
+          >
+            <source src={HERO_VIDEO} type="video/mp4" />
+          </video>
+        )}
         <div className="absolute inset-0 backdrop-blur-[2px]" />
         <div className="absolute inset-0 bg-[var(--nova-bg-0)]/35" />
         <div className="nova-haze absolute inset-0" />

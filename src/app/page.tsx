@@ -6,6 +6,7 @@ import About from "@/components/nova/About";
 import FeaturedProjects from "@/components/nova/FeaturedProjects";
 import Stats from "@/components/nova/Stats";
 import CTA from "@/components/nova/CTA";
+import Contact from "@/components/nova/Contact";
 import Footer from "@/components/nova/Footer";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <FeaturedProjects />
         <Stats />
         <CTA />
+        <Contact />
       </main>
       <Footer />
     </div>
