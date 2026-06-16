@@ -1,102 +1,153 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useSpring } from "framer-motion";
 
-export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+type CursorMode = "default" | "pointer" | "text";
+
+function CustomCursor() {
+  const [mode, setMode] = useState<CursorMode>("default");
   const [isVisible, setIsVisible] = useState(false);
+  const [hasFinePointer, setHasFinePointer] = useState(false);
+  const styleRef = useRef<HTMLStyleElement | null>(null);
+
+  const dotX = useSpring(0, { stiffness: 500, damping: 28 });
+  const dotY = useSpring(0, { stiffness: 500, damping: 28 });
+  const ringX = useSpring(0, { stiffness: 150, damping: 15 });
+  const ringY = useSpring(0, { stiffness: 150, damping: 15 });
 
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      setIsVisible(true);
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    setHasFinePointer(finePointer);
+    if (!finePointer) return;
+
+    // Hide default cursor globally
+    const style = document.createElement("style");
+    style.textContent = "* { cursor: none !important; }";
+    document.head.appendChild(style);
+    styleRef.current = style;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      dotX.set(e.clientX);
+      dotY.set(e.clientY);
+      ringX.set(e.clientX);
+      ringY.set(e.clientY);
+      if (!isVisible) setIsVisible(true);
     };
 
-    const handleMouseEnter = () => setIsVisible(true);
-    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnterInteractive = () => setMode("pointer");
+    const handleMouseLeaveInteractive = () => setMode("default");
+    const handleMouseEnterText = () => setMode("text");
+    const handleMouseLeaveText = () => setMode("default");
 
-    window.addEventListener("mousemove", updateMousePosition);
-    document.addEventListener("mouseenter", handleMouseEnter);
-    document.addEventListener("mouseleave", handleMouseLeave);
+    const INTERACTIVE_SELECTOR = 'a, button, [data-cursor="pointer"]';
+    const TEXT_SELECTOR = '[data-cursor="text"]';
 
-    // Add hover detection for interactive elements
-    const addHoverListeners = () => {
-      const interactiveElements = document.querySelectorAll(
-        'a, button, [role="button"], input, textarea, select, [data-cursor="pointer"]'
-      );
-
-      interactiveElements.forEach((el) => {
-        el.addEventListener("mouseenter", () => setIsHovering(true));
-        el.addEventListener("mouseleave", () => setIsHovering(false));
+    const bindListeners = () => {
+      document.querySelectorAll(INTERACTIVE_SELECTOR).forEach((el) => {
+        el.addEventListener("mouseenter", handleMouseEnterInteractive);
+        el.addEventListener("mouseleave", handleMouseLeaveInteractive);
+      });
+      document.querySelectorAll(TEXT_SELECTOR).forEach((el) => {
+        el.addEventListener("mouseenter", handleMouseEnterText);
+        el.addEventListener("mouseleave", handleMouseLeaveText);
       });
     };
 
-    // Initial setup and mutation observer for dynamic content
-    addHoverListeners();
-    const observer = new MutationObserver(addHoverListeners);
+    const unbindListeners = () => {
+      document.querySelectorAll(INTERACTIVE_SELECTOR).forEach((el) => {
+        el.removeEventListener("mouseenter", handleMouseEnterInteractive);
+        el.removeEventListener("mouseleave", handleMouseLeaveInteractive);
+      });
+      document.querySelectorAll(TEXT_SELECTOR).forEach((el) => {
+        el.removeEventListener("mouseenter", handleMouseEnterText);
+        el.removeEventListener("mouseleave", handleMouseLeaveText);
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    bindListeners();
+
+    // Re-bind when DOM changes
+    const observer = new MutationObserver(() => {
+      unbindListeners();
+      bindListeners();
+    });
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      window.removeEventListener("mousemove", updateMousePosition);
-      document.removeEventListener("mouseenter", handleMouseEnter);
-      document.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("mousemove", handleMouseMove);
+      unbindListeners();
       observer.disconnect();
+      if (styleRef.current) {
+        document.head.removeChild(styleRef.current);
+        styleRef.current = null;
+      }
     };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Hide on touch devices and small screens
-  const [isMobile, setIsMobile] = useState(true);
+  if (!hasFinePointer) return null;
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768 || "ontouchstart" in window);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  if (isMobile) {
-    return null;
-  }
+  const dotScale = mode === "pointer" ? 0.5 : mode === "text" ? 3 : 1;
+  const dotOpacity = mode === "text" ? 0.1 : 1;
+  const ringScale = mode === "pointer" ? 1.5 : mode === "text" ? 0 : 1;
+  const ringBorderColor =
+    mode === "pointer" ? "rgba(184,150,78,0.3)" : "rgba(26,26,26,0.15)";
 
   return (
     <>
-      {/* Main cursor dot */}
+      {/* Dot (inner cursor) */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-[var(--accent)] rounded-full pointer-events-none z-[9999] mix-blend-difference"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          x: dotX,
+          y: dotY,
+          pointerEvents: "none",
+          zIndex: 9998,
+          width: 6,
+          height: 6,
+          borderRadius: "50%",
+          backgroundColor: "#B8964E",
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
         animate={{
-          x: mousePosition.x - 6,
-          y: mousePosition.y - 6,
-          scale: isHovering ? 0.5 : 1,
-          opacity: isVisible ? 1 : 0,
+          scale: dotScale,
+          opacity: isVisible ? dotOpacity : 0,
         }}
-        transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.5,
-        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
       />
 
-      {/* Cursor ring */}
+      {/* Ring (outer cursor) */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border-2 border-[var(--accent)] rounded-full pointer-events-none z-[9998]"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          x: ringX,
+          y: ringY,
+          pointerEvents: "none",
+          zIndex: 9998,
+          width: 36,
+          height: 36,
+          borderRadius: "50%",
+          backgroundColor: "transparent",
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
         animate={{
-          x: mousePosition.x - 20,
-          y: mousePosition.y - 20,
-          scale: isHovering ? 1.5 : 1,
-          opacity: isVisible ? 0.5 : 0,
+          scale: ringScale,
+          borderColor: ringBorderColor,
+          borderWidth: 1,
+          borderStyle: "solid",
+          opacity: isVisible ? 1 : 0,
         }}
-        transition={{
-          type: "spring",
-          stiffness: 250,
-          damping: 20,
-          mass: 0.8,
-        }}
+        transition={{ type: "spring", stiffness: 200, damping: 20 }}
       />
     </>
   );
 }
+
+export default CustomCursor;

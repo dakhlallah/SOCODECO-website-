@@ -1,197 +1,223 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { useTranslation } from "@/hooks/useTranslation";
-import LanguageToggle from "./LanguageToggle";
+
+const navLinks = [
+  { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
-  const t = useTranslation();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
 
-  const menuItems = [
-    { name: t.nav.home, href: "/" },
-    { name: t.nav.about, href: "/about" },
-    { name: t.nav.materials, href: "/materials" },
-    { name: t.nav.services, href: "/services" },
-    { name: t.nav.apartments, href: "/apartments" },
-    { name: t.nav.architecture, href: "/architecture" },
-    { name: t.nav.contact, href: "/contact" },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+      setPastHero(window.scrollY > window.innerHeight - 100);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.76, 0, 0.24, 1] as const,
-      },
-    },
-    open: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.76, 0, 0.24, 1] as const,
-      },
-    },
-  };
-
-  const linkVariants = {
-    closed: {
-      y: 50,
-      opacity: 0,
-    },
-    open: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.1 + i * 0.1,
-        duration: 0.5,
-        ease: [0.76, 0, 0.24, 1] as const,
-      },
-    }),
-  };
+  // Colors flip once we scroll past the dark hero
+  const textColor = pastHero ? "#1A1A1A" : "#F5F2EA";
+  const logoColor = pastHero ? "#1A1A1A" : "#C8A96B";
+  const bgColor = scrolled
+    ? pastHero
+      ? "rgba(255,255,255,0.85)"
+      : "rgba(10,10,10,0.72)"
+    : "transparent";
 
   return (
     <>
-      {/* Fixed Header */}
-      <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center mix-blend-difference">
-        <Link href="/" className="relative z-50">
-          <motion.span
-            className="font-display text-3xl text-white tracking-wider"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            SOCODECO
-          </motion.span>
-        </Link>
+      <nav
+        className="fixed top-0 left-0 w-full z-50 py-5 px-6 md:px-12 flex items-center justify-between"
+        style={{
+          background: bgColor,
+          backdropFilter: scrolled ? "blur(24px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
+          transition: "all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)",
+        }}
+      >
+        {/* Logo */}
+        <a
+          href="/"
+          style={{
+            color: logoColor,
+            fontWeight: 600,
+            letterSpacing: "0.15em",
+            fontSize: "1rem",
+            textTransform: "uppercase",
+            textDecoration: "none",
+            transition: "color 0.5s",
+          }}
+        >
+          SOCODECO
+        </a>
 
-        <div className="flex items-center gap-4">
-          {/* Language Toggle */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <LanguageToggle variant="header" />
-          </motion.div>
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-10">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              style={{
+                color: textColor,
+                fontSize: "0.7rem",
+                fontWeight: 500,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                transition: "opacity 0.3s, color 0.5s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.5")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
+              {link.label}
+            </a>
+          ))}
 
-          {/* Hamburger Button */}
-          <button
-            onClick={toggleMenu}
-            className="relative z-50 w-12 h-12 flex flex-col justify-center items-center gap-1.5 group"
-            aria-label="Toggle menu"
+          {/* CTA Button */}
+          <a
+            href="#contact"
+            style={{
+              color: pastHero ? "#1A1A1A" : "#F5F2EA",
+              fontSize: "0.7rem",
+              fontWeight: 500,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+              border: pastHero
+                ? "1px solid rgba(0,0,0,0.15)"
+                : "1px solid rgba(200,169,107,0.3)",
+              padding: "0.55rem 1.4rem",
+              transition: "all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#B8964E";
+              e.currentTarget.style.color = "#FFFFFF";
+              e.currentTarget.style.borderColor = "#B8964E";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = pastHero ? "#1A1A1A" : "#F5F2EA";
+              e.currentTarget.style.borderColor = pastHero
+                ? "rgba(0,0,0,0.15)"
+                : "rgba(200,169,107,0.3)";
+            }}
           >
-            <motion.span
-              className="w-8 h-0.5 bg-white block origin-center"
-              animate={{
-                rotate: isOpen ? 45 : 0,
-                y: isOpen ? 4 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.span
-              className="w-8 h-0.5 bg-white block"
-              animate={{
-                opacity: isOpen ? 0 : 1,
-                x: isOpen ? 20 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.span
-              className="w-8 h-0.5 bg-white block origin-center"
-              animate={{
-                rotate: isOpen ? -45 : 0,
-                y: isOpen ? -4 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-            />
-          </button>
+            Start a Project
+          </a>
         </div>
-      </header>
 
-      {/* Full Screen Menu */}
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden flex flex-col justify-center items-center gap-[5px]"
+          onClick={() => setMobileOpen(true)}
+          aria-label="Open menu"
+          style={{ background: "none", border: "none", cursor: "pointer" }}
+        >
+          {[0, 1, 2].map((i) => (
+            <span
+              key={i}
+              style={{
+                display: "block",
+                width: "22px",
+                height: "1px",
+                background: textColor,
+                transition: "background 0.5s",
+              }}
+            />
+          ))}
+        </button>
+      </nav>
+
+      {/* Mobile Overlay */}
       <AnimatePresence>
-        {isOpen && (
-          <motion.nav
-            className="fixed inset-0 bg-[var(--background)] z-40 flex items-center justify-center"
-            variants={menuVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
+        {mobileOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+            className="fixed inset-0 z-50 flex flex-col justify-center items-center"
+            style={{ background: "#FFFFFF" }}
           >
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 left-0 w-full h-full">
-                {[...Array(10)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute h-px bg-white/20"
-                    style={{
-                      top: `${10 + i * 10}%`,
-                      left: 0,
-                      right: 0,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
+            <button
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              className="absolute top-5 right-6"
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                color: "#1A1A1A",
+                fontSize: "1.5rem",
+                lineHeight: 1,
+              }}
+            >
+              &times;
+            </button>
 
-            <div className="relative z-10 flex flex-col items-center">
-              {menuItems.map((item, i) => (
-                <motion.div
-                  key={item.href}
-                  custom={i}
-                  variants={linkVariants}
-                  initial="closed"
-                  animate="open"
-                  exit="closed"
-                  className="overflow-hidden"
+            <nav className="flex flex-col items-center gap-10">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.06, duration: 0.4 }}
+                  onClick={() => setMobileOpen(false)}
+                  style={{
+                    color: "#1A1A1A",
+                    fontSize: "0.85rem",
+                    fontWeight: 500,
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                  }}
                 >
-                  <Link
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="font-display text-5xl md:text-7xl lg:text-8xl text-[var(--text)] hover:text-[var(--accent)] transition-colors duration-300 block py-2"
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
+                  {link.label}
+                </motion.a>
               ))}
 
-              {/* Language Toggle in Menu */}
-              <motion.div
-                custom={menuItems.length}
-                variants={linkVariants}
-                initial="closed"
-                animate="open"
-                exit="closed"
-                className="mt-8"
+              <motion.a
+                href="#contact"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.1 + navLinks.length * 0.06,
+                  duration: 0.4,
+                }}
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  color: "#FFFFFF",
+                  fontSize: "0.85rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  background: "#B8964E",
+                  padding: "0.65rem 1.6rem",
+                  marginTop: "1rem",
+                }}
               >
-                <LanguageToggle variant="menu" />
-              </motion.div>
-            </div>
-
-            {/* Footer Info */}
-            <motion.div
-              className="absolute bottom-8 left-8 right-8 flex justify-between items-end text-sm text-[var(--text-muted)]"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-            >
-              <div className="font-mono">
-                <p>{t.nav.drc}</p>
-                <p>{t.nav.lebanon}</p>
-              </div>
-              <div className="font-mono text-right">
-                <p>info@socodeco.org</p>
-                <p>+243 820 200 003</p>
-              </div>
-            </motion.div>
-          </motion.nav>
+                Start a Project
+              </motion.a>
+            </nav>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

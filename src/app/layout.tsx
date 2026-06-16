@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-import CustomCursor from "@/components/CustomCursor";
-import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "SOCODECO | Construction & Civil Engineering",
-  description: "Leading construction and civil engineering agency in Congo DRC and Lebanon. Building excellence from residential to industrial infrastructure.",
-  keywords: ["construction", "civil engineering", "Congo DRC", "Lebanon", "building", "infrastructure"],
+  title: "SOCODECO | Premium Construction & Engineering",
+  description:
+    "Premium construction, engineering, and real estate development company in the Democratic Republic of Congo and Lebanon. Building landmarks since 1991.",
+  keywords: [
+    "construction",
+    "engineering",
+    "real estate",
+    "architecture",
+    "Congo DRC",
+    "Lebanon",
+    "SOCODECO",
+  ],
 };
 
 export default function RootLayout({
@@ -16,14 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className="antialiased">
-        <LanguageProvider>
-          <CustomCursor />
-          <Navigation />
-          {children}
-        </LanguageProvider>
-      </body>
+    <html lang="en" className="scroll-smooth">
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
