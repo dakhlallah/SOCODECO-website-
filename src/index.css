@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: initial;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  @apply bg-paper text-ink font-body antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #c9a961;
+  color: #101010;
+}
+
+@layer components {
+.h-display {
+  @apply font-display font-bold tracking-tightest leading-[0.98];
+}
+
+.eyebrow {
+  @apply font-body text-[11px] font-medium uppercase tracking-[0.28em] text-golddeep;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2.5 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-white transition-all duration-300;
+  box-shadow:
+    0 1px 2px 0 rgba(16, 16, 16, 0.1),
+    0 4px 4px 0 rgba(16, 16, 16, 0.09),
+    0 9px 6px 0 rgba(16, 16, 16, 0.05),
+    0 17px 7px 0 rgba(16, 16, 16, 0.01),
+    inset 0 2px 8px 0 rgba(255, 255, 255, 0.18);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #1e1e1e;
+}
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-ink transition-all duration-300;
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.08),
+    0 4px 30px rgba(0, 0, 0, 0.08);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.1),
+    0 8px 40px rgba(0, 0, 0, 0.12);
+}
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+
+.gold-underline {
+  background-image: linear-gradient(#c9a961, #c9a961);
+  background-repeat: no-repeat;
+  background-size: 100% 0.09em;
+  background-position: 0 92%;
+}
+
+/* hairline used in stats / process */
+.hairline {
+  @apply bg-ink/10;
+}
+}
+
+/* warm glow on gold CTAs */
+.glow-gold {
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+.glow-gold:hover {
+  box-shadow: 0 0 44px -6px rgba(201, 169, 97, 0.65);
+}
+
+@keyframes cuedrop {
+  0% {
+    transform: translateY(-16px);
+  }
+  70%,
+  100% {
+    transform: translateY(44px);
+  }
+}
+
+/* blueprint grid backdrop for technical sections */
+.bp-grid {
+  background-image: linear-gradient(to right, rgba(16, 16, 16, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 16, 16, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.bp-grid-dark {
+  background-image: linear-gradient(to right, rgba(201, 169, 97, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 169, 97, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
