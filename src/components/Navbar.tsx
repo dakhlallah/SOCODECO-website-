@@ -1,19 +1,72 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HERO_PIN_LENGTH } from './Hero';
+import { useLang, type Lang } from '../lib/i18n';
 
-const LINKS = [
-  { label: 'Home', href: '/#hero' },
-  { label: 'About', href: '/about.html' },
-  { label: 'Expertise', href: '/#services' },
-  { label: 'Projects', href: '/#projects' },
-  { label: 'Quality', href: '/#quality' },
-  { label: 'Contact', href: '#contact' },
-];
+const T = {
+  fr: {
+    links: [
+      { label: 'Accueil', href: '/#hero' },
+      { label: 'À propos', href: '/about.html' },
+      { label: 'Expertise', href: '/#services' },
+      { label: 'Projets', href: '/#projects' },
+      { label: 'Qualité', href: '/#quality' },
+      { label: 'Contact', href: '#contact' },
+    ],
+    cta: 'Démarrer un projet',
+    home: 'SOCODECO — accueil',
+    menu: 'Ouvrir le menu',
+  },
+  en: {
+    links: [
+      { label: 'Home', href: '/#hero' },
+      { label: 'About', href: '/about.html' },
+      { label: 'Expertise', href: '/#services' },
+      { label: 'Projects', href: '/#projects' },
+      { label: 'Quality', href: '/#quality' },
+      { label: 'Contact', href: '#contact' },
+    ],
+    cta: 'Start a Project',
+    home: 'SOCODECO — home',
+    menu: 'Toggle menu',
+  },
+};
+
+/** Clean FR | EN switcher — active language in gold, works on light & dark. */
+function LangSwitch({ onDark, size = 'sm' }: { onDark: boolean; size?: 'sm' | 'lg' }) {
+  const { lang, setLang } = useLang();
+  const base =
+    size === 'lg'
+      ? 'px-2 py-1 text-[15px] font-semibold tracking-[0.08em]'
+      : 'px-1.5 py-1 text-[12.5px] font-semibold tracking-[0.08em]';
+  const cls = (l: Lang) =>
+    `${base} transition-colors duration-300 ${
+      lang === l
+        ? onDark
+          ? 'text-gold'
+          : 'text-golddeep'
+        : onDark
+          ? 'text-white/50 hover:text-white'
+          : 'text-ink/40 hover:text-ink'
+    }`;
+  return (
+    <div className="flex items-center" role="group" aria-label="Language">
+      <button aria-label="Français" aria-pressed={lang === 'fr'} onClick={() => setLang('fr')} className={cls('fr')}>
+        FR
+      </button>
+      <span className={onDark ? 'text-white/25' : 'text-ink/20'}>|</span>
+      <button aria-label="English" aria-pressed={lang === 'en'} onClick={() => setLang('en')} className={cls('en')}>
+        EN
+      </button>
+    </div>
+  );
+}
 
 export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 'page' }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { lang } = useLang();
+  const t = T[lang];
 
   useEffect(() => {
     /* on the homepage, stay cinematic (dark, transparent) for the whole
@@ -40,7 +93,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
     >
       <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 sm:px-10 lg:px-16">
         {/* wordmark — always returns to the landing page */}
-        <a href="/#hero" aria-label="SOCODECO — home" className="flex items-center gap-3">
+        <a href="/#hero" aria-label={t.home} className="flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center bg-gold font-display text-[13px] font-bold leading-none text-ink">
             SO
           </span>
@@ -61,7 +114,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
         </a>
 
         <div className="hidden items-center gap-1 lg:flex">
-          {LINKS.map((l) => (
+          {t.links.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -77,17 +130,20 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
         </div>
 
         <div className="flex items-center gap-3">
+          <div className="hidden lg:block">
+            <LangSwitch onDark={onDark} />
+          </div>
           <a
             href="#contact"
             className={`hidden items-center rounded-full px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.1em] transition-all duration-300 lg:inline-flex ${
               onDark ? 'bg-gold text-ink hover:bg-white' : 'bg-ink text-white hover:bg-ink/85'
             }`}
           >
-            Start a Project
+            {t.cta}
           </a>
           {/* mobile burger */}
           <button
-            aria-label="Toggle menu"
+            aria-label={t.menu}
             onClick={() => setOpen((v) => !v)}
             className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden"
           >
@@ -106,10 +162,10 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
       {/* mobile panel */}
       <div
         className="overflow-hidden bg-white/95 backdrop-blur-md lg:hidden"
-        style={{ maxHeight: open ? 360 : 0, transition: 'max-height 0.5s cubic-bezier(0.23,1,0.32,1)' }}
+        style={{ maxHeight: open ? 440 : 0, transition: 'max-height 0.5s cubic-bezier(0.23,1,0.32,1)' }}
       >
         <div className="flex flex-col px-6 pb-6 pt-2">
-          {LINKS.map((l, i) => (
+          {t.links.map((l, i) => (
             <a
               key={l.href}
               href={l.href}
@@ -124,6 +180,17 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
               {l.label}
             </a>
           ))}
+          {/* language switcher — mobile menu */}
+          <div
+            className="pt-4"
+            style={{
+              opacity: open ? 1 : 0,
+              transform: open ? 'translateY(0)' : 'translateY(-8px)',
+              transition: `opacity 0.4s ${t.links.length * 50 + 80}ms, transform 0.4s ${t.links.length * 50 + 80}ms`,
+            }}
+          >
+            <LangSwitch onDark={false} size="lg" />
+          </div>
         </div>
       </div>
     </motion.header>

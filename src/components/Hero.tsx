@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import MagneticButton from './MagneticButton';
+import { useLang } from '../lib/i18n';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -18,17 +19,53 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 /** total pinned scroll distance of the journey — Navbar flips style after it */
 export const HERO_PIN_LENGTH = 7200;
 
-const STAGES = [
-  { n: '01', key: 'LAND', title: 'Land Study', text: 'We analyze every site before building.', from: 0.0, to: 0.14 },
-  { n: '02', key: 'FOUNDATION', title: 'Foundation', text: 'Strength starts underground.', from: 0.14, to: 0.34 },
-  { n: '03', key: 'STRUCTURE', title: 'Structure', text: 'Precision defines every level.', from: 0.34, to: 0.62 },
-  { n: '04', key: 'FACADE', title: 'Facade', text: 'Details shape identity.', from: 0.62, to: 0.86 },
-  { n: '05', key: 'DELIVERY', title: 'Delivery', text: 'A landmark becomes real.', from: 0.86, to: 1.0 },
+const STAGE_TIMING = [
+  { n: '01', from: 0.0, to: 0.14 },
+  { n: '02', from: 0.14, to: 0.34 },
+  { n: '03', from: 0.34, to: 0.62 },
+  { n: '04', from: 0.62, to: 0.86 },
+  { n: '05', from: 0.86, to: 1.0 },
 ];
+
+const T = {
+  fr: {
+    stages: [
+      { key: 'TERRAIN', title: 'Étude du terrain', text: 'Nous analysons chaque site avant de construire.' },
+      { key: 'FONDATIONS', title: 'Fondations', text: 'La solidité commence sous terre.' },
+      { key: 'STRUCTURE', title: 'Structure', text: 'La précision définit chaque niveau.' },
+      { key: 'FAÇADE', title: 'Façade', text: "Les détails façonnent l'identité." },
+      { key: 'LIVRAISON', title: 'Livraison', text: "Un chef-d'œuvre devient réalité." },
+    ],
+    tagline: "Du terrain au chef-d'œuvre",
+    ctaProjects: 'Découvrir les projets',
+    ctaStart: 'Démarrer un projet',
+    scrollCue: 'Faites défiler pour construire',
+    videoAria:
+      "Film cinématique d'une tour SOCODECO s'élevant d'un terrain vide jusqu'à un gratte-ciel achevé à Kinshasa",
+  },
+  en: {
+    stages: [
+      { key: 'LAND', title: 'Land Study', text: 'We analyze every site before building.' },
+      { key: 'FOUNDATION', title: 'Foundation', text: 'Strength starts underground.' },
+      { key: 'STRUCTURE', title: 'Structure', text: 'Precision defines every level.' },
+      { key: 'FACADE', title: 'Facade', text: 'Details shape identity.' },
+      { key: 'DELIVERY', title: 'Delivery', text: 'A landmark becomes real.' },
+    ],
+    tagline: 'From Land to Landmark',
+    ctaProjects: 'Explore Projects',
+    ctaStart: 'Start a Project',
+    scrollCue: 'Scroll to build',
+    videoAria:
+      'Cinematic film of a SOCODECO tower rising from empty land to a completed high-rise in Kinshasa',
+  },
+};
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 
 export default function Hero() {
+  const { lang } = useLang();
+  const t = T[lang];
+  const stages = STAGE_TIMING.map((s, i) => ({ ...s, ...t.stages[i] }));
   const root = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const seekingRef = useRef(false);
@@ -66,17 +103,17 @@ export default function Hero() {
         const d = clamp01((p - 0.2) / 0.68);
         if (scrimRef.current) scrimRef.current.style.opacity = String(1 - d * 0.2);
 
-        STAGES.forEach((s, i) => {
+        STAGE_TIMING.forEach((s, i) => {
           const el = stageEls.current[i];
           if (!el) return;
           const fadeIn = i === 0 ? 1 : clamp01((p - s.from) / 0.035);
-          const fadeOut = i === STAGES.length - 1 ? 1 : clamp01((s.to - p) / 0.035);
+          const fadeOut = i === STAGE_TIMING.length - 1 ? 1 : clamp01((s.to - p) / 0.035);
           const v = Math.min(fadeIn, fadeOut);
           el.style.opacity = String(v);
           el.style.filter = `blur(${(1 - v) * 10}px)`;
           el.style.transform = `translateY(${(1 - v) * 34}px)`;
           const rail = railEls.current[i];
-          if (rail) rail.dataset.active = p >= s.from && (p < s.to || i === STAGES.length - 1) ? '1' : '0';
+          if (rail) rail.dataset.active = p >= s.from && (p < s.to || i === STAGE_TIMING.length - 1) ? '1' : '0';
         });
 
         const cue = root.current?.querySelector<HTMLElement>('.journey-cue');
@@ -137,7 +174,7 @@ export default function Hero() {
           muted
           playsInline
           preload="auto"
-          aria-label="Cinematic film of a SOCODECO tower rising from empty land to a completed high-rise in Kinshasa"
+          aria-label={t.videoAria}
         />
       </div>
 
@@ -160,7 +197,7 @@ export default function Hero() {
 
       {/* stage rail */}
       <div className="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-7 md:flex lg:right-12">
-        {STAGES.map((s, i) => (
+        {stages.map((s, i) => (
           <div
             key={s.n}
             ref={(el) => (railEls.current[i] = el)}
@@ -179,13 +216,13 @@ export default function Hero() {
       <div className="absolute left-6 top-24 z-10 sm:left-10 lg:left-16">
         <p className="eyebrow flex items-center gap-4 !text-gold">
           <span className="h-px w-10 bg-gold" />
-          From Land to Landmark
+          {t.tagline}
         </p>
       </div>
 
       {/* stage messages */}
       <div className="pointer-events-none absolute inset-0 z-10">
-        {STAGES.map((s, i) => (
+        {stages.map((s, i) => (
           <div
             key={s.n}
             ref={(el) => (stageEls.current[i] = el)}
@@ -210,10 +247,10 @@ export default function Hero() {
         className="absolute bottom-16 left-6 z-10 flex flex-wrap items-center gap-5 opacity-0 sm:left-10 lg:left-16"
       >
         <MagneticButton href="#projects" variant="gold">
-          Explore Projects <ArrowRight size={15} />
+          {t.ctaProjects} <ArrowRight size={15} />
         </MagneticButton>
         <MagneticButton href="#contact" variant="ghost">
-          Start a Project
+          {t.ctaStart}
         </MagneticButton>
       </div>
 
@@ -221,7 +258,7 @@ export default function Hero() {
       <div className="journey-cue absolute bottom-9 left-1/2 z-10 -translate-x-1/2">
         <div className="flex flex-col items-center gap-3">
           <span className="text-[10px] font-medium uppercase tracking-[0.32em] text-white/55">
-            Scroll to build
+            {t.scrollCue}
           </span>
           <span className="relative block h-10 w-px overflow-hidden bg-white/15">
             <span className="absolute inset-x-0 top-0 h-4 animate-[cuedrop_1.6s_ease-in-out_infinite] bg-gold" />

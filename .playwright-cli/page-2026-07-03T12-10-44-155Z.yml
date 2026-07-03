@@ -1,0 +1,313 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "SOCODECO — accueil" [ref=e5] [cursor=pointer]:
+        - /url: /#hero
+        - generic [ref=e6]: SO
+        - generic [ref=e7]: SOCODECO
+      - button "Ouvrir le menu" [active] [ref=e9] [cursor=pointer]
+    - generic [ref=e12]:
+      - link "Accueil" [ref=e13] [cursor=pointer]:
+        - /url: /#hero
+      - link "À propos" [ref=e14] [cursor=pointer]:
+        - /url: /about.html
+      - link "Expertise" [ref=e15] [cursor=pointer]:
+        - /url: /#services
+      - link "Projets" [ref=e16] [cursor=pointer]:
+        - /url: /#projects
+      - link "Qualité" [ref=e17] [cursor=pointer]:
+        - /url: /#quality
+      - link "Contact" [ref=e18] [cursor=pointer]:
+        - /url: "#contact"
+      - group "Language" [ref=e20]:
+        - button "Français" [pressed] [ref=e21] [cursor=pointer]: FR
+        - generic [ref=e22]: "|"
+        - button "English" [ref=e23] [cursor=pointer]: EN
+  - main [ref=e24]:
+    - generic [ref=e26]:
+      - generic "Film cinématique d'une tour SOCODECO s'élevant d'un terrain vide jusqu'à un gratte-ciel achevé à Kinshasa" [ref=e28]
+      - paragraph [ref=e30]: Du terrain au chef-d'œuvre
+      - generic:
+        - generic:
+          - paragraph: 01 — TERRAIN
+          - heading "Étude du terrain" [level=2]
+          - paragraph: Nous analysons chaque site avant de construire.
+        - generic:
+          - paragraph: 02 — FONDATIONS
+          - heading "Fondations" [level=2]
+          - paragraph: La solidité commence sous terre.
+        - generic:
+          - paragraph: 03 — STRUCTURE
+          - heading "Structure" [level=2]
+          - paragraph: La précision définit chaque niveau.
+        - generic:
+          - paragraph: 04 — FAÇADE
+          - heading "Façade" [level=2]
+          - paragraph: Les détails façonnent l'identité.
+        - generic:
+          - paragraph: 05 — LIVRAISON
+          - heading "Livraison" [level=2]
+          - paragraph: Un chef-d'œuvre devient réalité.
+      - generic:
+        - link "Découvrir les projets":
+          - /url: "#projects"
+          - generic:
+            - text: Découvrir les projets
+            - img
+        - link "Démarrer un projet":
+          - /url: "#contact"
+          - generic: Démarrer un projet
+      - generic [ref=e34]: Faites défiler pour construire
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - paragraph [ref=e40]: Expertise
+        - heading "Six disciplines. Un seul nom responsable." [level=2] [ref=e42]
+      - generic [ref=e43]:
+        - generic [ref=e44] [cursor=pointer]:
+          - img [ref=e46]
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - generic [ref=e52]: "01"
+              - generic [ref=e53]:
+                - heading "Construction générale" [level=3] [ref=e54]
+                - paragraph [ref=e55]: Structures de grande hauteur à Kinshasa — fondations, colonnes, dalles et enveloppe, exécutées par nos propres équipes.
+            - link "Ouvrir la page Construction générale" [ref=e56]:
+              - /url: /construction.html
+              - img [ref=e57]
+        - generic [ref=e60] [cursor=pointer]:
+          - img [ref=e62]
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: "02"
+              - generic [ref=e69]:
+                - heading "Ingénierie" [level=3] [ref=e70]
+                - paragraph: Conception structurelle, électrique et hydraulique adaptée au sol et au réseau de Kinshasa.
+            - link "Ouvrir la page Ingénierie" [ref=e71]:
+              - /url: /engineering.html
+              - img [ref=e72]
+        - generic [ref=e75] [cursor=pointer]:
+          - img [ref=e77]
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e83]: "03"
+              - generic [ref=e84]:
+                - heading "Développement immobilier" [level=3] [ref=e85]
+                - paragraph: Foncier, faisabilité, financement et gestion à long terme de notre propre portefeuille.
+            - link "Ouvrir la page Développement immobilier" [ref=e86]:
+              - /url: /realestate.html
+              - img [ref=e87]
+        - generic [ref=e90] [cursor=pointer]:
+          - img [ref=e92]
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - generic [ref=e98]: "04"
+              - generic [ref=e99]:
+                - heading "Gestion de projet" [level=3] [ref=e100]
+                - paragraph: Inspections par drone, réunions de chantier, contrôle qualité et sécurité — une seule équipe responsable sur site.
+            - link "Ouvrir la page Gestion de projet" [ref=e101]:
+              - /url: /management.html
+              - img [ref=e102]
+        - generic [ref=e105] [cursor=pointer]:
+          - img [ref=e107]
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - generic [ref=e113]: "05"
+              - generic [ref=e114]:
+                - heading "Architecture" [level=3] [ref=e115]
+                - paragraph: BIM, maquettes physiques et revues de conception — des architectes libanais et congolais qui conçoivent ensemble à Kinshasa.
+            - link "Ouvrir la page Architecture" [ref=e116]:
+              - /url: /architecture.html
+              - img [ref=e117]
+        - generic [ref=e120] [cursor=pointer]:
+          - img [ref=e122]
+          - generic [ref=e126]:
+            - generic [ref=e127]:
+              - generic [ref=e128]: "06"
+              - generic [ref=e129]:
+                - heading "Finitions intérieures" [level=3] [ref=e130]
+                - paragraph: Marbre, menuiserie, gypse et lumière — un artisanat qui transforme les gros œuvres livrés en intérieurs de luxe.
+            - link "Ouvrir la page Finitions intérieures" [ref=e131]:
+              - /url: /interior.html
+              - img [ref=e132]
+    - generic [ref=e136]:
+      - generic [ref=e137]:
+        - paragraph [ref=e139]: Projets signature
+        - heading "Un musée de chefs-d'œuvre." [level=2] [ref=e142]
+      - generic [ref=e143]:
+        - article [ref=e144]:
+          - link "Gombe Riverside Tower — Gombe, Kinshasa 01 Gombe Riverside Tower Gombe, Kinshasa 18 400 m² En construction 2026" [ref=e145] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e146]:
+              - img "Gombe Riverside Tower — Gombe, Kinshasa" [ref=e147]
+              - generic [ref=e148]: "01"
+            - generic [ref=e150]:
+              - heading "Gombe Riverside Tower" [level=3] [ref=e151]
+              - generic [ref=e152]:
+                - generic [ref=e153]: Gombe, Kinshasa
+                - generic [ref=e154]: 18 400 m²
+                - generic [ref=e155]: En construction
+                - generic [ref=e156]: "2026"
+        - article [ref=e157]:
+          - link "SCDC Tower — Gombe, Kinshasa 02 SCDC Tower Gombe, Kinshasa 14 800 m² Livré 2024" [ref=e158] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e159]:
+              - img "SCDC Tower — Gombe, Kinshasa" [ref=e160]
+              - generic [ref=e161]: "02"
+            - generic [ref=e163]:
+              - heading "SCDC Tower" [level=3] [ref=e164]
+              - generic [ref=e165]:
+                - generic [ref=e166]: Gombe, Kinshasa
+                - generic [ref=e167]: 14 800 m²
+                - generic [ref=e168]: Livré
+                - generic [ref=e169]: "2024"
+        - article [ref=e170]:
+          - link "Coin Marais Residences — Barumbu, Kinshasa 03 Coin Marais Residences Barumbu, Kinshasa 9 200 m² Livré · Entièrement loué 2022" [ref=e171] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e172]:
+              - img "Coin Marais Residences — Barumbu, Kinshasa" [ref=e173]
+              - generic [ref=e174]: "03"
+            - generic [ref=e176]:
+              - heading "Coin Marais Residences" [level=3] [ref=e177]
+              - generic [ref=e178]:
+                - generic [ref=e179]: Barumbu, Kinshasa
+                - generic [ref=e180]: 9 200 m²
+                - generic [ref=e181]: Livré · Entièrement loué
+                - generic [ref=e182]: "2022"
+        - article [ref=e183]:
+          - link "Jakarta Commercial Center — Kinshasa 04 Jakarta Commercial Center Kinshasa 6 400 m² Livré · 60 boutiques 2020" [ref=e184] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e185]:
+              - img "Jakarta Commercial Center — Kinshasa" [ref=e186]
+              - generic [ref=e187]: "04"
+            - generic [ref=e189]:
+              - heading "Jakarta Commercial Center" [level=3] [ref=e190]
+              - generic [ref=e191]:
+                - generic [ref=e192]: Kinshasa
+                - generic [ref=e193]: 6 400 m²
+                - generic [ref=e194]: Livré · 60 boutiques
+                - generic [ref=e195]: "2020"
+        - article [ref=e196]:
+          - link "Kangayani Complex — Kinshasa 05 Kangayani Complex Kinshasa 11 600 m² En conception 2027" [ref=e197] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e198]:
+              - img "Kangayani Complex — Kinshasa" [ref=e199]
+              - generic [ref=e200]: "05"
+            - generic [ref=e202]:
+              - heading "Kangayani Complex" [level=3] [ref=e203]
+              - generic [ref=e204]:
+                - generic [ref=e205]: Kinshasa
+                - generic [ref=e206]: 11 600 m²
+                - generic [ref=e207]: En conception
+                - generic [ref=e208]: "2027"
+        - link "Votre projet pourrait être le prochain. Entamons la conversation →" [ref=e210] [cursor=pointer]:
+          - /url: "#contact"
+          - paragraph [ref=e211]:
+            - text: Votre projet
+            - text: pourrait être le prochain.
+          - paragraph [ref=e212]: Entamons la conversation →
+    - generic [ref=e214]:
+      - paragraph [ref=e216]: Qualité & contrôle
+      - generic [ref=e217]:
+        - heading "Rien n'est supposé. Tout est vérifié." [level=2] [ref=e219]:
+          - text: Rien n'est supposé.
+          - text: Tout est vérifié.
+        - paragraph [ref=e221]: La construction sérieuse, c'est de la procédure, de l'inspection et des signatures — répétées jusqu'à ce que le bâtiment soit à vous.
+      - generic [ref=e222]:
+        - generic [ref=e225]:
+          - img "Ingénieurs examinant des plans de structure sur le chantier" [ref=e226]
+          - generic [ref=e227]: Politique zéro incident
+        - generic [ref=e228]:
+          - generic [ref=e230]:
+            - generic [ref=e231]: "01"
+            - generic [ref=e232]:
+              - heading "Inspection de chantier" [level=3] [ref=e233]
+              - paragraph [ref=e234]: L'ingénieur responsable parcourt chaque phase avant sa clôture — ferraillage, coffrage, réseaux, finitions.
+          - generic [ref=e236]:
+            - generic [ref=e237]: "02"
+            - generic [ref=e238]:
+              - heading "Essais du béton" [level=3] [ref=e239]
+              - paragraph [ref=e240]: Affaissement à la livraison, essais sur cubes à 7 et 28 jours, traçabilité signée avant toute mise en charge.
+          - generic [ref=e242]:
+            - generic [ref=e243]: "03"
+            - generic [ref=e244]:
+              - heading "Contrôle de sécurité" [level=3] [ref=e245]
+              - paragraph [ref=e246]: Casques, harnais et zones d'exclusion imposés de l'excavation à la remise des clés — visiteurs et direction compris.
+          - generic [ref=e248]:
+            - generic [ref=e249]: "04"
+            - generic [ref=e250]:
+              - heading "Coordination structurelle" [level=3] [ref=e251]
+              - paragraph [ref=e252]: Architecture, structure et réseaux résolus sur le plan — pas improvisés sur la dalle.
+          - generic [ref=e254]:
+            - generic [ref=e255]: "05"
+            - generic [ref=e256]:
+              - heading "Sélection des matériaux" [level=3] [ref=e257]
+              - paragraph [ref=e258]: Chaque finition échantillonnée, comparée et approuvée par le maître d'ouvrage avant toute commande.
+    - generic [ref=e260]:
+      - generic [ref=e261]:
+        - paragraph [ref=e263]: Les chiffres
+        - paragraph [ref=e265]: Audités sur le terrain, pas en présentation
+      - generic [ref=e266]:
+        - generic [ref=e268]:
+          - paragraph [ref=e269]: 0+
+          - paragraph [ref=e270]: Années à bâtir la RDC
+        - generic [ref=e272]:
+          - paragraph [ref=e273]: 0+
+          - paragraph [ref=e274]: Projets livrés
+        - generic [ref=e276]:
+          - paragraph [ref=e277]: 0+
+          - paragraph [ref=e278]: m² construits & gérés
+        - generic [ref=e280]:
+          - paragraph [ref=e281]: 0+
+          - paragraph [ref=e282]: Ingénieurs & architectes
+        - generic [ref=e284]:
+          - paragraph [ref=e285]: 0%
+          - paragraph [ref=e286]: Contrôle qualité sur chaque coulage
+    - generic [ref=e288]:
+      - paragraph [ref=e289]: Démarrer un projet
+      - heading "Construisez votre prochain chef-d'œuvre avec SOCODECO." [level=2] [ref=e290]:
+        - generic [ref=e292]: Construisez votre
+        - generic [ref=e294]: prochain chef-d'œuvre
+        - generic [ref=e296]: avec SOCODECO.
+      - generic [ref=e297]:
+        - link "Entamons la conversation" [ref=e298] [cursor=pointer]:
+          - /url: https://wa.me/243990000027?text=Bonjour%20SOCODECO%20%E2%80%94%20je%20souhaite%20construire%20un%20chef-d'%C5%93uvre.
+          - generic [ref=e299]:
+            - text: Entamons la conversation
+            - img [ref=e300]
+        - link "Écrivez-nous" [ref=e302] [cursor=pointer]:
+          - /url: mailto:contact@socodeco.org
+          - generic [ref=e303]: Écrivez-nous
+      - generic [ref=e304]:
+        - link "+243 990 000 027 · +243 822 666 555" [ref=e305] [cursor=pointer]:
+          - /url: tel:+243990000027
+          - img [ref=e306]
+          - generic [ref=e308]: +243 990 000 027 · +243 822 666 555
+        - link "contact@socodeco.org" [ref=e309] [cursor=pointer]:
+          - /url: mailto:contact@socodeco.org
+          - img [ref=e310]
+          - generic [ref=e313]: contact@socodeco.org
+        - link "WhatsApp — ligne directe avec le bureau" [ref=e314] [cursor=pointer]:
+          - /url: https://wa.me/243990000027?text=Bonjour%20SOCODECO%20%E2%80%94%20je%20souhaite%20construire%20un%20chef-d'%C5%93uvre.
+          - img [ref=e315]
+          - generic [ref=e317]: WhatsApp — ligne directe avec le bureau
+  - contentinfo [ref=e318]:
+    - generic [ref=e319]:
+      - generic [ref=e320]:
+        - link "SOCODECO — accueil" [ref=e321] [cursor=pointer]:
+          - /url: /#hero
+          - paragraph [ref=e322]: SOCODECO
+          - paragraph [ref=e323]: Société de Construction et de Développement du Congo
+        - navigation [ref=e324]:
+          - link "Notre histoire" [ref=e325] [cursor=pointer]:
+            - /url: /about.html
+          - link "Expertise" [ref=e326] [cursor=pointer]:
+            - /url: /#services
+          - link "Projets" [ref=e327] [cursor=pointer]:
+            - /url: /#projects
+          - link "Qualité" [ref=e328] [cursor=pointer]:
+            - /url: /#quality
+          - link "Contact" [ref=e329] [cursor=pointer]:
+            - /url: "#contact"
+      - generic [ref=e330]:
+        - paragraph [ref=e331]: © 2026 SOCODECO. Tous droits réservés.
+        - paragraph [ref=e332]: +243 990 000 027 · Kinshasa · République Démocratique du Congo

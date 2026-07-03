@@ -4,13 +4,40 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { ArrowRight, Phone, Mail, MessageCircle } from 'lucide-react';
 import MagneticButton from './MagneticButton';
+import { useLang } from '../lib/i18n';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const WHATSAPP = 'https://wa.me/243990000027?text=' + encodeURIComponent('Hello SOCODECO — I want to build a landmark.');
+const T = {
+  fr: {
+    eyebrow: 'Démarrer un projet',
+    line1: 'Construisez votre',
+    line2a: 'prochain ',
+    line2accent: "chef-d'œuvre",
+    line3: 'avec SOCODECO.',
+    ctaTalk: 'Entamons la conversation',
+    ctaWrite: 'Écrivez-nous',
+    whatsappText: "Bonjour SOCODECO — je souhaite construire un chef-d'œuvre.",
+    whatsappLabel: 'WhatsApp — ligne directe avec le bureau',
+  },
+  en: {
+    eyebrow: 'Start a project',
+    line1: 'Build your next',
+    line2a: '',
+    line2accent: 'landmark',
+    line3: 'with SOCODECO.',
+    ctaTalk: 'Start the conversation',
+    ctaWrite: 'Write to us',
+    whatsappText: 'Hello SOCODECO — I want to build a landmark.',
+    whatsappLabel: 'WhatsApp — direct line to the office',
+  },
+};
 
 export default function FinalCTA() {
   const root = useRef<HTMLElement>(null);
+  const { lang } = useLang();
+  const t = T[lang];
+  const whatsapp = 'https://wa.me/243990000027?text=' + encodeURIComponent(t.whatsappText);
 
   useGSAP(
     () => {
@@ -54,28 +81,29 @@ export default function FinalCTA() {
       />
 
       <div className="relative mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
-        <p className="eyebrow mb-10 !text-gold">Start a project</p>
+        <p className="eyebrow mb-10 !text-gold">{t.eyebrow}</p>
 
         <h2 className="h-display text-[clamp(2.6rem,7vw,6.4rem)] text-white">
           <span className="block overflow-hidden">
-            <span className="cta-line block">Build your next</span>
+            <span className="cta-line block">{t.line1}</span>
           </span>
           <span className="block overflow-hidden">
             <span className="cta-line block">
-              <span className="font-serif italic font-normal text-gold">landmark</span> with
+              {t.line2a}
+              <span className="font-serif italic font-normal text-gold">{t.line2accent}</span>
             </span>
           </span>
           <span className="block overflow-hidden">
-            <span className="cta-line block">SOCODECO.</span>
+            <span className="cta-line block">{t.line3}</span>
           </span>
         </h2>
 
         <div className="cta-after mt-14 flex flex-wrap items-center gap-6">
-          <MagneticButton href={WHATSAPP} variant="gold">
-            Start the conversation <ArrowRight size={15} />
+          <MagneticButton href={whatsapp} variant="gold">
+            {t.ctaTalk} <ArrowRight size={15} />
           </MagneticButton>
           <MagneticButton href="mailto:contact@socodeco.org" variant="ghost">
-            Write to us
+            {t.ctaWrite}
           </MagneticButton>
         </div>
 
@@ -92,10 +120,10 @@ export default function FinalCTA() {
               contact@socodeco.org
             </span>
           </a>
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="group flex items-center gap-4">
+          <a href={whatsapp} target="_blank" rel="noreferrer" className="group flex items-center gap-4">
             <MessageCircle size={16} className="text-gold" />
             <span className="text-[14px] text-white/65 transition-colors group-hover:text-white">
-              WhatsApp — direct line to the office
+              {t.whatsappLabel}
             </span>
           </a>
         </div>

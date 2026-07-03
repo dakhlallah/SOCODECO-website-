@@ -7,6 +7,7 @@ import Lenis from 'lenis';
 import { ArrowRight, Award, BadgeCheck, Clock4, ShieldCheck, Wrench, HardHat } from 'lucide-react';
 
 import { setupAnchorNavigation } from '../lib/anchors';
+import { LanguageProvider, useLang } from '../lib/i18n';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
@@ -36,14 +37,70 @@ export interface ServiceConfig {
   ctaBg: string;
 }
 
-const WHY = [
-  { icon: Award, title: '37+ Years Experience', text: 'Building the DRC since 1989 — and still standing behind every structure.' },
-  { icon: BadgeCheck, title: 'Certified Engineers', text: 'Qualified Congolese and Lebanese professionals on every project phase.' },
-  { icon: Clock4, title: 'On-Time Delivery', text: 'Realistic schedules we actually keep — written into our own contracts.' },
-  { icon: ShieldCheck, title: 'Quality Assurance', text: 'Every deliverable checked, inspected and signed before the next step.' },
-  { icon: Wrench, title: 'Modern Tools & Methods', text: 'BIM, modern equipment and international working standards.' },
-  { icon: HardHat, title: 'Safety First', text: 'Zero-incident policy enforced on every site — no exceptions.' },
-];
+/** Both language variants of a service page. */
+export interface LocalizedServiceConfig {
+  fr: ServiceConfig;
+  en: ServiceConfig;
+}
+
+const WHY_ICONS = [Award, BadgeCheck, Clock4, ShieldCheck, Wrench, HardHat];
+
+const T = {
+  fr: {
+    ctaStart: 'Démarrer un projet',
+    ctaProjects: 'Voir nos projets',
+    deliverEyebrow: 'Ce que nous livrons',
+    deliverHeadA: 'Six savoir-faire, un seul ',
+    deliverAccent: 'standard.',
+    processEyebrow: 'Notre méthode',
+    processHeadA: 'La méthode avant le ',
+    processAccent: 'mouvement.',
+    whyEyebrow: 'Pourquoi choisir SOCODECO',
+    whyHeadA: 'Le partenaire que choisissent les projets ',
+    whyAccent: 'sérieux.',
+    why: [
+      { title: "37+ ans d'expérience", text: 'Nous bâtissons la RDC depuis 1989 — et répondons encore de chaque structure.' },
+      { title: 'Ingénieurs certifiés', text: 'Des professionnels congolais et libanais qualifiés à chaque phase de projet.' },
+      { title: 'Livraison dans les délais', text: 'Des plannings réalistes que nous tenons — inscrits dans nos propres contrats.' },
+      { title: 'Assurance qualité', text: "Chaque livrable vérifié, inspecté et signé avant l'étape suivante." },
+      { title: 'Outils & méthodes modernes', text: 'BIM, équipements modernes et standards internationaux de travail.' },
+      { title: "La sécurité d'abord", text: 'Politique zéro incident appliquée sur chaque chantier — sans exception.' },
+    ],
+    ctaHeadA: 'Démarrez votre projet avec ',
+    ctaAccent: 'SOCODECO',
+    ctaText: 'Notre équipe est prête à étudier vos besoins, à vous guider clairement et à livrer une solution professionnelle adaptée à votre projet.',
+    ctaButton: 'Contactez-nous maintenant',
+    ctaBgAlt: "Développement SOCODECO à Kinshasa à l'heure bleue",
+    whatsapp: (label: string) => `Bonjour SOCODECO — je souhaite discuter d'un projet (${label}).`,
+  },
+  en: {
+    ctaStart: 'Start a Project',
+    ctaProjects: 'View Our Projects',
+    deliverEyebrow: 'What we deliver',
+    deliverHeadA: 'Six capabilities, one ',
+    deliverAccent: 'standard.',
+    processEyebrow: 'Our process',
+    processHeadA: 'Method before ',
+    processAccent: 'movement.',
+    whyEyebrow: 'Why choose SOCODECO',
+    whyHeadA: 'The partner serious projects ',
+    whyAccent: 'choose.',
+    why: [
+      { title: '37+ Years Experience', text: 'Building the DRC since 1989 — and still standing behind every structure.' },
+      { title: 'Certified Engineers', text: 'Qualified Congolese and Lebanese professionals on every project phase.' },
+      { title: 'On-Time Delivery', text: 'Realistic schedules we actually keep — written into our own contracts.' },
+      { title: 'Quality Assurance', text: 'Every deliverable checked, inspected and signed before the next step.' },
+      { title: 'Modern Tools & Methods', text: 'BIM, modern equipment and international working standards.' },
+      { title: 'Safety First', text: 'Zero-incident policy enforced on every site — no exceptions.' },
+    ],
+    ctaHeadA: 'Start Your Project with ',
+    ctaAccent: 'SOCODECO',
+    ctaText: 'Our team is ready to study your needs, guide you clearly and deliver a professional solution adapted to your project.',
+    ctaButton: 'Contact Us Now',
+    ctaBgAlt: 'SOCODECO development in Kinshasa at blue hour',
+    whatsapp: (label: string) => `Hello SOCODECO — I would like to discuss a project (${label}).`,
+  },
+};
 
 /** Renders `title` with `accent` styled in gold serif italic. */
 function AccentTitle({ title, accent, className }: { title: string; accent: string; className: string }) {
@@ -58,8 +115,11 @@ function AccentTitle({ title, accent, className }: { title: string; accent: stri
   );
 }
 
-export default function ServiceApp({ config: c }: { config: ServiceConfig }) {
+function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
   const root = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const c = config[lang];
+  const t = T[lang];
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -146,11 +206,11 @@ export default function ServiceApp({ config: c }: { config: ServiceConfig }) {
             <p className="sp-stagger mt-8 max-w-xl text-[15.5px] leading-[1.85] text-white/70 md:text-[17px]">{c.subtitle}</p>
             <div className="sp-stagger mt-11 flex flex-wrap items-center gap-5">
               <MagneticButton href="#contact" variant="gold" className="glow-gold group/btn">
-                Start a Project
+                {t.ctaStart}
                 <ArrowRight size={15} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
               </MagneticButton>
               <MagneticButton href="/#projects" variant="ghost" className="group/btn">
-                View Our Projects
+                {t.ctaProjects}
                 <ArrowRight size={15} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
               </MagneticButton>
             </div>
@@ -176,8 +236,8 @@ export default function ServiceApp({ config: c }: { config: ServiceConfig }) {
                 <span className="font-serif italic font-normal text-golddeep">{c.introAccent}</span>
               </h2>
               <div className="sp-text mt-9 space-y-6 text-[15.5px] leading-[1.9] text-ink/60 md:text-base">
-                {c.introText.map((t) => (
-                  <p key={t.slice(0, 24)}>{t}</p>
+                {c.introText.map((txt, i) => (
+                  <p key={i}>{txt}</p>
                 ))}
               </div>
             </div>
@@ -188,17 +248,17 @@ export default function ServiceApp({ config: c }: { config: ServiceConfig }) {
         <section className="bg-mist py-32 lg:py-44">
           <div className="mx-auto max-w-[1500px] px-6 sm:px-10 lg:px-16">
             <Reveal>
-              <p className="eyebrow mb-8">What we deliver</p>
+              <p className="eyebrow mb-8">{t.deliverEyebrow}</p>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
-                Six capabilities, one{' '}
-                <span className="font-serif italic font-normal text-golddeep">standard.</span>
+                {t.deliverHeadA}
+                <span className="font-serif italic font-normal text-golddeep">{t.deliverAccent}</span>
               </h2>
             </Reveal>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {c.services.map((s, i) => (
-                <Reveal key={s.title} delay={(i % 3) * 0.08}>
+                <Reveal key={i} delay={(i % 3) * 0.08}>
                   <div className="group relative h-full overflow-hidden rounded-2xl bg-white p-10 shadow-[0_4px_30px_rgba(11,27,43,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_-16px_rgba(11,27,43,0.25)]">
                     <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
                     <span className="mb-8 inline-grid h-14 w-14 place-items-center rounded-full bg-mist text-ink transition-all duration-500 group-hover:rotate-6 group-hover:bg-gold">
@@ -217,12 +277,12 @@ export default function ServiceApp({ config: c }: { config: ServiceConfig }) {
         <section className="sp-process bp-grid-dark bg-navydeep py-32 text-white lg:py-40">
           <div className="mx-auto max-w-[1500px] px-6 sm:px-10 lg:px-16">
             <Reveal>
-              <p className="eyebrow mb-8 !text-gold">Our process</p>
+              <p className="eyebrow mb-8 !text-gold">{t.processEyebrow}</p>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="h-display mb-24 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)] text-white">
-                Method before{' '}
-                <span className="font-serif italic font-normal text-gold">movement.</span>
+                {t.processHeadA}
+                <span className="font-serif italic font-normal text-gold">{t.processAccent}</span>
               </h2>
             </Reveal>
             <div className="relative mb-12 hidden h-px w-full bg-white/12 lg:block">
@@ -269,33 +329,36 @@ export default function ServiceApp({ config: c }: { config: ServiceConfig }) {
         <section className="bg-mist py-32 lg:py-44">
           <div className="mx-auto max-w-[1500px] px-6 sm:px-10 lg:px-16">
             <Reveal>
-              <p className="eyebrow mb-8">Why choose SOCODECO</p>
+              <p className="eyebrow mb-8">{t.whyEyebrow}</p>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
-                The partner serious projects{' '}
-                <span className="font-serif italic font-normal text-golddeep">choose.</span>
+                {t.whyHeadA}
+                <span className="font-serif italic font-normal text-golddeep">{t.whyAccent}</span>
               </h2>
             </Reveal>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {WHY.map((w, i) => (
-                <Reveal key={w.title} delay={(i % 3) * 0.08}>
-                  <div className="group h-full rounded-2xl border border-ink/8 bg-white/60 p-9 backdrop-blur-sm transition-all duration-500 hover:border-gold/40 hover:bg-white hover:shadow-[0_20px_50px_-16px_rgba(11,27,43,0.2)]">
-                    <span className="mb-7 inline-grid h-12 w-12 place-items-center rounded-full bg-navy text-gold transition-colors duration-500 group-hover:bg-gold group-hover:text-ink">
-                      <w.icon size={19} strokeWidth={1.6} />
-                    </span>
-                    <h3 className="font-display text-lg font-bold tracking-tight lg:text-xl">{w.title}</h3>
-                    <p className="mt-3 text-[13.5px] leading-relaxed text-ink/55">{w.text}</p>
-                  </div>
-                </Reveal>
-              ))}
+              {t.why.map((w, i) => {
+                const Icon = WHY_ICONS[i];
+                return (
+                  <Reveal key={i} delay={(i % 3) * 0.08}>
+                    <div className="group h-full rounded-2xl border border-ink/8 bg-white/60 p-9 backdrop-blur-sm transition-all duration-500 hover:border-gold/40 hover:bg-white hover:shadow-[0_20px_50px_-16px_rgba(11,27,43,0.2)]">
+                      <span className="mb-7 inline-grid h-12 w-12 place-items-center rounded-full bg-navy text-gold transition-colors duration-500 group-hover:bg-gold group-hover:text-ink">
+                        <Icon size={19} strokeWidth={1.6} />
+                      </span>
+                      <h3 className="font-display text-lg font-bold tracking-tight lg:text-xl">{w.title}</h3>
+                      <p className="mt-3 text-[13.5px] leading-relaxed text-ink/55">{w.text}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* FINAL CTA */}
         <section id="contact" className="sp-cta relative flex min-h-[88vh] items-center overflow-hidden bg-navydeep">
-          <img src={c.ctaBg} alt="SOCODECO development in Kinshasa at blue hour" className="sp-cta-bg absolute inset-0 h-full w-full object-cover will-change-transform" loading="lazy" />
+          <img src={c.ctaBg} alt={t.ctaBgAlt} className="sp-cta-bg absolute inset-0 h-full w-full object-cover will-change-transform" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-navydeep/85 via-navydeep/50 to-navydeep/20" />
           <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 py-32 sm:px-10 lg:px-16">
             <Reveal>
@@ -303,24 +366,21 @@ export default function ServiceApp({ config: c }: { config: ServiceConfig }) {
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="h-display max-w-3xl text-[clamp(2.4rem,5.4vw,4.8rem)] text-white">
-                Start Your Project with{' '}
-                <span className="font-serif italic font-normal text-gold">SOCODECO</span>
+                {t.ctaHeadA}
+                <span className="font-serif italic font-normal text-gold">{t.ctaAccent}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.16}>
-              <p className="mt-8 max-w-xl text-[15.5px] leading-[1.85] text-white/65 md:text-base">
-                Our team is ready to study your needs, guide you clearly and deliver a
-                professional solution adapted to your project.
-              </p>
+              <p className="mt-8 max-w-xl text-[15.5px] leading-[1.85] text-white/65 md:text-base">{t.ctaText}</p>
             </Reveal>
             <Reveal delay={0.24}>
               <div className="mt-12">
                 <MagneticButton
-                  href={'https://wa.me/243990000027?text=' + encodeURIComponent(`Bonjour SOCODECO — je souhaite discuter d'un projet (${c.label}).`)}
+                  href={'https://wa.me/243990000027?text=' + encodeURIComponent(t.whatsapp(c.label))}
                   variant="gold"
                   className="glow-gold group/btn"
                 >
-                  Contactez-nous maintenant
+                  {t.ctaButton}
                   <ArrowRight size={15} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
                 </MagneticButton>
               </div>
@@ -330,5 +390,18 @@ export default function ServiceApp({ config: c }: { config: ServiceConfig }) {
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function ServiceApp({ config }: { config: LocalizedServiceConfig }) {
+  return (
+    <LanguageProvider
+      title={{
+        fr: `${config.fr.label} — SOCODECO | Kinshasa, RDC`,
+        en: `${config.en.label} — SOCODECO | Kinshasa, DRC`,
+      }}
+    >
+      <ServiceContent config={config} />
+    </LanguageProvider>
   );
 }

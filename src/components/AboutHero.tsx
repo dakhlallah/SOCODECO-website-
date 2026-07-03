@@ -4,8 +4,32 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import MagneticButton from './MagneticButton';
+import { useLang } from '../lib/i18n';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+const T = {
+  fr: {
+    badge: 'À propos de SOCODECO',
+    headA: 'Bâtir ',
+    accent: "l'Excellence",
+    headB: 'depuis 1989',
+    text: "Depuis plus de 37 ans, SOCODECO réalise des projets de construction d'exception à travers la République Démocratique du Congo. Du concept à la livraison, nous conjuguons expertise d'ingénierie, innovation et qualité sans compromis pour bâtir des édifices qui traversent le temps.",
+    ctaProjects: 'Découvrir nos projets',
+    ctaContact: 'Contacter notre équipe',
+    videoAria: "Ingénieurs traversant un chantier SOCODECO en activité au lever du soleil",
+  },
+  en: {
+    badge: 'About SOCODECO',
+    headA: 'Building ',
+    accent: 'Excellence',
+    headB: 'Since 1989',
+    text: 'For more than 37 years, SOCODECO has delivered exceptional construction projects across the Democratic Republic of Congo. From concept to completion, we combine engineering expertise, innovation and uncompromising quality to build landmarks that stand the test of time.',
+    ctaProjects: 'Discover Our Projects',
+    ctaContact: 'Contact Our Team',
+    videoAria: 'Engineers walking through an active SOCODECO construction site at sunrise',
+  },
+};
 
 /**
  * About SOCODECO — full-screen cinematic hero: slow-motion engineers on
@@ -13,6 +37,8 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  */
 export default function AboutHero() {
   const root = useRef<HTMLElement>(null);
+  const { lang } = useLang();
+  const t = T[lang];
 
   useGSAP(
     () => {
@@ -80,7 +106,7 @@ export default function AboutHero() {
           loop
           playsInline
           preload="metadata"
-          aria-label="Engineers walking through an active SOCODECO construction site at sunrise"
+          aria-label={t.videoAria}
         />
       </div>
 
@@ -90,29 +116,26 @@ export default function AboutHero() {
       {/* centered content */}
       <div className="about-copy relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 py-36 text-center">
         <p className="about-stagger inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.06] px-6 py-2.5 text-[10px] font-semibold uppercase tracking-[0.34em] text-gold backdrop-blur-md">
-          About SOCODECO
+          {t.badge}
         </p>
 
         <h2 className="about-stagger h-display mt-10 text-[clamp(2.6rem,6.4vw,5.6rem)] text-white [text-shadow:0_2px_40px_rgba(6,13,22,0.5)]">
-          Building{' '}
-          <span className="font-serif italic font-normal text-gold">Excellence</span>
+          {t.headA}
+          <span className="font-serif italic font-normal text-gold">{t.accent}</span>
           <br />
-          Since 1989
+          {t.headB}
         </h2>
 
         <p className="about-stagger mt-9 max-w-2xl text-[15.5px] leading-[1.9] text-white/70 md:text-[17px]">
-          For more than 37 years, SOCODECO has delivered exceptional construction projects across
-          the Democratic Republic of Congo. From concept to completion, we combine engineering
-          expertise, innovation and uncompromising quality to build landmarks that stand the test
-          of time.
+          {t.text}
         </p>
 
         <div className="about-stagger mt-12 flex flex-wrap items-center justify-center gap-5">
           <MagneticButton href="/#projects" variant="gold">
-            Discover Our Projects <ArrowRight size={15} />
+            {t.ctaProjects} <ArrowRight size={15} />
           </MagneticButton>
           <MagneticButton href="#contact" variant="ghost">
-            Contact Our Team
+            {t.ctaContact}
           </MagneticButton>
         </div>
       </div>

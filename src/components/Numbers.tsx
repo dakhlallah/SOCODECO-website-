@@ -3,16 +3,42 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Reveal from './Reveal';
+import { useLang } from '../lib/i18n';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const NUMBERS = [
-  { value: 37, format: 'plain', suffix: '+', label: 'Years building the DRC' },
-  { value: 50, format: 'plain', suffix: '+', label: 'Projects delivered' },
-  { value: 1_000_000, format: 'compact', suffix: '+', label: 'm² built & managed' },
-  { value: 15, format: 'plain', suffix: '+', label: 'Engineers & architects' },
-  { value: 100, format: 'plain', suffix: '%', label: 'Quality control on every pour' },
+  { value: 37, format: 'plain', suffix: '+' },
+  { value: 50, format: 'plain', suffix: '+' },
+  { value: 1_000_000, format: 'compact', suffix: '+' },
+  { value: 15, format: 'plain', suffix: '+' },
+  { value: 100, format: 'plain', suffix: '%' },
 ];
+
+const T = {
+  fr: {
+    eyebrow: 'Les chiffres',
+    note: 'Audités sur le terrain, pas en présentation',
+    labels: [
+      'Années à bâtir la RDC',
+      'Projets livrés',
+      'm² construits & gérés',
+      'Ingénieurs & architectes',
+      'Contrôle qualité sur chaque coulage',
+    ],
+  },
+  en: {
+    eyebrow: 'The numbers',
+    note: 'Audited on site, not in slides',
+    labels: [
+      'Years building the DRC',
+      'Projects delivered',
+      'm² built & managed',
+      'Engineers & architects',
+      'Quality control on every pour',
+    ],
+  },
+};
 
 function fmt(v: number, format: string): string {
   if (format === 'compact') {
@@ -25,6 +51,8 @@ function fmt(v: number, format: string): string {
 
 export default function Numbers() {
   const root = useRef<HTMLElement>(null);
+  const { lang } = useLang();
+  const t = T[lang];
 
   useGSAP(
     () => {
@@ -51,18 +79,16 @@ export default function Numbers() {
       <div className="mx-auto max-w-[1500px] px-6 sm:px-10 lg:px-16">
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
           <Reveal>
-            <p className="eyebrow">The numbers</p>
+            <p className="eyebrow">{t.eyebrow}</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-ink/40">
-              Audited on site, not in slides
-            </p>
+            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-ink/40">{t.note}</p>
           </Reveal>
         </div>
 
         <div className="grid grid-cols-2 gap-x-8 gap-y-14 lg:grid-cols-5">
           {NUMBERS.map((n, i) => (
-            <Reveal key={n.label} delay={i * 0.06}>
+            <Reveal key={i} delay={i * 0.06}>
               <div className={`border-l pl-6 ${i === 4 ? 'border-gold' : 'border-ink/12'}`}>
                 <p className="font-display text-[clamp(2.6rem,4.6vw,4.4rem)] font-bold leading-none tracking-tightest">
                   <span className="num-val" data-value={n.value} data-format={n.format}>
@@ -71,7 +97,7 @@ export default function Numbers() {
                   <span className="text-golddeep">{n.suffix}</span>
                 </p>
                 <p className="mt-4 max-w-[190px] text-[13px] font-medium leading-snug text-ink/55">
-                  {n.label}
+                  {t.labels[i]}
                 </p>
               </div>
             </Reveal>

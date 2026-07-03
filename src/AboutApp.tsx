@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 import { setupAnchorNavigation } from './lib/anchors';
+import { LanguageProvider } from './lib/i18n';
 import Navbar from './components/Navbar';
 import AboutHero from './components/AboutHero';
 import OurStory from './components/OurStory';
@@ -36,7 +37,12 @@ export default function AboutApp() {
   }, []);
 
   return (
-    <>
+    <LanguageProvider
+      title={{
+        fr: 'Notre histoire — SOCODECO | Construction & Immobilier, Kinshasa',
+        en: 'Our Story — SOCODECO | Construction & Real Estate, Kinshasa',
+      }}
+    >
       <Navbar variant="page" />
       <main>
         <AboutHero />
@@ -45,6 +51,6 @@ export default function AboutApp() {
         <FinalCTA />
       </main>
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }

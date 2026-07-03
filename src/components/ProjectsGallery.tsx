@@ -3,55 +3,79 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Reveal from './Reveal';
+import { useLang } from '../lib/i18n';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const PROJECTS = [
-  {
-    name: 'Gombe Riverside Tower',
-    location: 'Gombe, Kinshasa',
-    surface: '18,400 m²',
-    status: 'Under construction',
-    year: '2026',
-    img: '/hero-construction.jpg',
-  },
+const PROJECT_MEDIA = [
+  { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/hero-construction.jpg' },
   {
     name: 'SCDC Tower',
     location: 'Gombe, Kinshasa',
-    surface: '14,800 m²',
-    status: 'Delivered',
     year: '2024',
     img: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1800',
   },
   {
     name: 'Coin Marais Residences',
     location: 'Barumbu, Kinshasa',
-    surface: '9,200 m²',
-    status: 'Delivered · Fully let',
     year: '2022',
     img: 'https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=1800',
   },
   {
     name: 'Jakarta Commercial Center',
     location: 'Kinshasa',
-    surface: '6,400 m²',
-    status: 'Delivered · 60 shops',
     year: '2020',
     img: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1800',
   },
   {
     name: 'Kangayani Complex',
     location: 'Kinshasa',
-    surface: '11,600 m²',
-    status: 'In design',
     year: '2027',
     img: 'https://images.pexels.com/photos/439416/pexels-photo-439416.jpeg?auto=compress&cs=tinysrgb&w=1800',
   },
 ];
 
+const T = {
+  fr: {
+    eyebrow: 'Projets signature',
+    headA: 'Un musée de ',
+    accent: "chefs-d'œuvre.",
+    note: 'Faites défiler — la galerie se déplace latéralement',
+    details: [
+      { surface: '18 400 m²', status: 'En construction' },
+      { surface: '14 800 m²', status: 'Livré' },
+      { surface: '9 200 m²', status: 'Livré · Entièrement loué' },
+      { surface: '6 400 m²', status: 'Livré · 60 boutiques' },
+      { surface: '11 600 m²', status: 'En conception' },
+    ],
+    endA: 'Votre projet',
+    endAccent: 'pourrait être le prochain.',
+    endCta: 'Entamons la conversation →',
+  },
+  en: {
+    eyebrow: 'Signature projects',
+    headA: 'A museum of ',
+    accent: 'landmarks.',
+    note: 'Scroll — the gallery moves sideways',
+    details: [
+      { surface: '18,400 m²', status: 'Under construction' },
+      { surface: '14,800 m²', status: 'Delivered' },
+      { surface: '9,200 m²', status: 'Delivered · Fully let' },
+      { surface: '6,400 m²', status: 'Delivered · 60 shops' },
+      { surface: '11,600 m²', status: 'In design' },
+    ],
+    endA: 'Your project',
+    endAccent: 'could be next.',
+    endCta: 'Start the conversation →',
+  },
+};
+
 export default function ProjectsGallery() {
   const root = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const t = T[lang];
+  const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, ...t.details[i] }));
 
   useGSAP(
     () => {
@@ -85,18 +109,18 @@ export default function ProjectsGallery() {
       <div className="flex h-auto flex-col justify-center py-24 md:h-screen md:py-0">
         <div className="mx-auto mb-12 w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
           <Reveal>
-            <p className="eyebrow mb-6">Signature projects</p>
+            <p className="eyebrow mb-6">{t.eyebrow}</p>
           </Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <Reveal delay={0.08}>
               <h2 className="h-display max-w-2xl text-[clamp(2rem,4vw,3.4rem)]">
-                A museum of{' '}
-                <span className="font-serif italic font-normal text-golddeep">landmarks.</span>
+                {t.headA}
+                <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.14}>
               <p className="hidden pb-2 text-[11px] font-medium uppercase tracking-[0.28em] text-ink/40 md:block">
-                Scroll — the gallery moves sideways
+                {t.note}
               </p>
             </Reveal>
           </div>
@@ -107,7 +131,7 @@ export default function ProjectsGallery() {
           ref={trackRef}
           className="flex flex-col gap-14 px-6 will-change-transform sm:px-10 md:flex-row md:gap-10 md:pl-[8vw] md:pr-[12vw] lg:pl-16"
         >
-          {PROJECTS.map((p, i) => (
+          {projects.map((p, i) => (
             <article key={p.name} className="w-full shrink-0 md:w-[58vw] lg:w-[48vw]">
               <a href="#contact" className="group block">
                 <div className="relative overflow-hidden">
@@ -139,12 +163,12 @@ export default function ProjectsGallery() {
           <div className="flex w-full shrink-0 items-center md:w-[26vw]">
             <a href="#contact" className="group">
               <p className="h-display text-[clamp(1.6rem,2.6vw,2.4rem)] text-ink/80">
-                Your project
+                {t.endA}
                 <br />
-                <span className="font-serif italic font-normal text-golddeep">could be next.</span>
+                <span className="font-serif italic font-normal text-golddeep">{t.endAccent}</span>
               </p>
               <p className="mt-4 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink/50 transition-colors group-hover:text-golddeep">
-                Start the conversation →
+                {t.endCta}
               </p>
             </a>
           </div>

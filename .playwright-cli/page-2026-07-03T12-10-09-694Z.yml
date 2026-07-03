@@ -1,0 +1,227 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - link "SOCODECO — home" [ref=e5] [cursor=pointer]:
+        - /url: /#hero
+        - generic [ref=e6]: SO
+        - generic [ref=e7]: SOCODECOConstruction · Développement
+      - generic [ref=e8]:
+        - link "Home" [ref=e9] [cursor=pointer]:
+          - /url: /#hero
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: /about.html
+        - link "Expertise" [ref=e11] [cursor=pointer]:
+          - /url: /#services
+        - link "Projects" [ref=e12] [cursor=pointer]:
+          - /url: /#projects
+        - link "Quality" [ref=e13] [cursor=pointer]:
+          - /url: /#quality
+        - link "Contact" [ref=e14] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e15]:
+        - group "Language" [ref=e17]:
+          - button "Français" [ref=e18] [cursor=pointer]: FR
+          - generic [ref=e19]: "|"
+          - button "English" [pressed] [ref=e20] [cursor=pointer]: EN
+        - link "Start a Project" [ref=e21] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - generic "High-rise construction site in Kinshasa at sunset — cranes, concrete structure and engineers" [ref=e25]
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: General Construction
+        - heading "Building the Future with Precision and Excellence" [level=1] [ref=e29]
+        - paragraph [ref=e30]: SOCODECO delivers complete construction solutions, from foundations to final handover, combining engineering expertise, innovation and uncompromising quality to create landmarks across the Democratic Republic of Congo.
+        - generic [ref=e31]:
+          - link "Request a Quote" [ref=e32] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e33]:
+              - text: Request a Quote
+              - img [ref=e34]
+          - link "View Our Projects" [ref=e36] [cursor=pointer]:
+            - /url: /#projects
+            - generic [ref=e37]:
+              - text: View Our Projects
+              - img [ref=e38]
+    - generic [ref=e41]:
+      - img "Completed modern SOCODECO tower in Kinshasa at golden hour" [ref=e44]
+      - generic [ref=e46]:
+        - paragraph [ref=e47]: Introduction
+        - heading "Complete Construction Solutions" [level=2] [ref=e49]
+        - paragraph [ref=e50]: At SOCODECO, we manage every stage of construction with precision and attention to detail. From planning and structural engineering to execution and project delivery, we ensure every project is completed safely, efficiently and to the highest international standards.
+    - generic [ref=e52]:
+      - paragraph [ref=e54]: Our services
+      - heading "Everything a structure needs." [level=2] [ref=e56]
+      - generic [ref=e57]:
+        - generic [ref=e59]:
+          - img [ref=e61]
+          - heading "Site Preparation & Earthworks" [level=3] [ref=e63]
+          - paragraph [ref=e64]: Clearing, excavation, compaction and platforms engineered for Kinshasa soil.
+        - generic [ref=e66]:
+          - img [ref=e68]
+          - heading "Foundations & Structural Concrete" [level=3] [ref=e72]
+          - paragraph [ref=e73]: Footings, rafts and cores poured, tested and signed at every stage.
+        - generic [ref=e75]:
+          - img [ref=e77]
+          - heading "Reinforced Concrete Structures" [level=3] [ref=e81]
+          - paragraph [ref=e82]: Columns, beams and slabs executed floor by floor with millimetric control.
+        - generic [ref=e84]:
+          - img [ref=e86]
+          - heading "Steel Structures" [level=3] [ref=e87]
+          - paragraph [ref=e88]: Fabrication and erection of structural steel for long spans and speed.
+        - generic [ref=e90]:
+          - img [ref=e92]
+          - heading "Building Envelope & Facades" [level=3] [ref=e94]
+          - paragraph [ref=e95]: Curtain walls, precast panels and waterproofing that define identity.
+        - generic [ref=e97]:
+          - img [ref=e99]
+          - heading "Turnkey Construction" [level=3] [ref=e102]
+          - paragraph [ref=e103]: One contract, one team — from the first drawing to the last key.
+    - generic [ref=e105]:
+      - paragraph [ref=e107]: Our process
+      - heading "Five steps. One signature." [level=2] [ref=e109]
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - paragraph [ref=e114]: "01"
+          - heading "Planning" [level=3] [ref=e115]
+        - generic [ref=e116]:
+          - paragraph [ref=e118]: "02"
+          - heading "Engineering" [level=3] [ref=e119]
+        - generic [ref=e120]:
+          - paragraph [ref=e122]: "03"
+          - heading "Construction" [level=3] [ref=e123]
+        - generic [ref=e124]:
+          - paragraph [ref=e126]: "04"
+          - heading "Quality Control" [level=3] [ref=e127]
+        - generic [ref=e128]:
+          - paragraph [ref=e130]: "05"
+          - heading "Project Delivery" [level=3] [ref=e131]
+    - generic [ref=e133]:
+      - paragraph [ref=e135]: Featured projects
+      - generic [ref=e136]:
+        - heading "Built to be remembered." [level=2] [ref=e138]
+        - link "Full portfolio" [ref=e140] [cursor=pointer]:
+          - /url: /#projects
+          - text: Full portfolio
+          - img [ref=e141]
+      - generic [ref=e143]:
+        - link "Gombe Riverside Tower — Gombe, Kinshasa Gombe Riverside Tower Gombe, Kinshasa · Mixed-use · 2026" [ref=e145] [cursor=pointer]:
+          - /url: "#contact"
+          - img "Gombe Riverside Tower — Gombe, Kinshasa" [ref=e146]
+          - generic [ref=e148]:
+            - heading "Gombe Riverside Tower" [level=3] [ref=e149]
+            - paragraph [ref=e150]: Gombe, Kinshasa · Mixed-use · 2026
+        - link "SCDC Tower — Gombe, Kinshasa SCDC Tower Gombe, Kinshasa · Offices & retail · 2024" [ref=e152] [cursor=pointer]:
+          - /url: "#contact"
+          - img "SCDC Tower — Gombe, Kinshasa" [ref=e153]
+          - generic [ref=e155]:
+            - heading "SCDC Tower" [level=3] [ref=e156]
+            - paragraph [ref=e157]: Gombe, Kinshasa · Offices & retail · 2024
+        - link "Coin Marais Residences — Barumbu, Kinshasa Coin Marais Residences Barumbu, Kinshasa · Residential · 2022" [ref=e159] [cursor=pointer]:
+          - /url: "#contact"
+          - img "Coin Marais Residences — Barumbu, Kinshasa" [ref=e160]
+          - generic [ref=e162]:
+            - heading "Coin Marais Residences" [level=3] [ref=e163]
+            - paragraph [ref=e164]: Barumbu, Kinshasa · Residential · 2022
+        - link "Riverside Headquarters — Kinshasa Riverside Headquarters Kinshasa · Corporate office · 2025" [ref=e166] [cursor=pointer]:
+          - /url: "#contact"
+          - img "Riverside Headquarters — Kinshasa" [ref=e167]
+          - generic [ref=e169]:
+            - heading "Riverside Headquarters" [level=3] [ref=e170]
+            - paragraph [ref=e171]: Kinshasa · Corporate office · 2025
+        - link "Jakarta Commercial Center — Kinshasa Jakarta Commercial Center Kinshasa · Retail · 2020" [ref=e173] [cursor=pointer]:
+          - /url: "#contact"
+          - img "Jakarta Commercial Center — Kinshasa" [ref=e174]
+          - generic [ref=e176]:
+            - heading "Jakarta Commercial Center" [level=3] [ref=e177]
+            - paragraph [ref=e178]: Kinshasa · Retail · 2020
+        - link "Kangayani Complex — Kinshasa Kangayani Complex Kinshasa · Mixed-use · 2027" [ref=e180] [cursor=pointer]:
+          - /url: "#contact"
+          - img "Kangayani Complex — Kinshasa" [ref=e181]
+          - generic [ref=e183]:
+            - heading "Kangayani Complex" [level=3] [ref=e184]
+            - paragraph [ref=e185]: Kinshasa · Mixed-use · 2027
+    - generic [ref=e187]:
+      - paragraph [ref=e189]: Why choose SOCODECO
+      - heading "The partner serious projects choose." [level=2] [ref=e191]
+      - generic [ref=e192]:
+        - generic [ref=e194]:
+          - img [ref=e196]
+          - heading "37+ Years Experience" [level=3] [ref=e199]
+          - paragraph [ref=e200]: Building the DRC since 1989 — and still standing behind every structure.
+        - generic [ref=e202]:
+          - img [ref=e204]
+          - heading "Certified Engineers" [level=3] [ref=e207]
+          - paragraph [ref=e208]: Qualified Congolese and Lebanese engineers on every project, on every phase.
+        - generic [ref=e210]:
+          - img [ref=e212]
+          - heading "On-Time Delivery" [level=3] [ref=e215]
+          - paragraph [ref=e216]: Realistic schedules we actually keep — written into our own contracts.
+        - generic [ref=e218]:
+          - img [ref=e220]
+          - heading "Quality Assurance" [level=3] [ref=e223]
+          - paragraph [ref=e224]: Every pour tested, every layer inspected and signed before the next one.
+        - generic [ref=e226]:
+          - img [ref=e228]
+          - heading "Modern Equipment" [level=3] [ref=e230]
+          - paragraph [ref=e231]: Cranes, pumps and formwork systems maintained to international standard.
+        - generic [ref=e233]:
+          - img [ref=e235]
+          - heading "Safety First" [level=3] [ref=e240]
+          - paragraph [ref=e241]: Zero-incident policy enforced from excavation to handover — no exceptions.
+    - generic [ref=e242]:
+      - generic "Cinematic film of a SOCODECO tower rising from empty land to completion in Kinshasa" [ref=e243]
+      - generic [ref=e246]:
+        - heading "From land to landmark." [level=2] [ref=e247]
+        - paragraph [ref=e248]: Concrete, cranes and coordination — one continuous act of precision, filmed above Kinshasa.
+    - generic [ref=e251]:
+      - generic [ref=e253]:
+        - paragraph [ref=e254]: 0+
+        - paragraph [ref=e255]: Years of Experience
+      - generic [ref=e257]:
+        - paragraph [ref=e258]: 0+
+        - paragraph [ref=e259]: Completed Projects
+      - generic [ref=e261]:
+        - paragraph [ref=e262]: 0+
+        - paragraph [ref=e263]: Construction Professionals
+      - generic [ref=e265]:
+        - paragraph [ref=e266]: 0%
+        - paragraph [ref=e267]: Commitment to Quality
+    - generic [ref=e268]:
+      - img "Completed premium SOCODECO mixed-use tower at blue hour in Kinshasa" [ref=e269]
+      - generic [ref=e271]:
+        - paragraph [ref=e273]: Start today
+        - heading "Let's Build Your Next Landmark" [level=2] [ref=e275]
+        - paragraph [ref=e277]: Whether you are planning a residential, commercial or industrial development, SOCODECO is your trusted construction partner from concept to completion.
+        - generic [ref=e279]:
+          - link "Request a Quote" [ref=e280] [cursor=pointer]:
+            - /url: https://wa.me/243990000027?text=Hello%20SOCODECO%20%E2%80%94%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20construction%20project.
+            - generic [ref=e281]:
+              - text: Request a Quote
+              - img [ref=e282]
+          - link "Contact Our Team" [ref=e284] [cursor=pointer]:
+            - /url: mailto:contact@socodeco.org
+            - generic [ref=e285]:
+              - text: Contact Our Team
+              - img [ref=e286]
+  - contentinfo [ref=e288]:
+    - generic [ref=e289]:
+      - generic [ref=e290]:
+        - link "SOCODECO — home" [ref=e291] [cursor=pointer]:
+          - /url: /#hero
+          - paragraph [ref=e292]: SOCODECO
+          - paragraph [ref=e293]: Société de Construction et de Développement du Congo
+        - navigation [ref=e294]:
+          - link "Our Story" [ref=e295] [cursor=pointer]:
+            - /url: /about.html
+          - link "Expertise" [ref=e296] [cursor=pointer]:
+            - /url: /#services
+          - link "Projects" [ref=e297] [cursor=pointer]:
+            - /url: /#projects
+          - link "Quality" [ref=e298] [cursor=pointer]:
+            - /url: /#quality
+          - link "Contact" [ref=e299] [cursor=pointer]:
+            - /url: "#contact"
+      - generic [ref=e300]:
+        - paragraph [ref=e301]: © 2026 SOCODECO. All rights reserved.
+        - paragraph [ref=e302]: +243 990 000 027 · Kinshasa · Democratic Republic of the Congo

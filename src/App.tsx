@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 import { setupAnchorNavigation } from './lib/anchors';
+import { LanguageProvider } from './lib/i18n';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ExpertisePanels from './components/ExpertisePanels';
@@ -38,7 +39,12 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <LanguageProvider
+      title={{
+        fr: "SOCODECO — Du terrain au chef-d'œuvre | Construction & Immobilier, Kinshasa",
+        en: 'SOCODECO — From Land to Landmark | Construction & Real Estate, Kinshasa',
+      }}
+    >
       <Navbar />
       <main>
         <Hero />
@@ -49,6 +55,6 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }
