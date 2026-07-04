@@ -40,7 +40,7 @@ const PROJECT_MEDIA: { name: string; location: string; img: string; tall: boolea
   { name: 'Quantum Building', location: 'Kinshasa', img: '/quantum-building.jpg', tall: false, rent: true },
   { name: 'Riverside Headquarters', location: 'Kinshasa', img: '/our-story.jpg', tall: true },
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', img: '/scdc-tower.jpg', tall: false },
-  { name: 'Jakarta Commercial Center', location: 'Kinshasa', img: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },
+  { name: 'Angie Building', location: 'Kinshasa', img: '/angie-building.jpg', tall: false, rent: true },
   { name: 'Marché Jakarta', location: 'Kinshasa', img: '/marche-jakarta.jpg', tall: true, rent: true },
 ];
 
@@ -93,7 +93,7 @@ const T = {
         { type: 'Mixte', units: '700 m²', status: 'À louer' },
         { type: 'Commercial', units: '12 000 m² de bureaux', status: 'Livré' },
         { type: 'Bureaux & commerces', units: '1 000 m²', status: 'Prochainement' },
-        { type: 'Commerces', units: '60 boutiques', status: 'Livré' },
+        { type: 'Résidentiel', units: '2 800 m²', status: 'À louer' },
         { type: 'Commerces', units: '11 600 m²', status: 'À louer' },
       ],
       rentCta: 'Louer un espace →',
@@ -212,7 +212,7 @@ const T = {
         { type: 'Mixed-use', units: '700 m²', status: 'For rent' },
         { type: 'Commercial', units: '12,000 m² offices', status: 'Delivered' },
         { type: 'Offices & retail', units: '1,000 m²', status: 'Coming soon' },
-        { type: 'Retail', units: '60 shops', status: 'Delivered' },
+        { type: 'Residential', units: '2,800 m²', status: 'For rent' },
         { type: 'Retail', units: '11,600 m²', status: 'For rent' },
       ],
       rentCta: 'Rent a space →',

@@ -38,7 +38,7 @@ const PROJECT_MEDIA: { name: string; location: string; year: string; img: string
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/scdc-tower.jpg', tall: false },
   { name: 'Quantum Building', location: 'Kinshasa', year: '2022', img: '/quantum-building.jpg', tall: true, rent: true },
   { name: 'Riverside Headquarters', location: 'Kinshasa', year: '2025', img: '/our-story.jpg', tall: false },
-  { name: 'Jakarta Commercial Center', location: 'Kinshasa', year: '2020', img: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },
+  { name: 'Angie Building', location: 'Kinshasa', year: '2020', img: '/angie-building.jpg', tall: false, rent: true },
   { name: 'Marché Jakarta', location: 'Kinshasa', year: '2026', img: '/marche-jakarta.jpg', tall: true, rent: true },
 ];
 
@@ -85,7 +85,7 @@ const T = {
       headA: 'Construits pour être ',
       accent: 'mémorables.',
       portfolio: 'Portfolio complet',
-      types: ['Mixte', 'Bureaux & commerces', 'Mixte', 'Siège social', 'Commerces', 'Commerces'],
+      types: ['Mixte', 'Bureaux & commerces', 'Mixte', 'Siège social', 'Résidentiel', 'Commerces'],
       rentCta: 'Louer un espace →',
       rentMsg: 'Bonjour SOCODECO — je souhaite louer un espace au Marché Jakarta.',
     },
@@ -162,7 +162,7 @@ const T = {
       headA: 'Built to be ',
       accent: 'remembered.',
       portfolio: 'Full portfolio',
-      types: ['Mixed-use', 'Offices & retail', 'Mixed-use', 'Corporate office', 'Retail', 'Retail'],
+      types: ['Mixed-use', 'Offices & retail', 'Mixed-use', 'Corporate office', 'Residential', 'Retail'],
       rentCta: 'Rent a space →',
       rentMsg: 'Hello SOCODECO — I would like to rent a space at Marché Jakarta.',
     },
