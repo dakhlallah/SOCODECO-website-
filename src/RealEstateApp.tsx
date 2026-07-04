@@ -38,6 +38,7 @@ const WHY_ICONS = [MapPin, Medal, TrendingUp, PenTool, Eye, Handshake];
 const PROJECT_MEDIA: { name: string; location: string; img: string; tall: boolean; rent?: boolean }[] = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', img: '/hero-construction.jpg', tall: true },
   { name: 'Quantum Building', location: 'Kinshasa', img: '/quantum-building.jpg', tall: false, rent: true },
+  { name: 'Hotel Everest', location: 'Kinshasa', img: '/hotel-everest.jpg', tall: false },
   { name: 'Riverside Headquarters', location: 'Kinshasa', img: '/our-story.jpg', tall: true },
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', img: '/scdc-tower.jpg', tall: false },
   { name: 'Angie Building', location: 'Kinshasa', img: '/angie-building.jpg', tall: false, rent: true },
@@ -91,6 +92,7 @@ const T = {
       details: [
         { type: 'Mixte', units: '86 unités', status: 'En construction' },
         { type: 'Mixte', units: '700 m²', status: 'À louer' },
+        { type: 'Hôtellerie', units: 'Chambres & suites', status: 'Livré' },
         { type: 'Commercial', units: '12 000 m² de bureaux', status: 'Livré' },
         { type: 'Bureaux & commerces', units: '1 000 m²', status: 'Prochainement' },
         { type: 'Résidentiel', units: '2 800 m²', status: 'À louer' },
@@ -210,6 +212,7 @@ const T = {
       details: [
         { type: 'Mixed-use', units: '86 units', status: 'Under construction' },
         { type: 'Mixed-use', units: '700 m²', status: 'For rent' },
+        { type: 'Hospitality', units: 'Rooms & suites', status: 'Delivered' },
         { type: 'Commercial', units: '12,000 m² offices', status: 'Delivered' },
         { type: 'Offices & retail', units: '1,000 m²', status: 'Coming soon' },
         { type: 'Residential', units: '2,800 m²', status: 'For rent' },

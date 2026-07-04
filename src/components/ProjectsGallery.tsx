@@ -23,6 +23,12 @@ const PROJECT_MEDIA: { name: string; location: string; year: string; img: string
     rent: true,
   },
   {
+    name: 'Hotel Everest',
+    location: 'Kinshasa',
+    year: '2023',
+    img: '/hotel-everest.jpg',
+  },
+  {
     name: 'Angie Building',
     location: 'Kinshasa',
     year: '2020',
@@ -48,6 +54,7 @@ const T = {
       { surface: '18 400 m²', status: 'En construction' },
       { surface: '1 000 m²', status: 'Prochainement' },
       { surface: '700 m²', status: 'À louer' },
+      { surface: 'Chambres & suites', status: 'Livré' },
       { surface: '2 800 m²', status: 'À louer' },
       { surface: '11 600 m²', status: 'À louer' },
     ],
@@ -66,6 +73,7 @@ const T = {
       { surface: '18,400 m²', status: 'Under construction' },
       { surface: '1,000 m²', status: 'Coming soon' },
       { surface: '700 m²', status: 'For rent' },
+      { surface: 'Rooms & suites', status: 'Delivered' },
       { surface: '2,800 m²', status: 'For rent' },
       { surface: '11,600 m²', status: 'For rent' },
     ],
