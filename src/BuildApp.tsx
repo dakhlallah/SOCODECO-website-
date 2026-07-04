@@ -293,13 +293,13 @@ function BuildHero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navydeep/70 via-navydeep/15 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
-        <p className="build-stagger eyebrow mb-7 flex items-center gap-4 !text-gold">
+        <p className="build-stagger eyebrow mb-7 flex items-center gap-4 !text-rouge">
           <span className="h-px w-10 bg-gold" />
           {t.eyebrow}
         </p>
         <h1 className="build-stagger h-display max-w-4xl text-[clamp(2.4rem,5.8vw,5rem)] text-white [text-shadow:0_2px_40px_rgba(6,13,22,0.5)]">
           {t.headA}
-          <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+          <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           {t.headB}
         </h1>
         <p className="build-stagger mt-8 max-w-xl text-[15.5px] leading-[1.85] text-white/70 md:text-[17px]">{t.sub}</p>
@@ -333,7 +333,7 @@ function ProjectTypes() {
         <Reveal delay={0.08}>
           <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
             {t.headA}
-            <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -392,12 +392,12 @@ function BuildProcess() {
     <section ref={root} className="bp-grid-dark bg-navydeep py-32 text-white lg:py-40">
       <div className="mx-auto max-w-[1500px] px-6 sm:px-10 lg:px-16">
         <Reveal>
-          <p className="eyebrow mb-8 !text-gold">{t.eyebrow}</p>
+          <p className="eyebrow mb-8 !text-rouge">{t.eyebrow}</p>
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="h-display mb-24 max-w-3xl text-[clamp(2.2rem,4.4vw,3.8rem)] text-white">
             {t.headA}
-            <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           </h2>
         </Reveal>
 
@@ -409,7 +409,7 @@ function BuildProcess() {
           {t.steps.map((title, i) => (
             <div key={i} className="bp-step relative">
               <span className="absolute -top-[3.4rem] left-0 hidden h-3 w-3 rounded-full border-2 border-gold bg-navydeep lg:block" />
-              <p className="font-display text-[13px] font-bold tracking-[0.22em] text-gold">
+              <p className="font-display text-[13px] font-bold tracking-[0.22em] text-rouge">
                 {String(i + 1).padStart(2, '0')}
               </p>
               <h3 className="mt-3 font-display text-lg font-bold tracking-tight lg:text-xl">{title}</h3>
@@ -436,7 +436,7 @@ function BuildWhy() {
         <Reveal delay={0.08}>
           <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
             {t.headA}
-            <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -445,7 +445,7 @@ function BuildWhy() {
             return (
               <Reveal key={i} delay={(i % 4) * 0.08}>
                 <div className="group h-full rounded-2xl border border-ink/8 bg-white/60 p-9 backdrop-blur-sm transition-all duration-500 hover:border-gold/40 hover:bg-white hover:shadow-[0_20px_50px_-16px_rgba(11,27,43,0.2)]">
-                  <span className="mb-7 inline-grid h-12 w-12 place-items-center rounded-full bg-navy text-gold transition-colors duration-500 group-hover:bg-gold group-hover:text-ink">
+                  <span className="mb-7 inline-grid h-12 w-12 place-items-center rounded-full bg-navy text-rouge transition-colors duration-500 group-hover:bg-gold group-hover:text-ink">
                     <Icon size={19} strokeWidth={1.6} />
                   </span>
                   <h3 className="font-display text-lg font-bold tracking-tight lg:text-xl">{w.title}</h3>
@@ -578,7 +578,7 @@ function BuildForm() {
             <Reveal delay={0.08}>
               <h2 className="h-display text-[clamp(2.2rem,4vw,3.4rem)]">
                 {t.headA}
-                <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+                <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.16}>
@@ -658,7 +658,7 @@ function BuildForm() {
                     onClick={sendEmail}
                     className="group/btn inline-flex items-center gap-2.5 rounded-full bg-ink px-8 py-4 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:bg-ink/85"
                   >
-                    <Mail size={15} className="text-gold" />
+                    <Mail size={15} className="text-rouge" />
                     {t.submitEmail}
                     <ArrowRight size={15} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
                   </button>
@@ -680,7 +680,7 @@ function BuildForm() {
                   style={{ maxHeight: success ? 120 : 0, opacity: success ? 1 : 0, transform: success ? 'translateY(0)' : 'translateY(10px)' }}
                 >
                   <div className="mt-7 flex items-center gap-3 rounded-2xl border border-gold/40 bg-gold/10 px-6 py-4">
-                    <CheckCircle2 size={20} className="shrink-0 text-golddeep" />
+                    <CheckCircle2 size={20} className="shrink-0 text-rougedeep" />
                     <p className="text-[14px] font-medium text-ink/80">{t.success}</p>
                   </div>
                 </div>
@@ -726,7 +726,7 @@ function BuildCTA() {
         <Reveal delay={0.05}>
           <h2 className="h-display max-w-3xl text-[clamp(2.4rem,5.4vw,4.6rem)] text-white">
             {t.headA}
-            <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           </h2>
         </Reveal>
         <Reveal delay={0.14}>

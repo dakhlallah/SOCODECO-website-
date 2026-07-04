@@ -204,7 +204,7 @@ export default function Hero() {
             data-active="0"
             className="group flex items-center justify-end gap-3 transition-opacity duration-300 data-[active=0]:opacity-40"
           >
-            <span className="text-right text-[9px] font-semibold uppercase tracking-[0.3em] text-white group-data-[active=1]:text-gold">
+            <span className="text-right text-[9px] font-semibold uppercase tracking-[0.3em] text-white group-data-[active=1]:text-rouge">
               {s.key}
             </span>
             <span className="h-px w-8 bg-white/30 transition-all duration-300 group-data-[active=1]:w-12 group-data-[active=1]:bg-gold" />
@@ -214,7 +214,7 @@ export default function Hero() {
 
       {/* fixed journey mark */}
       <div className="absolute left-6 top-24 z-10 sm:left-10 lg:left-16">
-        <p className="eyebrow flex items-center gap-4 !text-gold">
+        <p className="eyebrow flex items-center gap-4 !text-rouge">
           <span className="h-px w-10 bg-gold" />
           {t.tagline}
         </p>
@@ -228,7 +228,7 @@ export default function Hero() {
             ref={(el) => (stageEls.current[i] = el)}
             className="absolute left-6 top-1/2 max-w-xl -translate-y-1/2 opacity-0 will-change-transform sm:left-10 lg:left-16"
           >
-            <p className="font-display text-[12px] font-bold tracking-[0.3em] text-gold">
+            <p className="font-display text-[12px] font-bold tracking-[0.3em] text-rouge">
               {s.n} — {s.key}
             </p>
             <h2 className="h-display mt-4 text-[clamp(2.6rem,6.5vw,5.4rem)] text-white [text-shadow:0_2px_36px_rgba(6,13,22,0.55)]">

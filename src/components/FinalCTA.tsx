@@ -91,7 +91,7 @@ export default function FinalCTA() {
       />
 
       <div className="relative mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
-        <p className="eyebrow mb-10 !text-gold">{t.eyebrow}</p>
+        <p className="eyebrow mb-10 !text-rouge">{t.eyebrow}</p>
 
         <h2 className="h-display text-[clamp(2.6rem,7vw,6.4rem)] text-white">
           <span className="block overflow-hidden">
@@ -100,7 +100,7 @@ export default function FinalCTA() {
           <span className="block overflow-hidden">
             <span className="cta-line block">
               {t.line2a}
-              <span className="font-serif italic font-normal text-gold">{t.line2accent}</span>
+              <span className="font-serif italic font-normal text-rouge">{t.line2accent}</span>
             </span>
           </span>
           <span className="block overflow-hidden">
@@ -119,7 +119,7 @@ export default function FinalCTA() {
 
         <div className="cta-after mt-20 flex flex-wrap gap-x-14 gap-y-6 border-t border-white/10 pt-10">
           <div className="flex items-center gap-4">
-            <Phone size={16} className="shrink-0 text-gold" />
+            <Phone size={16} className="shrink-0 text-rouge" />
             <span className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] text-white/65">
               <a href="tel:+243990000027" className="transition-colors hover:text-white">
                 +243 990 000 027
@@ -135,13 +135,13 @@ export default function FinalCTA() {
             </span>
           </div>
           <a href="mailto:info@socodeco.org" className="group flex items-center gap-4">
-            <Mail size={16} className="text-gold" />
+            <Mail size={16} className="text-rouge" />
             <span className="text-[14px] text-white/65 transition-colors group-hover:text-white">
               info@socodeco.org
             </span>
           </a>
           <a href={whatsapp} target="_blank" rel="noreferrer" className="group flex items-center gap-4">
-            <MessageCircle size={16} className="text-gold" />
+            <MessageCircle size={16} className="text-rouge" />
             <span className="text-[14px] text-white/65 transition-colors group-hover:text-white">
               {t.whatsappLabel}
             </span>

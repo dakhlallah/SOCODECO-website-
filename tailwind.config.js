@@ -13,6 +13,9 @@ export default {
         navydeep: '#071320',
         gold: '#C9A961',
         golddeep: '#A98B45',
+        /* dark-red text accents — rouge on dark surfaces, rougedeep on light */
+        rouge: '#B22222',
+        rougedeep: '#8B1A1A',
       },
       fontFamily: {
         display: ['Archivo', 'system-ui', 'sans-serif'],

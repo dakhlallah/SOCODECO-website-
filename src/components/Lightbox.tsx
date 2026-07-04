@@ -51,7 +51,7 @@ export default function Lightbox({ image, onClose }: { image: LightboxImage | nu
           <button
             aria-label={closeLabel}
             onClick={onClose}
-            className="absolute right-5 top-5 z-10 grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/80 transition-all duration-300 hover:rotate-90 hover:border-gold hover:text-gold"
+            className="absolute right-5 top-5 z-10 grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/80 transition-all duration-300 hover:rotate-90 hover:border-gold hover:text-rouge"
           >
             <X size={20} />
           </button>

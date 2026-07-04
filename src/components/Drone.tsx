@@ -60,10 +60,10 @@ export default function Drone() {
       <div className="drone-caption absolute inset-x-0 bottom-0 z-10">
         <div className="mx-auto flex max-w-[1500px] flex-wrap items-end justify-between gap-8 px-6 pb-16 sm:px-10 lg:px-16">
           <div>
-            <p className="eyebrow mb-5 !text-gold">07 — From above</p>
+            <p className="eyebrow mb-5 !text-rouge">07 — From above</p>
             <h2 className="h-display max-w-2xl text-[clamp(2rem,4.2vw,3.6rem)] text-white">
               Progress you can see{' '}
-              <span className="font-serif italic font-normal text-gold">from the sky.</span>
+              <span className="font-serif italic font-normal text-rouge">from the sky.</span>
             </h2>
           </div>
           <p className="max-w-xs pb-2 text-[14px] leading-relaxed text-white/60">

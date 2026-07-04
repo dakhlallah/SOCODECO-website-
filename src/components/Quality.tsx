@@ -91,7 +91,7 @@ export default function Quality() {
     <section id="quality" className="bp-grid-dark bg-navydeep py-32 text-white lg:py-44">
       <div className="mx-auto max-w-[1500px] px-6 sm:px-10 lg:px-16">
         <Reveal>
-          <p className="eyebrow mb-8 !text-gold">{t.eyebrow}</p>
+          <p className="eyebrow mb-8 !text-rouge">{t.eyebrow}</p>
         </Reveal>
         <div className="mb-20 flex flex-wrap items-end justify-between gap-8">
           <Reveal delay={0.08}>
@@ -99,7 +99,7 @@ export default function Quality() {
               {t.headA}
               <br />
               {t.headB}
-              <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+              <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
             </h2>
           </Reveal>
           <Reveal delay={0.16}>
@@ -126,7 +126,7 @@ export default function Quality() {
             {t.controls.map((c, i) => (
               <Reveal key={c.n} delay={i * 0.06}>
                 <div className="group flex items-baseline gap-8 border-b border-white/10 py-7 first:border-t">
-                  <span className="font-display text-3xl font-bold text-white/15 transition-colors duration-500 group-hover:text-gold">
+                  <span className="font-display text-3xl font-bold text-white/15 transition-colors duration-500 group-hover:text-rouge">
                     {c.n}
                   </span>
                   <div>

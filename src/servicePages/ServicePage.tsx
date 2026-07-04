@@ -109,7 +109,7 @@ function AccentTitle({ title, accent, className }: { title: string; accent: stri
   return (
     <h1 className={className}>
       {title.slice(0, i)}
-      <span className="font-serif italic font-normal text-gold">{accent}</span>
+      <span className="font-serif italic font-normal text-rouge">{accent}</span>
       {title.slice(i + accent.length)}
     </h1>
   );
@@ -194,7 +194,7 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navydeep/90 via-navydeep/25 to-navydeep/45" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navydeep/70 via-navydeep/15 to-transparent" />
           <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
-            <p className="sp-stagger eyebrow mb-7 flex items-center gap-4 !text-gold">
+            <p className="sp-stagger eyebrow mb-7 flex items-center gap-4 !text-rouge">
               <span className="h-px w-10 bg-gold" />
               {c.label}
             </p>
@@ -233,7 +233,7 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
               </p>
               <h2 className="sp-text h-display text-[clamp(2.2rem,4vw,3.6rem)]">
                 {c.introHeading}{' '}
-                <span className="font-serif italic font-normal text-golddeep">{c.introAccent}</span>
+                <span className="font-serif italic font-normal text-rougedeep">{c.introAccent}</span>
               </h2>
               <div className="sp-text mt-9 space-y-6 text-[15.5px] leading-[1.9] text-ink/60 md:text-base">
                 {c.introText.map((txt, i) => (
@@ -253,7 +253,7 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
             <Reveal delay={0.08}>
               <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
                 {t.deliverHeadA}
-                <span className="font-serif italic font-normal text-golddeep">{t.deliverAccent}</span>
+                <span className="font-serif italic font-normal text-rougedeep">{t.deliverAccent}</span>
               </h2>
             </Reveal>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -277,12 +277,12 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
         <section className="sp-process bp-grid-dark bg-navydeep py-32 text-white lg:py-40">
           <div className="mx-auto max-w-[1500px] px-6 sm:px-10 lg:px-16">
             <Reveal>
-              <p className="eyebrow mb-8 !text-gold">{t.processEyebrow}</p>
+              <p className="eyebrow mb-8 !text-rouge">{t.processEyebrow}</p>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="h-display mb-24 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)] text-white">
                 {t.processHeadA}
-                <span className="font-serif italic font-normal text-gold">{t.processAccent}</span>
+                <span className="font-serif italic font-normal text-rouge">{t.processAccent}</span>
               </h2>
             </Reveal>
             <div className="relative mb-12 hidden h-px w-full bg-white/12 lg:block">
@@ -292,7 +292,7 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
               {c.steps.map((s) => (
                 <div key={s.n} className="sp-step relative">
                   <span className="absolute -top-[3.4rem] left-0 hidden h-3 w-3 rounded-full border-2 border-gold bg-navydeep lg:block" />
-                  <p className="font-display text-[13px] font-bold tracking-[0.22em] text-gold">{s.n}</p>
+                  <p className="font-display text-[13px] font-bold tracking-[0.22em] text-rouge">{s.n}</p>
                   <h3 className="mt-3 font-display text-lg font-bold tracking-tight lg:text-xl">{s.title}</h3>
                 </div>
               ))}
@@ -318,7 +318,7 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
             <div className="mx-auto flex max-w-[1500px] flex-wrap items-end justify-between gap-8 px-6 pb-14 sm:px-10 lg:px-16">
               <h2 className="h-display max-w-2xl text-[clamp(1.9rem,4vw,3.4rem)] text-white">
                 {c.filmHeading}{' '}
-                <span className="font-serif italic font-normal text-gold">{c.filmAccent}</span>
+                <span className="font-serif italic font-normal text-rouge">{c.filmAccent}</span>
               </h2>
               <p className="max-w-xs pb-2 text-[14px] leading-relaxed text-white/60">{c.filmText}</p>
             </div>
@@ -334,7 +334,7 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
             <Reveal delay={0.08}>
               <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
                 {t.whyHeadA}
-                <span className="font-serif italic font-normal text-golddeep">{t.whyAccent}</span>
+                <span className="font-serif italic font-normal text-rougedeep">{t.whyAccent}</span>
               </h2>
             </Reveal>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -343,7 +343,7 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
                 return (
                   <Reveal key={i} delay={(i % 3) * 0.08}>
                     <div className="group h-full rounded-2xl border border-ink/8 bg-white/60 p-9 backdrop-blur-sm transition-all duration-500 hover:border-gold/40 hover:bg-white hover:shadow-[0_20px_50px_-16px_rgba(11,27,43,0.2)]">
-                      <span className="mb-7 inline-grid h-12 w-12 place-items-center rounded-full bg-navy text-gold transition-colors duration-500 group-hover:bg-gold group-hover:text-ink">
+                      <span className="mb-7 inline-grid h-12 w-12 place-items-center rounded-full bg-navy text-rouge transition-colors duration-500 group-hover:bg-gold group-hover:text-ink">
                         <Icon size={19} strokeWidth={1.6} />
                       </span>
                       <h3 className="font-display text-lg font-bold tracking-tight lg:text-xl">{w.title}</h3>
@@ -362,12 +362,12 @@ function ServiceContent({ config }: { config: LocalizedServiceConfig }) {
           <div className="absolute inset-0 bg-gradient-to-r from-navydeep/85 via-navydeep/50 to-navydeep/20" />
           <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 py-32 sm:px-10 lg:px-16">
             <Reveal>
-              <p className="eyebrow mb-8 !text-gold">{c.label}</p>
+              <p className="eyebrow mb-8 !text-rouge">{c.label}</p>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="h-display max-w-3xl text-[clamp(2.4rem,5.4vw,4.8rem)] text-white">
                 {t.ctaHeadA}
-                <span className="font-serif italic font-normal text-gold">{t.ctaAccent}</span>
+                <span className="font-serif italic font-normal text-rouge">{t.ctaAccent}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.16}>

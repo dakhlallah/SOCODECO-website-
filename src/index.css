@@ -31,7 +31,7 @@ body {
 }
 
 .eyebrow {
-  @apply font-body text-[11px] font-medium uppercase tracking-[0.28em] text-golddeep;
+  @apply font-body text-[11px] font-medium uppercase tracking-[0.28em] text-rougedeep;
 }
 
 .btn-primary {

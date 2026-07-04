@@ -144,7 +144,7 @@ export default function ProjectsGallery() {
             <Reveal delay={0.08}>
               <h2 className="h-display max-w-2xl text-[clamp(2rem,4vw,3.4rem)]">
                 {t.headA}
-                <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+                <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.14}>
@@ -186,7 +186,7 @@ export default function ProjectsGallery() {
                   <div className="flex flex-wrap gap-x-7 gap-y-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink/45">
                     <span>{p.location}</span>
                     <span>{p.surface}</span>
-                    <span className="text-golddeep">{p.status}</span>
+                    <span className="text-rougedeep">{p.status}</span>
                     <span>{p.year}</span>
                   </div>
                 </div>
@@ -208,9 +208,9 @@ export default function ProjectsGallery() {
               <p className="h-display text-[clamp(1.6rem,2.6vw,2.4rem)] text-ink/80">
                 {t.endA}
                 <br />
-                <span className="font-serif italic font-normal text-golddeep">{t.endAccent}</span>
+                <span className="font-serif italic font-normal text-rougedeep">{t.endAccent}</span>
               </p>
-              <p className="mt-4 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink/50 transition-colors group-hover:text-golddeep">
+              <p className="mt-4 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink/50 transition-colors group-hover:text-rougedeep">
                 {t.endCta}
               </p>
             </a>

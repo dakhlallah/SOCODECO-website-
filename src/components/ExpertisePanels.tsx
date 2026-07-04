@@ -126,7 +126,7 @@ function Panel({ p, active, onActivate }: { p: PanelData; active: boolean; onAct
       <div className="relative z-10 mx-auto flex h-full max-w-[1500px] items-end px-6 pb-6 sm:px-10 lg:px-16">
         <div className="flex w-full items-end justify-between gap-6">
           <div className="flex items-baseline gap-6 md:gap-10">
-            <span className={`font-display text-sm font-bold transition-colors duration-500 ${active ? 'text-gold' : 'text-white/35'}`}>
+            <span className={`font-display text-sm font-bold transition-colors duration-500 ${active ? 'text-rouge' : 'text-white/35'}`}>
               {p.n}
             </span>
             <div>
@@ -204,12 +204,12 @@ export default function ExpertisePanels() {
     <section id="services" ref={root} className="bg-[#060d16] py-28 lg:py-36">
       <div className="exp-head mx-auto max-w-[1500px] px-6 will-change-transform sm:px-10 lg:px-16">
         <Reveal>
-          <p className="eyebrow mb-8 !text-gold">{t.eyebrow}</p>
+          <p className="eyebrow mb-8 !text-rouge">{t.eyebrow}</p>
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="h-display mb-16 max-w-3xl text-[clamp(2.2rem,4.4vw,3.8rem)] text-white">
             {t.headA}
-            <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
             {t.headB}
           </h2>
         </Reveal>

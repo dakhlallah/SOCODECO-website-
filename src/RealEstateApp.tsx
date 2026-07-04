@@ -340,13 +340,13 @@ function REHero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navydeep/70 via-navydeep/15 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
-        <p className="reh-stagger eyebrow mb-7 flex items-center gap-4 !text-gold">
+        <p className="reh-stagger eyebrow mb-7 flex items-center gap-4 !text-rouge">
           <span className="h-px w-10 bg-gold" />
           {t.eyebrow}
         </p>
         <h1 className="reh-stagger h-display max-w-4xl text-[clamp(2.6rem,6.2vw,5.4rem)] text-white [text-shadow:0_2px_40px_rgba(6,13,22,0.5)]">
           {t.headA}
-          <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+          <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           {t.headB}
         </h1>
         <p className="reh-stagger mt-8 max-w-xl text-[15.5px] leading-[1.85] text-white/70 md:text-[17px]">
@@ -421,7 +421,7 @@ function REAbout() {
           </p>
           <h2 className="rea-text h-display text-[clamp(2.2rem,4vw,3.6rem)]">
             {t.headA}
-            <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
           </h2>
           <div className="rea-text mt-9 space-y-6 text-[15.5px] leading-[1.9] text-ink/60 md:text-base">
             <p>{t.p1}</p>
@@ -448,7 +448,7 @@ function REDevelopments() {
         <Reveal delay={0.08}>
           <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
             {t.headA}
-            <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -507,12 +507,12 @@ function REProcess() {
     <section ref={root} className="bp-grid-dark bg-navydeep py-32 text-white lg:py-40">
       <div className="mx-auto max-w-[1500px] px-6 sm:px-10 lg:px-16">
         <Reveal>
-          <p className="eyebrow mb-8 !text-gold">{t.eyebrow}</p>
+          <p className="eyebrow mb-8 !text-rouge">{t.eyebrow}</p>
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="h-display mb-24 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)] text-white">
             {t.headA}
-            <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           </h2>
         </Reveal>
 
@@ -524,7 +524,7 @@ function REProcess() {
           {t.steps.map((title, i) => (
             <div key={i} className="rep-step relative">
               <span className="absolute -top-[3.4rem] left-0 hidden h-3 w-3 rounded-full border-2 border-gold bg-navydeep lg:block" />
-              <p className="font-display text-[13px] font-bold tracking-[0.22em] text-gold">
+              <p className="font-display text-[13px] font-bold tracking-[0.22em] text-rouge">
                 {String(i + 1).padStart(2, '0')}
               </p>
               <h3 className="mt-3 font-display text-lg font-bold tracking-tight lg:text-xl">{title}</h3>
@@ -555,11 +555,11 @@ function REProjects() {
           <Reveal delay={0.08}>
             <h2 className="h-display max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
               {t.headA}
-              <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+              <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
             </h2>
           </Reveal>
           <Reveal delay={0.14}>
-            <a href="/#projects" className="group inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink/50 transition-colors hover:text-golddeep">
+            <a href="/#projects" className="group inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink/50 transition-colors hover:text-rougedeep">
               {t.portfolio}
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
             </a>
@@ -591,9 +591,9 @@ function REProjects() {
                 <div className="absolute inset-x-0 bottom-0 translate-y-4 p-7 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   <h3 className="font-display text-xl font-bold tracking-tight text-white">{p.name}</h3>
                   <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white/60">
-                    {p.location} · <span className="text-gold">{p.type}</span> · {p.units}
+                    {p.location} · <span className="text-rouge">{p.type}</span> · {p.units}
                   </p>
-                  <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.2em] text-gold/90">{p.status}</p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.2em] text-rouge/90">{p.status}</p>
                   {p.rent && (
                     <a
                       href={rentUrl}
@@ -629,7 +629,7 @@ function REWhy() {
         <Reveal delay={0.08}>
           <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
             {t.headA}
-            <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -638,7 +638,7 @@ function REWhy() {
             return (
               <Reveal key={i} delay={(i % 3) * 0.08}>
                 <div className="group h-full rounded-2xl border border-ink/8 bg-white/60 p-9 backdrop-blur-sm transition-all duration-500 hover:border-gold/40 hover:bg-white hover:shadow-[0_20px_50px_-16px_rgba(11,27,43,0.2)]">
-                  <span className="mb-7 inline-grid h-12 w-12 place-items-center rounded-full bg-navy text-gold transition-colors duration-500 group-hover:bg-gold group-hover:text-ink">
+                  <span className="mb-7 inline-grid h-12 w-12 place-items-center rounded-full bg-navy text-rouge transition-colors duration-500 group-hover:bg-gold group-hover:text-ink">
                     <Icon size={19} strokeWidth={1.6} />
                   </span>
                   <h3 className="font-display text-lg font-bold tracking-tight lg:text-xl">{w.title}</h3>
@@ -695,7 +695,7 @@ function REFilm() {
         <div className="mx-auto flex max-w-[1500px] flex-wrap items-end justify-between gap-8 px-6 pb-14 sm:px-10 lg:px-16">
           <h2 className="h-display max-w-2xl text-[clamp(1.9rem,4vw,3.4rem)] text-white">
             {t.headA}
-            <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           </h2>
           <p className="max-w-xs pb-2 text-[14px] leading-relaxed text-white/60">{t.text}</p>
         </div>
@@ -755,7 +755,7 @@ function REStats() {
               <div className="border-l border-ink/12 pl-6">
                 <p className="font-display text-[clamp(2.6rem,4.6vw,4.4rem)] font-bold leading-none tracking-tightest">
                   <span className="res-val" data-value={n.value} data-format={n.format}>0</span>
-                  <span className="text-golddeep">{n.suffix}</span>
+                  <span className="text-rougedeep">{n.suffix}</span>
                 </p>
                 <p className="mt-4 max-w-[200px] text-[13px] font-medium leading-snug text-ink/55">{labels[i]}</p>
               </div>
@@ -792,10 +792,10 @@ function RETestimonials() {
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
           <Reveal>
             <div>
-              <p className="eyebrow mb-8 !text-gold">{t.eyebrow}</p>
+              <p className="eyebrow mb-8 !text-rouge">{t.eyebrow}</p>
               <h2 className="h-display max-w-xl text-[clamp(2rem,3.8vw,3.2rem)] text-white">
                 {t.headA}
-                <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+                <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
               </h2>
             </div>
           </Reveal>
@@ -804,14 +804,14 @@ function RETestimonials() {
               <button
                 aria-label={t.prev}
                 onClick={() => setIdx((i) => (i - 1 + t.items.length) % t.items.length)}
-                className="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/70 transition-all hover:border-gold hover:text-gold"
+                className="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/70 transition-all hover:border-gold hover:text-rouge"
               >
                 <ArrowLeft size={17} />
               </button>
               <button
                 aria-label={t.next}
                 onClick={() => setIdx((i) => (i + 1) % t.items.length)}
-                className="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/70 transition-all hover:border-gold hover:text-gold"
+                className="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/70 transition-all hover:border-gold hover:text-rouge"
               >
                 <ArrowRight size={17} />
               </button>
@@ -831,12 +831,12 @@ function RETestimonials() {
                   pointerEvents: i === idx ? 'auto' : 'none',
                 }}
               >
-                <Quote size={26} className="mb-6 text-gold" />
+                <Quote size={26} className="mb-6 text-rouge" />
                 <blockquote className="max-w-3xl font-display text-[clamp(1.2rem,2.2vw,1.7rem)] font-medium leading-snug tracking-tight text-white/90">
                   "{item.quote}"
                 </blockquote>
                 <figcaption className="mt-6">
-                  <p className="font-display text-[15px] font-bold text-gold">{item.name}</p>
+                  <p className="font-display text-[15px] font-bold text-rouge">{item.name}</p>
                   <p className="mt-0.5 text-[12px] uppercase tracking-[0.2em] text-white/40">{item.role}</p>
                 </figcaption>
               </figure>
@@ -890,12 +890,12 @@ function RECTA() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 py-32 sm:px-10 lg:px-16">
         <Reveal>
-          <p className="eyebrow mb-8 !text-gold">{t.eyebrow}</p>
+          <p className="eyebrow mb-8 !text-rouge">{t.eyebrow}</p>
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="h-display max-w-3xl text-[clamp(2.4rem,5.6vw,5rem)] text-white">
             {t.headA}
-            <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           </h2>
         </Reveal>
         <Reveal delay={0.16}>

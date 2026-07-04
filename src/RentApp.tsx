@@ -235,13 +235,13 @@ function RentHero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navydeep/70 via-navydeep/15 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
-        <p className="rent-stagger eyebrow mb-7 flex items-center gap-4 !text-gold">
+        <p className="rent-stagger eyebrow mb-7 flex items-center gap-4 !text-rouge">
           <span className="h-px w-10 bg-gold" />
           {t.eyebrow}
         </p>
         <h1 className="rent-stagger h-display max-w-4xl text-[clamp(2.4rem,5.6vw,4.8rem)] text-white [text-shadow:0_2px_40px_rgba(6,13,22,0.5)]">
           {t.headA}
-          <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+          <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           {t.headB}
         </h1>
         <p className="rent-stagger mt-8 max-w-xl text-[15.5px] leading-[1.85] text-white/70 md:text-[17px]">{t.sub}</p>
@@ -275,7 +275,7 @@ function SpaceTypes({ onPick }: { onPick: (k: Exclude<SpaceType, ''>) => void })
         <Reveal delay={0.08}>
           <h2 className="h-display mb-20 max-w-2xl text-[clamp(2.2rem,4.4vw,3.8rem)]">
             {t.headA}
-            <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -426,7 +426,7 @@ function RentForm({ pickedType }: { pickedType: SpaceType }) {
             <Reveal delay={0.08}>
               <h2 className="h-display text-[clamp(2.2rem,4vw,3.4rem)]">
                 {t.headA}
-                <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+                <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.16}>
@@ -499,7 +499,7 @@ function RentForm({ pickedType }: { pickedType: SpaceType }) {
                     onClick={sendEmail}
                     className="group/btn inline-flex items-center gap-2.5 rounded-full bg-ink px-8 py-4 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:bg-ink/85"
                   >
-                    <Mail size={15} className="text-gold" />
+                    <Mail size={15} className="text-rouge" />
                     {t.submitEmail}
                     <ArrowRight size={15} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
                   </button>
@@ -521,7 +521,7 @@ function RentForm({ pickedType }: { pickedType: SpaceType }) {
                   style={{ maxHeight: success ? 120 : 0, opacity: success ? 1 : 0, transform: success ? 'translateY(0)' : 'translateY(10px)' }}
                 >
                   <div className="mt-7 flex items-center gap-3 rounded-2xl border border-gold/40 bg-gold/10 px-6 py-4">
-                    <CheckCircle2 size={20} className="shrink-0 text-golddeep" />
+                    <CheckCircle2 size={20} className="shrink-0 text-rougedeep" />
                     <p className="text-[14px] font-medium text-ink/80">{t.success}</p>
                   </div>
                 </div>
@@ -567,7 +567,7 @@ function RentCTA() {
         <Reveal delay={0.05}>
           <h2 className="h-display max-w-3xl text-[clamp(2.4rem,5.4vw,4.6rem)] text-white">
             {t.headA}
-            <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           </h2>
         </Reveal>
         <Reveal delay={0.14}>

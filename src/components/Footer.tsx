@@ -47,7 +47,7 @@ export default function Footer() {
           </a>
           <nav className="flex flex-wrap gap-x-9 gap-y-3 text-[13.5px] text-white/55">
             {t.links.map((l) => (
-              <a key={l.href} href={l.href} className="transition-colors hover:text-gold">
+              <a key={l.href} href={l.href} className="transition-colors hover:text-rouge">
                 {l.label}
               </a>
             ))}

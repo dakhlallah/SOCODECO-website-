@@ -115,13 +115,13 @@ export default function AboutHero() {
 
       {/* centered content */}
       <div className="about-copy relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 py-36 text-center">
-        <p className="about-stagger inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.06] px-6 py-2.5 text-[10px] font-semibold uppercase tracking-[0.34em] text-gold backdrop-blur-md">
+        <p className="about-stagger inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.06] px-6 py-2.5 text-[10px] font-semibold uppercase tracking-[0.34em] text-rouge backdrop-blur-md">
           {t.badge}
         </p>
 
         <h2 className="about-stagger h-display mt-10 text-[clamp(2.6rem,6.4vw,5.6rem)] text-white [text-shadow:0_2px_40px_rgba(6,13,22,0.5)]">
           {t.headA}
-          <span className="font-serif italic font-normal text-gold">{t.accent}</span>
+          <span className="font-serif italic font-normal text-rouge">{t.accent}</span>
           <br />
           {t.headB}
         </h2>

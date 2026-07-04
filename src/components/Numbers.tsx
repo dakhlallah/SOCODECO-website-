@@ -94,7 +94,7 @@ export default function Numbers() {
                   <span className="num-val" data-value={n.value} data-format={n.format}>
                     0
                   </span>
-                  <span className="text-golddeep">{n.suffix}</span>
+                  <span className="text-rougedeep">{n.suffix}</span>
                 </p>
                 <p className="mt-4 max-w-[190px] text-[13px] font-medium leading-snug text-ink/55">
                   {t.labels[i]}

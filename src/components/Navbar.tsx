@@ -45,8 +45,8 @@ function LangSwitch({ onDark, size = 'sm' }: { onDark: boolean; size?: 'sm' | 'l
     `${base} transition-colors duration-300 ${
       lang === l
         ? onDark
-          ? 'text-gold'
-          : 'text-golddeep'
+          ? 'text-rouge'
+          : 'text-rougedeep'
         : onDark
           ? 'text-white/50 hover:text-white'
           : 'text-ink/40 hover:text-ink'

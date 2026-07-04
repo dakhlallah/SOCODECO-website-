@@ -111,7 +111,7 @@ export default function OurStory() {
           </p>
           <h2 className="story-text h-display text-[clamp(2.2rem,4vw,3.6rem)]">
             {t.headA}
-            <span className="font-serif italic font-normal text-golddeep">{t.accent}</span>
+            <span className="font-serif italic font-normal text-rougedeep">{t.accent}</span>
             {t.headB}
           </h2>
           <div className="story-text mt-9 space-y-6 text-[15.5px] leading-[1.9] text-ink/60 md:text-base">
