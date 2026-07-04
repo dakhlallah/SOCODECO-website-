@@ -35,7 +35,7 @@ const WHY_ICONS = [Award, BadgeCheck, Clock4, ShieldCheck, Wrench, HardHat];
 
 const PROJECT_MEDIA = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/hero-construction.jpg', tall: true },
-  { name: 'SCDC Tower', location: 'Gombe, Kinshasa', year: '2024', img: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },
+  { name: 'SCDC Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/scdc-tower.jpg', tall: false },
   { name: 'Coin Marais Residences', location: 'Barumbu, Kinshasa', year: '2022', img: 'https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: true },
   { name: 'Riverside Headquarters', location: 'Kinshasa', year: '2025', img: '/our-story.jpg', tall: false },
   { name: 'Jakarta Commercial Center', location: 'Kinshasa', year: '2020', img: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },

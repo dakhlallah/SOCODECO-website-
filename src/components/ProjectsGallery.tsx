@@ -12,8 +12,8 @@ const PROJECT_MEDIA = [
   {
     name: 'SCDC Tower',
     location: 'Gombe, Kinshasa',
-    year: '2024',
-    img: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    year: '2026',
+    img: '/scdc-tower.jpg',
   },
   {
     name: 'Coin Marais Residences',
@@ -43,7 +43,7 @@ const T = {
     note: 'Faites défiler — la galerie se déplace latéralement',
     details: [
       { surface: '18 400 m²', status: 'En construction' },
-      { surface: '14 800 m²', status: 'Livré' },
+      { surface: '1 000 m²', status: 'Prochainement' },
       { surface: '9 200 m²', status: 'Livré · Entièrement loué' },
       { surface: '6 400 m²', status: 'Livré · 60 boutiques' },
       { surface: '11 600 m²', status: 'En conception' },
@@ -59,7 +59,7 @@ const T = {
     note: 'Scroll — the gallery moves sideways',
     details: [
       { surface: '18,400 m²', status: 'Under construction' },
-      { surface: '14,800 m²', status: 'Delivered' },
+      { surface: '1,000 m²', status: 'Coming soon' },
       { surface: '9,200 m²', status: 'Delivered · Fully let' },
       { surface: '6,400 m²', status: 'Delivered · 60 shops' },
       { surface: '11,600 m²', status: 'In design' },
