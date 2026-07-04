@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const PROJECT_MEDIA: { name: string; location: string; year: string; img: string; rent?: boolean }[] = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/hero-construction.jpg' },
+  { name: 'Ambassade du Burundi', location: 'Kinshasa', year: '2027', img: '/ambassade-burundi.jpg' },
   {
     name: 'SCDC Tower',
     location: 'Gombe, Kinshasa',
@@ -59,6 +60,7 @@ const T = {
     note: 'Faites défiler — la galerie se déplace latéralement',
     details: [
       { surface: '18 400 m²', status: 'En construction' },
+      { surface: '16 300 m²', status: 'En conception' },
       { surface: '1 000 m²', status: 'Prochainement' },
       { surface: '700 m²', status: 'À louer' },
       { surface: 'Chambres & suites', status: 'Livré' },
@@ -79,6 +81,7 @@ const T = {
     note: 'Scroll — the gallery moves sideways',
     details: [
       { surface: '18,400 m²', status: 'Under construction' },
+      { surface: '16,300 m²', status: 'In design' },
       { surface: '1,000 m²', status: 'Coming soon' },
       { surface: '700 m²', status: 'For rent' },
       { surface: 'Rooms & suites', status: 'Delivered' },

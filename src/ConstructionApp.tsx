@@ -36,6 +36,7 @@ const WHY_ICONS = [Award, BadgeCheck, Clock4, ShieldCheck, Wrench, HardHat];
 
 const PROJECT_MEDIA: { name: string; location: string; year: string; img: string; tall: boolean; rent?: boolean }[] = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/hero-construction.jpg', tall: true },
+  { name: 'Ambassade du Burundi', location: 'Kinshasa', year: '2027', img: '/ambassade-burundi.jpg', tall: true },
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/scdc-tower.jpg', tall: false },
   { name: 'Quantum Building', location: 'Kinshasa', year: '2022', img: '/quantum-building.jpg', tall: true, rent: true },
   { name: 'Hotel Everest', location: 'Kinshasa', year: '2023', img: '/hotel-everest.jpg', tall: false },
@@ -88,7 +89,7 @@ const T = {
       headA: 'Construits pour être ',
       accent: 'mémorables.',
       portfolio: 'Portfolio complet',
-      types: ['Mixte', 'Bureaux & commerces', 'Mixte', 'Hôtel', 'Mixte', 'Siège social', 'Résidentiel', 'Commerces'],
+      types: ['Mixte', 'Mixte', 'Bureaux & commerces', 'Mixte', 'Hôtel', 'Mixte', 'Siège social', 'Résidentiel', 'Commerces'],
       rentCta: 'Louer un espace →',
       rentMsg: 'Bonjour SOCODECO — je souhaite louer un espace au Marché Jakarta.',
     },
@@ -165,7 +166,7 @@ const T = {
       headA: 'Built to be ',
       accent: 'remembered.',
       portfolio: 'Full portfolio',
-      types: ['Mixed-use', 'Offices & retail', 'Mixed-use', 'Hotel', 'Mixed-use', 'Corporate office', 'Residential', 'Retail'],
+      types: ['Mixed-use', 'Mixed-use', 'Offices & retail', 'Mixed-use', 'Hotel', 'Mixed-use', 'Corporate office', 'Residential', 'Retail'],
       rentCta: 'Rent a space →',
       rentMsg: 'Hello SOCODECO — I would like to rent a space at Marché Jakarta.',
     },

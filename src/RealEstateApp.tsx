@@ -38,6 +38,7 @@ const WHY_ICONS = [MapPin, Medal, TrendingUp, PenTool, Eye, Handshake];
 
 const PROJECT_MEDIA: { name: string; location: string; img: string; tall: boolean; rent?: boolean }[] = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', img: '/hero-construction.jpg', tall: true },
+  { name: 'Ambassade du Burundi', location: 'Kinshasa', img: '/ambassade-burundi.jpg', tall: true },
   { name: 'Quantum Building', location: 'Kinshasa', img: '/quantum-building.jpg', tall: false, rent: true },
   { name: 'Hotel Everest', location: 'Kinshasa', img: '/hotel-everest.jpg', tall: false },
   { name: 'Macken Building A', location: 'Kinshasa', img: '/macken-building-a.jpg', tall: true },
@@ -93,6 +94,7 @@ const T = {
       portfolio: 'Portfolio complet',
       details: [
         { type: 'Mixte', units: '86 unités', status: 'En construction' },
+        { type: 'Mixte', units: '16 300 m²', status: 'En conception' },
         { type: 'Mixte', units: '700 m²', status: 'À louer' },
         { type: 'Hôtellerie', units: 'Chambres & suites', status: 'Livré' },
         { type: 'Mixte', units: 'Appartements & boutiques', status: 'Livré' },
@@ -214,6 +216,7 @@ const T = {
       portfolio: 'Full portfolio',
       details: [
         { type: 'Mixed-use', units: '86 units', status: 'Under construction' },
+        { type: 'Mixed-use', units: '16,300 m²', status: 'In design' },
         { type: 'Mixed-use', units: '700 m²', status: 'For rent' },
         { type: 'Hospitality', units: 'Rooms & suites', status: 'Delivered' },
         { type: 'Mixed-use', units: 'Apartments & shops', status: 'Delivered' },

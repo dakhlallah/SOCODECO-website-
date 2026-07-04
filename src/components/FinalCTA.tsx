@@ -72,12 +72,22 @@ export default function FinalCTA() {
     <section
       id="contact"
       ref={root}
-      className="bp-grid-dark relative flex min-h-screen flex-col justify-center bg-[#060d16] py-32 text-white"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-[#060d16] py-32 text-white"
     >
+      {/* cinematic backdrop — illuminated SOCODECO development at blue hour */}
+      <img
+        src="/realestate-cta.jpg"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#060d16]/95 via-[#060d16]/80 to-[#060d16]/55" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#060d16]/80 to-transparent" />
       {/* faint gold horizon glow */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[40%]"
-        style={{ background: 'radial-gradient(80% 100% at 50% 100%, rgba(201,169,97,0.14), transparent 70%)' }}
+        style={{ background: 'radial-gradient(80% 100% at 50% 100%, rgba(201,169,97,0.16), transparent 70%)' }}
       />
 
       <div className="relative mx-auto w-full max-w-[1500px] px-6 sm:px-10 lg:px-16">
