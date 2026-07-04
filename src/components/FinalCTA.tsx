@@ -108,12 +108,22 @@ export default function FinalCTA() {
         </div>
 
         <div className="cta-after mt-20 flex flex-wrap gap-x-14 gap-y-6 border-t border-white/10 pt-10">
-          <a href="tel:+243990000027" className="group flex items-center gap-4">
-            <Phone size={16} className="text-gold" />
-            <span className="text-[14px] text-white/65 transition-colors group-hover:text-white">
-              +243 990 000 027 · +243 822 666 555 · +243 998 420 000
+          <div className="flex items-center gap-4">
+            <Phone size={16} className="shrink-0 text-gold" />
+            <span className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] text-white/65">
+              <a href="tel:+243990000027" className="transition-colors hover:text-white">
+                +243 990 000 027
+              </a>
+              <span className="text-white/25">·</span>
+              <a href="tel:+243822666555" className="transition-colors hover:text-white">
+                +243 822 666 555
+              </a>
+              <span className="text-white/25">·</span>
+              <a href="tel:+243998420000" className="transition-colors hover:text-white">
+                +243 998 420 000
+              </a>
             </span>
-          </a>
+          </div>
           <a href="mailto:info@socodeco.org" className="group flex items-center gap-4">
             <Mail size={16} className="text-gold" />
             <span className="text-[14px] text-white/65 transition-colors group-hover:text-white">
