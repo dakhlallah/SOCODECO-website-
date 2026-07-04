@@ -292,7 +292,7 @@ function SpaceTypes({ onPick }: { onPick: (k: Exclude<SpaceType, ''>) => void })
                       className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.08]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navydeep/40 to-transparent" />
-                    <span className="absolute bottom-5 left-6 grid h-14 w-14 place-items-center rounded-full bg-gold text-ink shadow-lg transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                    <span className="absolute bottom-5 left-6 grid h-14 w-14 place-items-center rounded-full bg-rouge text-white shadow-lg transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
                       <c.icon size={22} strokeWidth={1.7} />
                     </span>
                   </div>
@@ -302,7 +302,7 @@ function SpaceTypes({ onPick }: { onPick: (k: Exclude<SpaceType, ''>) => void })
                     <a
                       href="#demande"
                       onClick={() => onPick(c.key)}
-                      className="group/cta mt-7 inline-flex items-center gap-2.5 self-start rounded-full bg-ink px-6 py-3 text-[11.5px] font-semibold uppercase tracking-[0.16em] text-white transition-colors duration-300 hover:bg-gold hover:text-ink"
+                      className="group/cta mt-7 inline-flex items-center gap-2.5 self-start rounded-full bg-ink px-6 py-3 text-[11.5px] font-semibold uppercase tracking-[0.16em] text-white transition-colors duration-300 hover:bg-rouge"
                     >
                       {t.cardCta}
                       <ArrowRight size={14} className="transition-transform duration-300 group-hover/cta:translate-x-1.5" />
@@ -506,7 +506,7 @@ function RentForm({ pickedType }: { pickedType: SpaceType }) {
                   <button
                     type="button"
                     onClick={sendWhatsApp}
-                    className="group/btn glow-gold inline-flex items-center gap-2.5 rounded-full bg-gold px-8 py-4 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-ink transition-colors duration-300 hover:bg-ink hover:text-white"
+                    className="group/btn glow-gold inline-flex items-center gap-2.5 rounded-full bg-rouge px-8 py-4 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:bg-ink"
                   >
                     <MessageCircle size={15} />
                     {t.submitWhatsApp}
@@ -520,7 +520,7 @@ function RentForm({ pickedType }: { pickedType: SpaceType }) {
                   className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
                   style={{ maxHeight: success ? 120 : 0, opacity: success ? 1 : 0, transform: success ? 'translateY(0)' : 'translateY(10px)' }}
                 >
-                  <div className="mt-7 flex items-center gap-3 rounded-2xl border border-gold/40 bg-gold/10 px-6 py-4">
+                  <div className="mt-7 flex items-center gap-3 rounded-2xl border border-rouge/40 bg-rouge/10 px-6 py-4">
                     <CheckCircle2 size={20} className="shrink-0 text-rougedeep" />
                     <p className="text-[14px] font-medium text-ink/80">{t.success}</p>
                   </div>

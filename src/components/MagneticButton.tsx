@@ -34,8 +34,8 @@ export default function MagneticButton({
   const styles: Record<string, string> = {
     dark: 'bg-ink text-white',
     light: 'bg-white text-ink shadow-[0_0_0_1px_rgba(16,16,16,0.08)]',
-    gold: 'bg-gold text-ink',
-    ghost: 'border border-white/25 text-white hover:border-gold hover:text-rouge',
+    gold: 'bg-rouge text-white',
+    ghost: 'border border-white/25 text-white hover:border-rouge hover:text-rouge',
   };
 
   return (

@@ -559,8 +559,8 @@ function BuildForm() {
       onClick={() => setForm((f) => ({ ...f, plan: f.plan === value ? '' : value }))}
       className={`rounded-full border px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.12em] transition-all duration-300 ${
         form.plan === value
-          ? 'border-gold bg-gold text-ink'
-          : 'border-ink/15 bg-white text-ink/60 hover:border-gold/60 hover:text-ink'
+          ? 'border-rouge bg-rouge text-white'
+          : 'border-ink/15 bg-white text-ink/60 hover:border-rouge/60 hover:text-ink'
       }`}
     >
       {text}
@@ -665,7 +665,7 @@ function BuildForm() {
                   <button
                     type="button"
                     onClick={sendWhatsApp}
-                    className="group/btn glow-gold inline-flex items-center gap-2.5 rounded-full bg-gold px-8 py-4 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-ink transition-colors duration-300 hover:bg-ink hover:text-white"
+                    className="group/btn glow-gold inline-flex items-center gap-2.5 rounded-full bg-rouge px-8 py-4 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:bg-ink"
                   >
                     <MessageCircle size={15} />
                     {t.submitWhatsApp}
@@ -679,7 +679,7 @@ function BuildForm() {
                   className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
                   style={{ maxHeight: success ? 120 : 0, opacity: success ? 1 : 0, transform: success ? 'translateY(0)' : 'translateY(10px)' }}
                 >
-                  <div className="mt-7 flex items-center gap-3 rounded-2xl border border-gold/40 bg-gold/10 px-6 py-4">
+                  <div className="mt-7 flex items-center gap-3 rounded-2xl border border-rouge/40 bg-rouge/10 px-6 py-4">
                     <CheckCircle2 size={20} className="shrink-0 text-rougedeep" />
                     <p className="text-[14px] font-medium text-ink/80">{t.success}</p>
                   </div>

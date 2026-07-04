@@ -85,7 +85,7 @@ body {
   transition: box-shadow 0.4s ease, transform 0.3s ease;
 }
 .glow-gold:hover {
-  box-shadow: 0 0 44px -6px rgba(201, 169, 97, 0.65);
+  box-shadow: 0 0 44px -6px rgba(178, 34, 34, 0.55);
 }
 
 @keyframes cuedrop {

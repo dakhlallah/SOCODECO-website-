@@ -194,7 +194,7 @@ export default function ProjectsGallery() {
               {p.rent && (
                 <a
                   href={rentUrl}
-                  className="mt-5 inline-flex items-center gap-2.5 rounded-full bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-all duration-300 hover:bg-ink hover:text-white"
+                  className="mt-5 inline-flex items-center gap-2.5 rounded-full bg-rouge px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-ink hover:text-white"
                 >
                   {t.rentCta} →
                 </a>

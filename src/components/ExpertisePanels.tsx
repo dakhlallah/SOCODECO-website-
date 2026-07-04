@@ -151,7 +151,7 @@ function Panel({ p, active, onActivate }: { p: PanelData; active: boolean; onAct
               href={p.href}
               aria-label={p.openLabel}
               className={`mb-1 grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-all duration-500 hover:scale-110 ${
-                active ? 'border-gold bg-gold text-ink' : 'border-white/20 text-white/50'
+                active ? 'border-rouge bg-rouge text-white' : 'border-white/20 text-white/50'
               }`}
             >
               <ArrowUpRight size={17} />
@@ -159,7 +159,7 @@ function Panel({ p, active, onActivate }: { p: PanelData; active: boolean; onAct
           ) : (
             <span
               className={`mb-1 grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-all duration-500 ${
-                active ? 'border-gold bg-gold text-ink' : 'border-white/20 text-white/50'
+                active ? 'border-rouge bg-rouge text-white' : 'border-white/20 text-white/50'
               }`}
             >
               <ArrowUpRight size={17} />

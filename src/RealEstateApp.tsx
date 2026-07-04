@@ -598,7 +598,7 @@ function REProjects() {
                     <a
                       href={rentUrl}
                       onClick={(e) => e.stopPropagation()}
-                      className="mt-3 inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-white"
+                      className="mt-3 inline-flex rounded-full bg-rouge px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-ink"
                     >
                       {t.rentCta}
                     </a>
@@ -804,14 +804,14 @@ function RETestimonials() {
               <button
                 aria-label={t.prev}
                 onClick={() => setIdx((i) => (i - 1 + t.items.length) % t.items.length)}
-                className="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/70 transition-all hover:border-gold hover:text-rouge"
+                className="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/70 transition-all hover:border-rouge hover:text-rouge"
               >
                 <ArrowLeft size={17} />
               </button>
               <button
                 aria-label={t.next}
                 onClick={() => setIdx((i) => (i + 1) % t.items.length)}
-                className="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/70 transition-all hover:border-gold hover:text-rouge"
+                className="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-white/70 transition-all hover:border-rouge hover:text-rouge"
               >
                 <ArrowRight size={17} />
               </button>

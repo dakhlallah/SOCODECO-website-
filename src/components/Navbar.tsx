@@ -64,6 +64,14 @@ function LangSwitch({ onDark, size = 'sm' }: { onDark: boolean; size?: 'sm' | 'l
   );
 }
 
+/** Marks the menu item of the page currently open (path-based pages only). */
+function isActiveLink(href: string): boolean {
+  const current = window.location.pathname;
+  if (href === '/#hero') return current === '/' || current === '/index.html';
+  const base = href.split('#')[0];
+  return base !== '' && base !== '/' && current === base;
+}
+
 export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 'page' }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -88,7 +96,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
+        scrolled || open
           ? 'bg-white/85 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-md'
           : 'bg-gradient-to-b from-navydeep/40 to-transparent backdrop-blur-[2px]'
       }`}
@@ -102,7 +110,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
             className="h-8 w-auto transition-opacity duration-500 sm:h-9"
           />
           <span
-            className={`hidden text-[10px] font-medium uppercase tracking-[0.2em] transition-colors duration-500 md:inline ${
+            className={`hidden whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.2em] transition-colors duration-500 min-[1400px]:inline ${
               onDark ? 'text-white/45' : 'text-ink/40'
             }`}
           >
@@ -111,19 +119,37 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
         </a>
 
         <div className="hidden items-center gap-1 lg:flex">
-          {t.links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`whitespace-nowrap rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-colors duration-300 ${
-                onDark
-                  ? 'text-white/75 hover:bg-white/10 hover:text-white'
-                  : 'text-ink/70 hover:bg-ink/[0.04] hover:text-ink'
-              }`}
-            >
-              {l.label}
-            </a>
-          ))}
+          {t.links.map((l, i) => {
+            const active = isActiveLink(l.href);
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`group relative whitespace-nowrap px-3.5 py-2 text-[13.5px] transition-colors duration-300 ${
+                  active ? 'font-semibold' : 'font-medium'
+                } ${onDark ? 'text-white/80 hover:text-white' : 'text-ink/70 hover:text-ink'}`}
+              >
+                {/* elegant section number — warm gold, pops up on hover */}
+                <span
+                  className={`mr-1.5 inline-block -translate-y-[3px] text-[9px] font-semibold tracking-[0.1em] transition-all duration-300 group-hover:-translate-y-[6px] ${
+                    active ? 'text-gold' : onDark ? 'text-gold/65 group-hover:text-gold' : 'text-golddeep/65 group-hover:text-golddeep'
+                  }`}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {/* label slides 4px right on hover */}
+                <span className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-1">
+                  {l.label}
+                </span>
+                {/* thin gold underline, left → right */}
+                <span
+                  className={`absolute inset-x-3.5 bottom-0 h-px origin-left bg-gold transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-x-100 ${
+                    active ? 'scale-x-100' : 'scale-x-0'
+                  }`}
+                />
+              </a>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-3">
@@ -133,7 +159,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
           <a
             href="#contact"
             className={`hidden items-center whitespace-nowrap rounded-full px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.1em] transition-all duration-300 lg:inline-flex ${
-              onDark ? 'bg-gold text-ink hover:bg-white' : 'bg-ink text-white hover:bg-ink/85'
+              onDark ? 'bg-rouge text-white hover:bg-white hover:text-ink' : 'bg-ink text-white hover:bg-ink/85'
             }`}
           >
             {t.cta}
@@ -162,21 +188,35 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
         style={{ maxHeight: open ? 540 : 0, transition: 'max-height 0.5s cubic-bezier(0.23,1,0.32,1)' }}
       >
         <div className="flex flex-col px-6 pb-6 pt-2">
-          {t.links.map((l, i) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="border-b border-ink/5 py-3.5 text-[15px] font-medium text-ink/80"
-              style={{
-                opacity: open ? 1 : 0,
-                transform: open ? 'translateY(0)' : 'translateY(-8px)',
-                transition: `opacity 0.4s ${i * 50 + 80}ms, transform 0.4s ${i * 50 + 80}ms`,
-              }}
-            >
-              {l.label}
-            </a>
-          ))}
+          {t.links.map((l, i) => {
+            const active = isActiveLink(l.href);
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className={`group border-b border-ink/5 py-3.5 text-[15px] ${
+                  active ? 'font-semibold text-ink' : 'font-medium text-ink/80'
+                }`}
+                style={{
+                  opacity: open ? 1 : 0,
+                  transform: open ? 'translateY(0) scale(1)' : 'translateY(14px) scale(0.97)',
+                  transition: `opacity 0.45s cubic-bezier(0.23,1,0.32,1) ${i * 60 + 80}ms, transform 0.45s cubic-bezier(0.23,1,0.32,1) ${i * 60 + 80}ms`,
+                }}
+              >
+                <span
+                  className={`mr-2.5 inline-block -translate-y-[3px] text-[10px] font-semibold tracking-[0.1em] transition-transform duration-300 group-hover:-translate-y-[6px] ${
+                    active ? 'text-gold' : 'text-golddeep/65'
+                  }`}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                  {l.label}
+                </span>
+              </a>
+            );
+          })}
           {/* language switcher — mobile menu */}
           <div
             className="pt-4"

@@ -115,7 +115,7 @@ export default function Quality() {
                 <div className="absolute -bottom-10 -right-4 hidden w-56 border-8 border-navydeep md:block">
                   <img src={IMG2} alt={t.alt2} loading="lazy" className="h-64 w-full object-cover" />
                 </div>
-                <span className="absolute left-6 top-6 bg-gold px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-ink">
+                <span className="absolute left-6 top-6 bg-rouge px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-white">
                   {t.badge}
                 </span>
               </div>

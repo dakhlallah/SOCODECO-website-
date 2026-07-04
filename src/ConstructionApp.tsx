@@ -504,7 +504,7 @@ function FeaturedProjects() {
                     <a
                       href={rentUrl}
                       onClick={(e) => e.stopPropagation()}
-                      className="mt-3 inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-white"
+                      className="mt-3 inline-flex rounded-full bg-rouge px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-ink"
                     >
                       {t.rentCta}
                     </a>
