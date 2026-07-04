@@ -7,7 +7,7 @@ import { useLang } from '../lib/i18n';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const PROJECT_MEDIA = [
+const PROJECT_MEDIA: { name: string; location: string; year: string; img: string; rent?: boolean }[] = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/hero-construction.jpg' },
   {
     name: 'SCDC Tower',
@@ -28,10 +28,11 @@ const PROJECT_MEDIA = [
     img: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1800',
   },
   {
-    name: 'Kangayani Complex',
+    name: 'Marché Jakarta',
     location: 'Kinshasa',
-    year: '2027',
-    img: 'https://images.pexels.com/photos/439416/pexels-photo-439416.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    year: '2026',
+    img: '/marche-jakarta.jpg',
+    rent: true,
   },
 ];
 
@@ -46,8 +47,10 @@ const T = {
       { surface: '1 000 m²', status: 'Prochainement' },
       { surface: '9 200 m²', status: 'Livré · Entièrement loué' },
       { surface: '6 400 m²', status: 'Livré · 60 boutiques' },
-      { surface: '11 600 m²', status: 'En conception' },
+      { surface: '11 600 m²', status: 'À louer' },
     ],
+    rentCta: 'Louer un espace',
+    rentMsg: 'Bonjour SOCODECO — je souhaite louer un espace au Marché Jakarta.',
     endA: 'Votre projet',
     endAccent: 'pourrait être le prochain.',
     endCta: 'Entamons la conversation →',
@@ -62,8 +65,10 @@ const T = {
       { surface: '1,000 m²', status: 'Coming soon' },
       { surface: '9,200 m²', status: 'Delivered · Fully let' },
       { surface: '6,400 m²', status: 'Delivered · 60 shops' },
-      { surface: '11,600 m²', status: 'In design' },
+      { surface: '11,600 m²', status: 'For rent' },
     ],
+    rentCta: 'Rent a space',
+    rentMsg: 'Hello SOCODECO — I would like to rent a space at Marché Jakarta.',
     endA: 'Your project',
     endAccent: 'could be next.',
     endCta: 'Start the conversation →',
@@ -76,6 +81,7 @@ export default function ProjectsGallery() {
   const { lang } = useLang();
   const t = T[lang];
   const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, ...t.details[i] }));
+  const rentUrl = 'https://wa.me/243990000027?text=' + encodeURIComponent(t.rentMsg);
 
   useGSAP(
     () => {
@@ -156,6 +162,16 @@ export default function ProjectsGallery() {
                   </div>
                 </div>
               </a>
+              {p.rent && (
+                <a
+                  href={rentUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center gap-2.5 rounded-full bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-all duration-300 hover:bg-ink hover:text-white"
+                >
+                  {t.rentCta} →
+                </a>
+              )}
             </article>
           ))}
 

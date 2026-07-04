@@ -33,13 +33,13 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const SERVICE_ICONS = [Mountain, Layers, Building2, Frame, PanelsTopLeft, KeyRound];
 const WHY_ICONS = [Award, BadgeCheck, Clock4, ShieldCheck, Wrench, HardHat];
 
-const PROJECT_MEDIA = [
+const PROJECT_MEDIA: { name: string; location: string; year: string; img: string; tall: boolean; rent?: boolean }[] = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/hero-construction.jpg', tall: true },
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/scdc-tower.jpg', tall: false },
   { name: 'Coin Marais Residences', location: 'Barumbu, Kinshasa', year: '2022', img: 'https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: true },
   { name: 'Riverside Headquarters', location: 'Kinshasa', year: '2025', img: '/our-story.jpg', tall: false },
   { name: 'Jakarta Commercial Center', location: 'Kinshasa', year: '2020', img: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },
-  { name: 'Kangayani Complex', location: 'Kinshasa', year: '2027', img: 'https://images.pexels.com/photos/439416/pexels-photo-439416.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: true },
+  { name: 'Marché Jakarta', location: 'Kinshasa', year: '2026', img: '/marche-jakarta.jpg', tall: true, rent: true },
 ];
 
 const T = {
@@ -85,7 +85,9 @@ const T = {
       headA: 'Construits pour être ',
       accent: 'mémorables.',
       portfolio: 'Portfolio complet',
-      types: ['Mixte', 'Bureaux & commerces', 'Résidentiel', 'Siège social', 'Commerces', 'Mixte'],
+      types: ['Mixte', 'Bureaux & commerces', 'Résidentiel', 'Siège social', 'Commerces', 'Commerces'],
+      rentCta: 'Louer un espace →',
+      rentMsg: 'Bonjour SOCODECO — je souhaite louer un espace au Marché Jakarta.',
     },
     why: {
       eyebrow: 'Pourquoi choisir SOCODECO',
@@ -160,7 +162,9 @@ const T = {
       headA: 'Built to be ',
       accent: 'remembered.',
       portfolio: 'Full portfolio',
-      types: ['Mixed-use', 'Offices & retail', 'Residential', 'Corporate office', 'Retail', 'Mixed-use'],
+      types: ['Mixed-use', 'Offices & retail', 'Residential', 'Corporate office', 'Retail', 'Retail'],
+      rentCta: 'Rent a space →',
+      rentMsg: 'Hello SOCODECO — I would like to rent a space at Marché Jakarta.',
     },
     why: {
       eyebrow: 'Why choose SOCODECO',
@@ -440,6 +444,7 @@ function FeaturedProjects() {
   const { lang } = useLang();
   const t = T[lang].projects;
   const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, type: t.types[i] }));
+  const rentUrl = 'https://wa.me/243990000027?text=' + encodeURIComponent(t.rentMsg);
 
   return (
     <section className="bg-paper py-32 lg:py-44">
@@ -466,7 +471,12 @@ function FeaturedProjects() {
         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [&>*]:mb-6">
           {projects.map((p, i) => (
             <Reveal key={p.name} delay={(i % 3) * 0.07}>
-              <a href="#contact" className="group relative block overflow-hidden rounded-2xl">
+              <a
+                href={p.rent ? rentUrl : '#contact'}
+                target={p.rent ? '_blank' : undefined}
+                rel={p.rent ? 'noreferrer' : undefined}
+                className="group relative block overflow-hidden rounded-2xl"
+              >
                 <img
                   src={p.img}
                   alt={`${p.name} — ${p.location}`}
@@ -479,6 +489,11 @@ function FeaturedProjects() {
                   <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white/60">
                     {p.location} · <span className="text-gold">{p.type}</span> · {p.year}
                   </p>
+                  {p.rent && (
+                    <p className="mt-3 inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink">
+                      {t.rentCta}
+                    </p>
+                  )}
                 </div>
               </a>
             </Reveal>

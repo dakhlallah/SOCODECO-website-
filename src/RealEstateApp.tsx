@@ -35,13 +35,13 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const DEV_ICONS = [Home, Building2, Blocks, Hotel, Warehouse, RefreshCcw];
 const WHY_ICONS = [MapPin, Medal, TrendingUp, PenTool, Eye, Handshake];
 
-const PROJECT_MEDIA = [
+const PROJECT_MEDIA: { name: string; location: string; img: string; tall: boolean; rent?: boolean }[] = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', img: '/hero-construction.jpg', tall: true },
   { name: 'Coin Marais Residences', location: 'Barumbu, Kinshasa', img: 'https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },
   { name: 'Riverside Headquarters', location: 'Kinshasa', img: '/our-story.jpg', tall: true },
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', img: '/scdc-tower.jpg', tall: false },
   { name: 'Jakarta Commercial Center', location: 'Kinshasa', img: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },
-  { name: 'Kangayani Complex', location: 'Kinshasa', img: 'https://images.pexels.com/photos/439416/pexels-photo-439416.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: true },
+  { name: 'Marché Jakarta', location: 'Kinshasa', img: '/marche-jakarta.jpg', tall: true, rent: true },
 ];
 
 const T = {
@@ -94,8 +94,10 @@ const T = {
         { type: 'Commercial', units: '12 000 m² de bureaux', status: 'Livré' },
         { type: 'Bureaux & commerces', units: '1 000 m²', status: 'Prochainement' },
         { type: 'Commerces', units: '60 boutiques', status: 'Livré' },
-        { type: 'Mixte', units: '120 unités', status: 'En conception' },
+        { type: 'Commerces', units: '11 600 m²', status: 'À louer' },
       ],
+      rentCta: 'Louer un espace →',
+      rentMsg: 'Bonjour SOCODECO — je souhaite louer un espace au Marché Jakarta.',
     },
     why: {
       eyebrow: 'Pourquoi investir avec SOCODECO',
@@ -211,8 +213,10 @@ const T = {
         { type: 'Commercial', units: '12,000 m² offices', status: 'Delivered' },
         { type: 'Offices & retail', units: '1,000 m²', status: 'Coming soon' },
         { type: 'Retail', units: '60 shops', status: 'Delivered' },
-        { type: 'Mixed-use', units: '120 units', status: 'In design' },
+        { type: 'Retail', units: '11,600 m²', status: 'For rent' },
       ],
+      rentCta: 'Rent a space →',
+      rentMsg: 'Hello SOCODECO — I would like to rent a space at Marché Jakarta.',
     },
     why: {
       eyebrow: 'Why invest with SOCODECO',
@@ -528,6 +532,7 @@ function REProjects() {
   const { lang } = useLang();
   const t = T[lang].projects;
   const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, ...t.details[i] }));
+  const rentUrl = 'https://wa.me/243990000027?text=' + encodeURIComponent(t.rentMsg);
 
   return (
     <section className="bg-paper py-32 lg:py-44">
@@ -553,7 +558,12 @@ function REProjects() {
         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [&>*]:mb-6">
           {projects.map((p, i) => (
             <Reveal key={p.name} delay={(i % 3) * 0.07}>
-              <a href="#contact" className="group relative block overflow-hidden rounded-2xl">
+              <a
+                href={p.rent ? rentUrl : '#contact'}
+                target={p.rent ? '_blank' : undefined}
+                rel={p.rent ? 'noreferrer' : undefined}
+                className="group relative block overflow-hidden rounded-2xl"
+              >
                 <img
                   src={p.img}
                   alt={`${p.name} — ${p.location}`}
@@ -567,6 +577,11 @@ function REProjects() {
                     {p.location} · <span className="text-gold">{p.type}</span> · {p.units}
                   </p>
                   <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.2em] text-gold/90">{p.status}</p>
+                  {p.rent && (
+                    <p className="mt-3 inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink">
+                      {t.rentCta}
+                    </p>
+                  )}
                 </div>
               </a>
             </Reveal>
