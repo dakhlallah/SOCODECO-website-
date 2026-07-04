@@ -1,1 +1,0 @@
-import{R as o}from"./index-amk3vljk.js";import{j as t,R as r}from"./motion-OBMglTBa.js";import{S as e,A as m}from"./configs-BGxv_Agm.js";import"./react-CNcQ2CFS.js";import"./gsap-mHDWLByB.js";import"./wrench-DVTanE1L.js";import"./building-2-CGpsBJSB.js";o.createRoot(document.getElementById("root")).render(t.jsx(r.StrictMode,{children:t.jsx(e,{config:m})}));
