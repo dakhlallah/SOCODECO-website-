@@ -444,7 +444,7 @@ function FeaturedProjects() {
   const { lang } = useLang();
   const t = T[lang].projects;
   const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, type: t.types[i] }));
-  const rentUrl = 'https://wa.me/243990000027?text=' + encodeURIComponent(t.rentMsg);
+  const rentUrl = '/location.html';
 
   return (
     <section className="bg-paper py-32 lg:py-44">
@@ -473,8 +473,6 @@ function FeaturedProjects() {
             <Reveal key={p.name} delay={(i % 3) * 0.07}>
               <a
                 href={p.rent ? rentUrl : '#contact'}
-                target={p.rent ? '_blank' : undefined}
-                rel={p.rent ? 'noreferrer' : undefined}
                 className="group relative block overflow-hidden rounded-2xl"
               >
                 <img

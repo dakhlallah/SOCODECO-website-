@@ -15,6 +15,8 @@ export default defineConfig({
         management: resolve(__dirname, 'management.html'),
         architecture: resolve(__dirname, 'architecture.html'),
         interior: resolve(__dirname, 'interior.html'),
+        location: resolve(__dirname, 'location.html'),
+        construire: resolve(__dirname, 'construire.html'),
       },
       output: {
         manualChunks: {

@@ -81,7 +81,7 @@ export default function ProjectsGallery() {
   const { lang } = useLang();
   const t = T[lang];
   const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, ...t.details[i] }));
-  const rentUrl = 'https://wa.me/243990000027?text=' + encodeURIComponent(t.rentMsg);
+  const rentUrl = '/location.html';
 
   useGSAP(
     () => {
@@ -165,8 +165,6 @@ export default function ProjectsGallery() {
               {p.rent && (
                 <a
                   href={rentUrl}
-                  target="_blank"
-                  rel="noreferrer"
                   className="mt-5 inline-flex items-center gap-2.5 rounded-full bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-all duration-300 hover:bg-ink hover:text-white"
                 >
                   {t.rentCta} →

@@ -10,7 +10,8 @@ const T = {
       { label: 'À propos', href: '/about.html' },
       { label: 'Expertise', href: '/#services' },
       { label: 'Projets', href: '/#projects' },
-      { label: 'Qualité', href: '/#quality' },
+      { label: 'Location', href: '/location.html' },
+      { label: 'Construire', href: '/construire.html' },
       { label: 'Contact', href: '#contact' },
     ],
     cta: 'Démarrer un projet',
@@ -23,7 +24,8 @@ const T = {
       { label: 'About', href: '/about.html' },
       { label: 'Expertise', href: '/#services' },
       { label: 'Projects', href: '/#projects' },
-      { label: 'Quality', href: '/#quality' },
+      { label: 'Rentals', href: '/location.html' },
+      { label: 'Build', href: '/construire.html' },
       { label: 'Contact', href: '#contact' },
     ],
     cta: 'Start a Project',
@@ -118,7 +120,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
             <a
               key={l.href}
               href={l.href}
-              className={`rounded-full px-4 py-2 text-[13.5px] font-medium transition-colors duration-300 ${
+              className={`whitespace-nowrap rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-colors duration-300 ${
                 onDark
                   ? 'text-white/75 hover:bg-white/10 hover:text-white'
                   : 'text-ink/70 hover:bg-ink/[0.04] hover:text-ink'
@@ -135,7 +137,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
           </div>
           <a
             href="#contact"
-            className={`hidden items-center rounded-full px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.1em] transition-all duration-300 lg:inline-flex ${
+            className={`hidden items-center whitespace-nowrap rounded-full px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.1em] transition-all duration-300 lg:inline-flex ${
               onDark ? 'bg-gold text-ink hover:bg-white' : 'bg-ink text-white hover:bg-ink/85'
             }`}
           >
@@ -162,7 +164,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
       {/* mobile panel */}
       <div
         className="overflow-hidden bg-white/95 backdrop-blur-md lg:hidden"
-        style={{ maxHeight: open ? 440 : 0, transition: 'max-height 0.5s cubic-bezier(0.23,1,0.32,1)' }}
+        style={{ maxHeight: open ? 540 : 0, transition: 'max-height 0.5s cubic-bezier(0.23,1,0.32,1)' }}
       >
         <div className="flex flex-col px-6 pb-6 pt-2">
           {t.links.map((l, i) => (
