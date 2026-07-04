@@ -96,22 +96,17 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
       <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 sm:px-10 lg:px-16">
         {/* wordmark — always returns to the landing page */}
         <a href="/#hero" aria-label={t.home} className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center bg-gold font-display text-[13px] font-bold leading-none text-ink">
-            SO
-          </span>
+          <img
+            src={onDark ? '/logo-light.png' : '/logo-dark.png'}
+            alt="SDC — SOCODECO"
+            className="h-8 w-auto transition-opacity duration-500 sm:h-9"
+          />
           <span
-            className={`font-display text-[17px] font-bold tracking-tight transition-colors duration-500 ${
-              onDark ? 'text-white' : 'text-ink'
+            className={`hidden text-[10px] font-medium uppercase tracking-[0.2em] transition-colors duration-500 md:inline ${
+              onDark ? 'text-white/45' : 'text-ink/40'
             }`}
           >
-            SOCODECO
-            <span
-              className={`ml-2 hidden text-[10px] font-medium uppercase tracking-[0.2em] md:inline ${
-                onDark ? 'text-white/45' : 'text-ink/40'
-              }`}
-            >
-              Construction · Développement
-            </span>
+            Construction · Développement
           </span>
         </a>
 

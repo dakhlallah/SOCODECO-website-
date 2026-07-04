@@ -40,8 +40,8 @@ export default function Footer() {
       <div className="mx-auto flex max-w-[1500px] flex-col gap-12 px-6 sm:px-10 lg:px-16">
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-center">
           <a href="/#hero" aria-label={t.home} className="block transition-opacity hover:opacity-80">
-            <p className="font-display text-3xl font-bold tracking-tightest">SOCODECO</p>
-            <p className="mt-2 text-[11px] uppercase tracking-[0.24em] text-white/35">
+            <img src="/logo-light.png" alt="SDC — SOCODECO" className="h-10 w-auto" />
+            <p className="mt-3 text-[11px] uppercase tracking-[0.24em] text-white/35">
               Société de Construction et de Développement du Congo
             </p>
           </a>

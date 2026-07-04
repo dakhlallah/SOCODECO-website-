@@ -119,9 +119,7 @@ export default function OurStory() {
             <p>{t.p2}</p>
           </div>
           <div className="story-text mt-11 flex items-center gap-5 border-t border-ink/10 pt-8">
-            <span className="grid h-12 w-12 place-items-center bg-gold font-display text-sm font-bold text-ink">
-              SO
-            </span>
+            <img src="/favicon.png" alt="" aria-hidden className="h-12 w-12 object-contain" />
             <div>
               <p className="font-display text-[15px] font-bold tracking-tight">
                 Société de Construction et de Développement du Congo
