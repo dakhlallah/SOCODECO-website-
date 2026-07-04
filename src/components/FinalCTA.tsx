@@ -102,7 +102,7 @@ export default function FinalCTA() {
           <MagneticButton href={whatsapp} variant="gold">
             {t.ctaTalk} <ArrowRight size={15} />
           </MagneticButton>
-          <MagneticButton href="mailto:contact@socodeco.org" variant="ghost">
+          <MagneticButton href="mailto:info@socodeco.org" variant="ghost">
             {t.ctaWrite}
           </MagneticButton>
         </div>
@@ -111,13 +111,13 @@ export default function FinalCTA() {
           <a href="tel:+243990000027" className="group flex items-center gap-4">
             <Phone size={16} className="text-gold" />
             <span className="text-[14px] text-white/65 transition-colors group-hover:text-white">
-              +243 990 000 027 · +243 822 666 555
+              +243 990 000 027 · +243 822 666 555 · +243 998 420 000
             </span>
           </a>
-          <a href="mailto:contact@socodeco.org" className="group flex items-center gap-4">
+          <a href="mailto:info@socodeco.org" className="group flex items-center gap-4">
             <Mail size={16} className="text-gold" />
             <span className="text-[14px] text-white/65 transition-colors group-hover:text-white">
-              contact@socodeco.org
+              info@socodeco.org
             </span>
           </a>
           <a href={whatsapp} target="_blank" rel="noreferrer" className="group flex items-center gap-4">

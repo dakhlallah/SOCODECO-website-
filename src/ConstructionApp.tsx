@@ -685,7 +685,7 @@ function ConstructionCTA() {
               {t.ctaQuote}
               <ArrowRight size={15} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
             </MagneticButton>
-            <MagneticButton href="mailto:contact@socodeco.org" variant="ghost" className="group/btn">
+            <MagneticButton href="mailto:info@socodeco.org" variant="ghost" className="group/btn">
               {t.ctaContact}
               <ArrowRight size={15} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
             </MagneticButton>
