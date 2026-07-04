@@ -1,8 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Reveal from './Reveal';
+import Lightbox, { type LightboxImage } from './Lightbox';
 import { useLang } from '../lib/i18n';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -27,6 +28,12 @@ const PROJECT_MEDIA: { name: string; location: string; year: string; img: string
     location: 'Kinshasa',
     year: '2023',
     img: '/hotel-everest.jpg',
+  },
+  {
+    name: 'Macken Building A',
+    location: 'Kinshasa',
+    year: '2024',
+    img: '/macken-building-a.jpg',
   },
   {
     name: 'Angie Building',
@@ -55,6 +62,7 @@ const T = {
       { surface: '1 000 m²', status: 'Prochainement' },
       { surface: '700 m²', status: 'À louer' },
       { surface: 'Chambres & suites', status: 'Livré' },
+      { surface: 'Appartements & boutiques', status: 'Livré' },
       { surface: '2 800 m²', status: 'À louer' },
       { surface: '11 600 m²', status: 'À louer' },
     ],
@@ -74,6 +82,7 @@ const T = {
       { surface: '1,000 m²', status: 'Coming soon' },
       { surface: '700 m²', status: 'For rent' },
       { surface: 'Rooms & suites', status: 'Delivered' },
+      { surface: 'Apartments & shops', status: 'Delivered' },
       { surface: '2,800 m²', status: 'For rent' },
       { surface: '11,600 m²', status: 'For rent' },
     ],
@@ -92,6 +101,7 @@ export default function ProjectsGallery() {
   const t = T[lang];
   const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, ...t.details[i] }));
   const rentUrl = '/location.html';
+  const [lightbox, setLightbox] = useState<LightboxImage | null>(null);
 
   useGSAP(
     () => {
@@ -149,7 +159,11 @@ export default function ProjectsGallery() {
         >
           {projects.map((p, i) => (
             <article key={p.name} className="w-full shrink-0 md:w-[58vw] lg:w-[48vw]">
-              <a href="#contact" className="group block">
+              <button
+                type="button"
+                onClick={() => setLightbox({ src: p.img, alt: `${p.name} — ${p.location}`, caption: `${p.name} — ${p.location}` })}
+                className="group block w-full cursor-zoom-in text-left"
+              >
                 <div className="relative overflow-hidden">
                   <img
                     src={p.img}
@@ -162,6 +176,8 @@ export default function ProjectsGallery() {
                   </span>
                   <div className="absolute inset-0 bg-navy/0 transition-colors duration-700 group-hover:bg-navy/15" />
                 </div>
+              </button>
+              <a href="#contact" className="block">
                 <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-t border-ink/12 pt-4">
                   <h3 className="font-display text-xl font-bold tracking-tight lg:text-2xl">{p.name}</h3>
                   <div className="flex flex-wrap gap-x-7 gap-y-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink/45">
@@ -198,6 +214,7 @@ export default function ProjectsGallery() {
           </div>
         </div>
       </div>
+      <Lightbox image={lightbox} onClose={() => setLightbox(null)} />
     </section>
   );
 }

@@ -26,6 +26,7 @@ import { LanguageProvider, useLang } from './lib/i18n';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Reveal from './components/Reveal';
+import Lightbox, { type LightboxImage } from './components/Lightbox';
 import MagneticButton from './components/MagneticButton';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -39,6 +40,7 @@ const PROJECT_MEDIA: { name: string; location: string; img: string; tall: boolea
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', img: '/hero-construction.jpg', tall: true },
   { name: 'Quantum Building', location: 'Kinshasa', img: '/quantum-building.jpg', tall: false, rent: true },
   { name: 'Hotel Everest', location: 'Kinshasa', img: '/hotel-everest.jpg', tall: false },
+  { name: 'Macken Building A', location: 'Kinshasa', img: '/macken-building-a.jpg', tall: true },
   { name: 'Riverside Headquarters', location: 'Kinshasa', img: '/our-story.jpg', tall: true },
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', img: '/scdc-tower.jpg', tall: false },
   { name: 'Angie Building', location: 'Kinshasa', img: '/angie-building.jpg', tall: false, rent: true },
@@ -93,6 +95,7 @@ const T = {
         { type: 'Mixte', units: '86 unités', status: 'En construction' },
         { type: 'Mixte', units: '700 m²', status: 'À louer' },
         { type: 'Hôtellerie', units: 'Chambres & suites', status: 'Livré' },
+        { type: 'Mixte', units: 'Appartements & boutiques', status: 'Livré' },
         { type: 'Commercial', units: '12 000 m² de bureaux', status: 'Livré' },
         { type: 'Bureaux & commerces', units: '1 000 m²', status: 'Prochainement' },
         { type: 'Résidentiel', units: '2 800 m²', status: 'À louer' },
@@ -213,6 +216,7 @@ const T = {
         { type: 'Mixed-use', units: '86 units', status: 'Under construction' },
         { type: 'Mixed-use', units: '700 m²', status: 'For rent' },
         { type: 'Hospitality', units: 'Rooms & suites', status: 'Delivered' },
+        { type: 'Mixed-use', units: 'Apartments & shops', status: 'Delivered' },
         { type: 'Commercial', units: '12,000 m² offices', status: 'Delivered' },
         { type: 'Offices & retail', units: '1,000 m²', status: 'Coming soon' },
         { type: 'Residential', units: '2,800 m²', status: 'For rent' },
@@ -536,6 +540,7 @@ function REProjects() {
   const t = T[lang].projects;
   const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, ...t.details[i] }));
   const rentUrl = '/location.html';
+  const [lightbox, setLightbox] = useState<LightboxImage | null>(null);
 
   return (
     <section className="bg-paper py-32 lg:py-44">
@@ -561,9 +566,17 @@ function REProjects() {
         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [&>*]:mb-6">
           {projects.map((p, i) => (
             <Reveal key={p.name} delay={(i % 3) * 0.07}>
-              <a
-                href={p.rent ? rentUrl : '#contact'}
-                className="group relative block overflow-hidden rounded-2xl"
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => setLightbox({ src: p.img, alt: `${p.name} — ${p.location}`, caption: `${p.name} — ${p.location}` })}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setLightbox({ src: p.img, alt: `${p.name} — ${p.location}`, caption: `${p.name} — ${p.location}` });
+                  }
+                }}
+                className="group relative block cursor-zoom-in overflow-hidden rounded-2xl"
               >
                 <img
                   src={p.img}
@@ -579,16 +592,21 @@ function REProjects() {
                   </p>
                   <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.2em] text-gold/90">{p.status}</p>
                   {p.rent && (
-                    <p className="mt-3 inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink">
+                    <a
+                      href={rentUrl}
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-3 inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-white"
+                    >
                       {t.rentCta}
-                    </p>
+                    </a>
                   )}
                 </div>
-              </a>
+              </div>
             </Reveal>
           ))}
         </div>
       </div>
+      <Lightbox image={lightbox} onClose={() => setLightbox(null)} />
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -24,6 +24,7 @@ import { LanguageProvider, useLang } from './lib/i18n';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Reveal from './components/Reveal';
+import Lightbox, { type LightboxImage } from './components/Lightbox';
 import MagneticButton from './components/MagneticButton';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -38,6 +39,7 @@ const PROJECT_MEDIA: { name: string; location: string; year: string; img: string
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', year: '2026', img: '/scdc-tower.jpg', tall: false },
   { name: 'Quantum Building', location: 'Kinshasa', year: '2022', img: '/quantum-building.jpg', tall: true, rent: true },
   { name: 'Hotel Everest', location: 'Kinshasa', year: '2023', img: '/hotel-everest.jpg', tall: false },
+  { name: 'Macken Building A', location: 'Kinshasa', year: '2024', img: '/macken-building-a.jpg', tall: true },
   { name: 'Riverside Headquarters', location: 'Kinshasa', year: '2025', img: '/our-story.jpg', tall: false },
   { name: 'Angie Building', location: 'Kinshasa', year: '2020', img: '/angie-building.jpg', tall: false, rent: true },
   { name: 'Marché Jakarta', location: 'Kinshasa', year: '2026', img: '/marche-jakarta.jpg', tall: true, rent: true },
@@ -86,7 +88,7 @@ const T = {
       headA: 'Construits pour être ',
       accent: 'mémorables.',
       portfolio: 'Portfolio complet',
-      types: ['Mixte', 'Bureaux & commerces', 'Mixte', 'Hôtel', 'Siège social', 'Résidentiel', 'Commerces'],
+      types: ['Mixte', 'Bureaux & commerces', 'Mixte', 'Hôtel', 'Mixte', 'Siège social', 'Résidentiel', 'Commerces'],
       rentCta: 'Louer un espace →',
       rentMsg: 'Bonjour SOCODECO — je souhaite louer un espace au Marché Jakarta.',
     },
@@ -163,7 +165,7 @@ const T = {
       headA: 'Built to be ',
       accent: 'remembered.',
       portfolio: 'Full portfolio',
-      types: ['Mixed-use', 'Offices & retail', 'Mixed-use', 'Hotel', 'Corporate office', 'Residential', 'Retail'],
+      types: ['Mixed-use', 'Offices & retail', 'Mixed-use', 'Hotel', 'Mixed-use', 'Corporate office', 'Residential', 'Retail'],
       rentCta: 'Rent a space →',
       rentMsg: 'Hello SOCODECO — I would like to rent a space at Marché Jakarta.',
     },
@@ -446,6 +448,7 @@ function FeaturedProjects() {
   const t = T[lang].projects;
   const projects = PROJECT_MEDIA.map((p, i) => ({ ...p, type: t.types[i] }));
   const rentUrl = '/location.html';
+  const [lightbox, setLightbox] = useState<LightboxImage | null>(null);
 
   return (
     <section className="bg-paper py-32 lg:py-44">
@@ -472,9 +475,17 @@ function FeaturedProjects() {
         <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [&>*]:mb-6">
           {projects.map((p, i) => (
             <Reveal key={p.name} delay={(i % 3) * 0.07}>
-              <a
-                href={p.rent ? rentUrl : '#contact'}
-                className="group relative block overflow-hidden rounded-2xl"
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => setLightbox({ src: p.img, alt: `${p.name} — ${p.location}`, caption: `${p.name} — ${p.location}` })}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setLightbox({ src: p.img, alt: `${p.name} — ${p.location}`, caption: `${p.name} — ${p.location}` });
+                  }
+                }}
+                className="group relative block cursor-zoom-in overflow-hidden rounded-2xl"
               >
                 <img
                   src={p.img}
@@ -489,16 +500,21 @@ function FeaturedProjects() {
                     {p.location} · <span className="text-gold">{p.type}</span> · {p.year}
                   </p>
                   {p.rent && (
-                    <p className="mt-3 inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink">
+                    <a
+                      href={rentUrl}
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-3 inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-white"
+                    >
                       {t.rentCta}
-                    </p>
+                    </a>
                   )}
                 </div>
-              </a>
+              </div>
             </Reveal>
           ))}
         </div>
       </div>
+      <Lightbox image={lightbox} onClose={() => setLightbox(null)} />
     </section>
   );
 }
