@@ -16,10 +16,11 @@ const PROJECT_MEDIA: { name: string; location: string; year: string; img: string
     img: '/scdc-tower.jpg',
   },
   {
-    name: 'Coin Marais Residences',
-    location: 'Barumbu, Kinshasa',
+    name: 'Quantum Building',
+    location: 'Kinshasa',
     year: '2022',
-    img: 'https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    img: '/quantum-building.jpg',
+    rent: true,
   },
   {
     name: 'Jakarta Commercial Center',
@@ -45,7 +46,7 @@ const T = {
     details: [
       { surface: '18 400 m²', status: 'En construction' },
       { surface: '1 000 m²', status: 'Prochainement' },
-      { surface: '9 200 m²', status: 'Livré · Entièrement loué' },
+      { surface: '700 m²', status: 'À louer' },
       { surface: '6 400 m²', status: 'Livré · 60 boutiques' },
       { surface: '11 600 m²', status: 'À louer' },
     ],
@@ -63,7 +64,7 @@ const T = {
     details: [
       { surface: '18,400 m²', status: 'Under construction' },
       { surface: '1,000 m²', status: 'Coming soon' },
-      { surface: '9,200 m²', status: 'Delivered · Fully let' },
+      { surface: '700 m²', status: 'For rent' },
       { surface: '6,400 m²', status: 'Delivered · 60 shops' },
       { surface: '11,600 m²', status: 'For rent' },
     ],

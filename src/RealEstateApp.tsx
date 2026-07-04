@@ -37,7 +37,7 @@ const WHY_ICONS = [MapPin, Medal, TrendingUp, PenTool, Eye, Handshake];
 
 const PROJECT_MEDIA: { name: string; location: string; img: string; tall: boolean; rent?: boolean }[] = [
   { name: 'Gombe Riverside Tower', location: 'Gombe, Kinshasa', img: '/hero-construction.jpg', tall: true },
-  { name: 'Coin Marais Residences', location: 'Barumbu, Kinshasa', img: 'https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },
+  { name: 'Quantum Building', location: 'Kinshasa', img: '/quantum-building.jpg', tall: false, rent: true },
   { name: 'Riverside Headquarters', location: 'Kinshasa', img: '/our-story.jpg', tall: true },
   { name: 'SCDC Tower', location: 'Gombe, Kinshasa', img: '/scdc-tower.jpg', tall: false },
   { name: 'Jakarta Commercial Center', location: 'Kinshasa', img: 'https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg?auto=compress&cs=tinysrgb&w=1400', tall: false },
@@ -90,7 +90,7 @@ const T = {
       portfolio: 'Portfolio complet',
       details: [
         { type: 'Mixte', units: '86 unités', status: 'En construction' },
-        { type: 'Résidentiel', units: '48 unités', status: 'Livré · Entièrement loué' },
+        { type: 'Mixte', units: '700 m²', status: 'À louer' },
         { type: 'Commercial', units: '12 000 m² de bureaux', status: 'Livré' },
         { type: 'Bureaux & commerces', units: '1 000 m²', status: 'Prochainement' },
         { type: 'Commerces', units: '60 boutiques', status: 'Livré' },
@@ -143,7 +143,7 @@ const T = {
           quote:
             "En tant que propriétaire, c'est la transparence qui m'a convaincu : rapports mensuels, vraies photos, vraies dates. Nous avons reçu nos clés en avance et la cour est encore plus belle que les rendus.",
           name: 'Jonathan & Grace L.',
-          role: 'Propriétaires — Coin Marais Residences',
+          role: 'Propriétaires — Quantum Building',
         },
         {
           quote:
@@ -209,7 +209,7 @@ const T = {
       portfolio: 'Full portfolio',
       details: [
         { type: 'Mixed-use', units: '86 units', status: 'Under construction' },
-        { type: 'Residential', units: '48 units', status: 'Delivered · Fully let' },
+        { type: 'Mixed-use', units: '700 m²', status: 'For rent' },
         { type: 'Commercial', units: '12,000 m² offices', status: 'Delivered' },
         { type: 'Offices & retail', units: '1,000 m²', status: 'Coming soon' },
         { type: 'Retail', units: '60 shops', status: 'Delivered' },
@@ -262,7 +262,7 @@ const T = {
           quote:
             "As a homeowner, what convinced me was the transparency: monthly reports, real photos, real dates. We received our keys early and the courtyard is even better than the renders.",
           name: 'Jonathan & Grace L.',
-          role: 'Homeowners — Coin Marais Residences',
+          role: 'Homeowners — Quantum Building',
         },
         {
           quote:
