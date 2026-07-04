@@ -103,19 +103,12 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
     >
       <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 sm:px-10 lg:px-16">
         {/* wordmark — always returns to the landing page */}
-        <a href="/#hero" aria-label={t.home} className="flex items-center gap-3">
+        <a href="/#hero" aria-label={t.home} className="flex items-center">
           <img
             src={onDark ? '/logo-light.png' : '/logo-dark.png'}
             alt="SDC — SOCODECO"
             className="h-8 w-auto transition-opacity duration-500 sm:h-9"
           />
-          <span
-            className={`hidden whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.2em] transition-colors duration-500 min-[1400px]:inline ${
-              onDark ? 'text-white/45' : 'text-ink/40'
-            }`}
-          >
-            Construction · Développement
-          </span>
         </a>
 
         <div className="hidden items-center gap-1 lg:flex">
@@ -125,14 +118,14 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
               <a
                 key={l.href}
                 href={l.href}
-                className={`group relative whitespace-nowrap px-3.5 py-2 text-[13.5px] transition-colors duration-300 ${
+                className={`group relative whitespace-nowrap px-3 py-2 text-[13px] transition-colors duration-300 ${
                   active ? 'font-semibold' : 'font-medium'
                 } ${onDark ? 'text-white/80 hover:text-white' : 'text-ink/70 hover:text-ink'}`}
               >
-                {/* elegant section number — warm gold, pops up on hover */}
+                {/* elegant section number — dark red, pops up on hover */}
                 <span
-                  className={`mr-1.5 inline-block -translate-y-[3px] text-[9px] font-semibold tracking-[0.1em] transition-all duration-300 group-hover:-translate-y-[6px] ${
-                    active ? 'text-gold' : onDark ? 'text-gold/65 group-hover:text-gold' : 'text-golddeep/65 group-hover:text-golddeep'
+                  className={`mr-1 inline-block -translate-y-[3px] text-[8.5px] font-semibold tracking-[0.08em] transition-all duration-300 group-hover:-translate-y-[6px] ${
+                    active ? 'text-rouge' : onDark ? 'text-rouge/70 group-hover:text-rouge' : 'text-rougedeep/70 group-hover:text-rougedeep'
                   }`}
                 >
                   {String(i + 1).padStart(2, '0')}
@@ -141,9 +134,9 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
                 <span className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-1">
                   {l.label}
                 </span>
-                {/* thin gold underline, left → right */}
+                {/* thin dark-red underline, left → right */}
                 <span
-                  className={`absolute inset-x-3.5 bottom-0 h-px origin-left bg-gold transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-x-100 ${
+                  className={`absolute inset-x-3 bottom-0 h-px origin-left bg-rouge transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-x-100 ${
                     active ? 'scale-x-100' : 'scale-x-0'
                   }`}
                 />
@@ -206,7 +199,7 @@ export default function Navbar({ variant = 'journey' }: { variant?: 'journey' | 
               >
                 <span
                   className={`mr-2.5 inline-block -translate-y-[3px] text-[10px] font-semibold tracking-[0.1em] transition-transform duration-300 group-hover:-translate-y-[6px] ${
-                    active ? 'text-gold' : 'text-golddeep/65'
+                    active ? 'text-rouge' : 'text-rougedeep/65'
                   }`}
                 >
                   {String(i + 1).padStart(2, '0')}
